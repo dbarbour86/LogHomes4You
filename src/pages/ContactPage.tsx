@@ -13,9 +13,9 @@ export default function ContactPage() {
   return (
     <PageLayout showCTA={false}>
       <InnerHero 
-        title="Contact Our Studio"
+        title="Contact Us"
         subtitle="Schedule a consultation or inquire about a custom project. We respond to all serious inquiries within 24 hours."
-        image="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2000"
+        image="hero.png"
         breadcrumbs={breadcrumbs}
       />
 
@@ -38,7 +38,7 @@ export default function ContactPage() {
                         </div>
                         <div>
                             <span className="block text-[10px] uppercase tracking-widest text-cream/40 mb-1">Call Us</span>
-                            <a href="tel:+18005550123" className="text-lg font-serif hover:text-amber transition-colors">(800) 555-0123</a>
+                            <a href="tel:+18655915727" className="text-lg font-serif hover:text-amber transition-colors">(865) 591-5727</a>
                         </div>
                     </div>
                     <div className="flex items-start gap-4">
@@ -58,7 +58,7 @@ export default function ContactPage() {
                             <Clock size={18} />
                         </div>
                         <div>
-                            <span className="block text-[10px] uppercase tracking-widest text-cream/40 mb-1">Studio Hours</span>
+                            <span className="block text-[10px] uppercase tracking-widest text-cream/40 mb-1">Operating Hours</span>
                             <p className="text-sm text-cream/80 leading-relaxed font-medium uppercase tracking-wider">Mon - Fri: 9am - 6pm<br />Sat: By Appointment</p>
                         </div>
                     </div>
@@ -138,7 +138,7 @@ export default function ContactPage() {
             <div className="w-16 h-16 rounded-full bg-amber text-charcoal flex items-center justify-center shadow-2xl mb-4 mx-auto animate-pulse">
                 <MapPin size={24} />
             </div>
-            <span className="text-xs uppercase tracking-widest font-bold text-cream bg-charcoal/80 px-4 py-2 rounded-sm border border-amber/30">VISIT THE STUDIO</span>
+            <span className="text-xs uppercase tracking-widest font-bold text-cream bg-charcoal/80 px-4 py-2 rounded-sm border border-amber/30">VISIT US</span>
         </div>
       </section>
     </PageLayout>

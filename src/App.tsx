@@ -5,6 +5,7 @@ import AboutPage from "./pages/AboutPage";
 import FloorPlansPage from "./pages/FloorPlansPage";
 import ContactPage from "./pages/ContactPage";
 import ProcessPage from "./pages/ProcessPage";
+import SuperiorPackagePage from "./pages/SuperiorPackagePage";
 import Navbar from "./components/Layout/Navbar";
 import Footer from "./components/Layout/Footer";
 import { motion } from "motion/react";
@@ -55,6 +56,7 @@ export default function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/floor-plans" element={<FloorPlansPage />} />
           <Route path="/process" element={<ProcessPage />} />
+          <Route path="/package" element={<SuperiorPackagePage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </div>

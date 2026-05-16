@@ -3,7 +3,7 @@ import Hero from "../components/Home/Hero";
 import OurStory from "../components/Home/OurStory";
 import FeaturedModels from "../components/Home/FeaturedModels";
 import Process from "../components/Home/Process";
-import Gallery from "../components/Home/Gallery";
+import SuperiorTeaser from "../components/Home/SuperiorTeaser";
 import Testimonials from "../components/Home/Testimonials";
 import FAQ from "../components/Home/FAQ";
 import ContactSection from "../components/Home/ContactSection";
@@ -31,7 +31,7 @@ export default function HomePage() {
       <OurStory />
       <FeaturedModels />
       <Process />
-      <Gallery />
+      <SuperiorTeaser />
       <Testimonials />
       <FAQ />
 

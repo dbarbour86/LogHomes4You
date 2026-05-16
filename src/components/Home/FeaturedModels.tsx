@@ -5,30 +5,30 @@ import { ArrowRight, Maximize2, Bed, Bath } from "lucide-react";
 const models = [
   {
     id: 1,
-    name: "The Mountain Retreat",
-    sqft: "2,840",
+    name: "The Matthew",
+    sqft: "1,636",
     beds: 3,
-    baths: 2.5,
-    image: "https://images.unsplash.com/photo-1464146072230-91cabc968266?auto=format&fit=crop&q=80&w=1200",
-    tagline: "Soul-restoring sanctuary where every timber whispers the language of the wilderness.",
+    baths: 2,
+    image: "Matthew.png",
+    tagline: "A testament to faith and craftsmanship, designed to be a sanctuary where life increases and legacy takes root.",
   },
   {
     id: 2,
-    name: "Timber Ridge Estate",
-    sqft: "4,620",
-    beds: 5,
-    baths: 4.5,
-    image: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=1200",
-    tagline: "Grand in scale, intimate in spirit. A masterpiece of architectural craftsmanship.",
+    name: "The Mark",
+    sqft: "1,888",
+    beds: 3,
+    baths: 2,
+    image: "Mark.png",
+    tagline: "An invitation to the outdoors. Featuring an expansive screened porch and a signature stone hearth for year-round mountain living.",
   },
   {
     id: 3,
-    name: "The Aspen Lodge",
-    sqft: "3,560",
+    name: "The Luke",
+    sqft: "1,926",
     beds: 4,
-    baths: 3.5,
-    image: "https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&q=80&w=1200",
-    tagline: "Where alpine elegance meets effortless living. Designed for those who seek the extraordinary.",
+    baths: 3,
+    image: "Luke.png",
+    tagline: "A sanctuary of light and praise, where grand windows frame nature's majesty in every season.",
   },
 ];
 
@@ -108,6 +108,16 @@ export default function FeaturedModels() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center"
+        >
+          <p className="text-amber font-serif italic text-2xl">Adding more models very soon!</p>
+          <div className="mt-4 h-px w-24 bg-amber/20 mx-auto" />
+        </motion.div>
       </div>
     </section>
   );

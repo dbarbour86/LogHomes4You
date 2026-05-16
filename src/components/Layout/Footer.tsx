@@ -1,4 +1,3 @@
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
@@ -17,15 +16,9 @@ export default function Footer() {
                 LOG HOMES
               </span>
             </a>
-            <p className="text-cream/50 text-sm leading-relaxed mb-8 max-w-xs">
+            <p className="text-cream/50 text-sm leading-relaxed max-w-xs">
               Handcrafting luxury mountain retreats and legacy log homes in the heart of the Tennessee timber country since 2004.
             </p>
-            <div className="flex items-center gap-4">
-              <a href="#" className="w-9 h-9 flex items-center justify-center rounded-full border border-white/10 text-cream/40 hover:text-amber hover:border-amber transition-all"><Instagram size={16} /></a>
-              <a href="#" className="w-9 h-9 flex items-center justify-center rounded-full border border-white/10 text-cream/40 hover:text-amber hover:border-amber transition-all"><Facebook size={16} /></a>
-              <a href="#" className="w-9 h-9 flex items-center justify-center rounded-full border border-white/10 text-cream/40 hover:text-amber hover:border-amber transition-all"><Twitter size={16} /></a>
-              <a href="#" className="w-9 h-9 flex items-center justify-center rounded-full border border-white/10 text-cream/40 hover:text-amber hover:border-amber transition-all"><Youtube size={16} /></a>
-            </div>
           </div>
 
           <div>
@@ -46,7 +39,6 @@ export default function Footer() {
               <li><Link to="/process" className="text-sm text-cream/40 hover:text-amber transition-colors">The Process</Link></li>
               <li><Link to="/contact" className="text-sm text-cream/40 hover:text-amber transition-colors">Maintenance Guide</Link></li>
               <li><Link to="/#testimonials" className="text-sm text-cream/40 hover:text-amber transition-colors">Client Testimonials</Link></li>
-              <li><Link to="/contact" className="text-sm text-cream/40 hover:text-amber transition-colors">Builders Blog</Link></li>
             </ul>
           </div>
 

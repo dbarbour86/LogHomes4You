@@ -7,6 +7,7 @@ interface ButtonProps {
   className?: string;
   onClick?: () => void;
   type?: "button" | "submit";
+  disabled?: boolean;
 }
 
 export default function Button({
@@ -15,6 +16,7 @@ export default function Button({
   className = "",
   onClick,
   type = "button",
+  disabled = false,
 }: ButtonProps) {
   const baseStyles = "relative inline-flex items-center justify-center px-8 py-3.5 font-medium tracking-wide transition-all duration-300 group overflow-hidden";
   
@@ -29,10 +31,11 @@ export default function Button({
     <motion.button
       type={type}
       onClick={onClick}
-      whileHover={{ y: -2 }}
-      whileTap={{ scale: 0.98 }}
-      className={`${baseStyles} ${variants[variant]} ${className}`}
-      id={`btn-${children?.toString().toLowerCase().replace(/\s+/g, "-")}`}
+      disabled={disabled}
+      whileHover={!disabled ? { y: -2 } : {}}
+      whileTap={!disabled ? { scale: 0.98 } : {}}
+      className={`${baseStyles} ${variants[variant]} ${className} ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
+      id={`btn-${typeof children === 'string' ? children.toLowerCase().replace(/\s+/g, "-") : 'action'}`}
     >
       <span className="relative z-10 flex items-center gap-2">
         {children}

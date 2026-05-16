@@ -13,9 +13,10 @@ export default function Hero() {
         className="absolute inset-0 z-0 text-white"
       >
         <img
-          src="https://images.unsplash.com/photo-1549144511-f099e773c147?auto=format&fit=crop&q=80&w=2000"
+          src="hero.png"
           alt="Luxury Log Cabin in Mountains"
-          className="w-full h-full object-cover opacity-60"
+          className="w-full h-full object-cover opacity-80"
+          referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-charcoal/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-charcoal/60" />

@@ -7,9 +7,10 @@ export default function CTABanner() {
     <section className="py-24 relative overflow-hidden bg-espresso">
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=2000"
+          src="interior_1.png"
           alt="CTA Background"
           className="w-full h-full object-cover opacity-10"
+          referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-espresso via-espresso/90 to-transparent" />
       </div>
@@ -34,13 +35,13 @@ export default function CTABanner() {
               <Button variant="primary" className="w-full sm:w-auto px-10">
                 REQUEST A QUOTE
               </Button>
-              <a href="tel:+18005550123" className="flex items-center gap-3 text-cream group">
+              <a href="tel:+18655915727" className="flex items-center gap-3 text-cream group">
                 <div className="w-12 h-12 rounded-full border border-amber/30 flex items-center justify-center text-amber group-hover:bg-amber group-hover:text-charcoal transition-all">
                   <Phone size={20} />
                 </div>
                 <div>
                   <span className="block text-[10px] uppercase tracking-widest text-cream/40 mb-0.5">Call Us Directly</span>
-                  <span className="text-lg font-serif">(800) 555-0123</span>
+                  <span className="text-lg font-serif">(865) 591-5727</span>
                 </div>
               </a>
             </div>
