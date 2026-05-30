@@ -14,9 +14,9 @@ async function startServer() {
 
   // API Routes
   app.post("/api/contact", async (req, res) => {
-    const { firstName, lastName, email, interest, message } = req.body;
+    const { firstName, lastName, email, interest, message, phone, projectStage } = req.body;
 
-    console.log("Received contact form submission:", { firstName, lastName, email, interest, message });
+    console.log("Received contact form submission:", req.body);
 
     const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
@@ -30,17 +30,47 @@ async function startServer() {
 
     try {
       const resend = new Resend(RESEND_API_KEY);
+      const subject = `New Inquiry: ${firstName} ${lastName} - ${interest || projectStage || 'General'}`;
+      
       const { data, error } = await resend.emails.send({
         from: 'Kings Cabins <onboarding@resend.dev>',
-        to: ['derek.barbour@gmail.com'], // The user's email
-        subject: `New Quote Request: ${interest} - ${firstName} ${lastName}`,
+        to: ['derek.barbour@gmail.com'], 
+        subject: subject,
         html: `
-          <h1>New Quote Request</h1>
-          <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Interest:</strong> ${interest}</p>
-          <p><strong>Message:</strong></p>
-          <p>${message}</p>
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #333; line-height: 1.6;">
+            <h1 style="color: #634d3a; border-bottom: 2px solid #ce9e62; padding-bottom: 10px;">New Website Inquiry</h1>
+            <p>You have received a new message from your website contact form.</p>
+            
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; width: 140px;">Name:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">${firstName} ${lastName}</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Email:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><a href="mailto:${email}">${email}</a></td>
+              </tr>
+              ${phone ? `
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Phone:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">${phone}</td>
+              </tr>` : ''}
+              ${interest || projectStage ? `
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Inquiry Type:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">${interest || projectStage}</td>
+              </tr>` : ''}
+            </table>
+            
+            <div style="margin-top: 20px; padding: 20px; background: #f9f6f2; border-radius: 4px;">
+              <h3 style="margin-top: 0; color: #634d3a;">Message:</h3>
+              <p style="white-space: pre-wrap;">${message}</p>
+            </div>
+            
+            <p style="font-size: 12px; color: #999; margin-top: 30px; text-align: center;">
+              This email was sent from the Kings Cabins website contact form.
+            </p>
+          </div>
         `,
       });
 

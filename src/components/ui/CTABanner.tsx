@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import Button from "./Button";
 import { Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function CTABanner() {
   return (
@@ -32,9 +33,11 @@ export default function CTABanner() {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center gap-6">
-              <Button variant="primary" className="w-full sm:w-auto px-10">
-                REQUEST A QUOTE
-              </Button>
+              <Link to="/contact" className="w-full sm:w-auto">
+                <Button variant="primary" className="w-full px-10">
+                  REQUEST A QUOTE
+                </Button>
+              </Link>
               <a href="tel:+18655915727" className="flex items-center gap-3 text-cream group">
                 <div className="w-12 h-12 rounded-full border border-amber/30 flex items-center justify-center text-amber group-hover:bg-amber group-hover:text-charcoal transition-all">
                   <Phone size={20} />

@@ -1,7 +1,44 @@
 import { Link } from "react-router-dom";
+import React, { useState } from "react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    
+    setStatus("loading");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: "Newsletter",
+          lastName: "Subscriber",
+          email: email,
+          interest: "Newsletter Signup",
+          message: "User signed up for the newsletter from the footer."
+        }),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setStatus("success");
+        setEmail("");
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error("Newsletter error:", error);
+      setStatus("error");
+    }
+  };
 
   return (
     <footer className="bg-charcoal border-t border-white/5 pt-20 pb-10">
@@ -27,7 +64,6 @@ export default function Footer() {
               <li><Link to="/floor-plans" className="text-sm text-cream/40 hover:text-amber transition-colors">Residential Models</Link></li>
               <li><Link to="/floor-plans" className="text-sm text-cream/40 hover:text-amber transition-colors">Commercial Lodges</Link></li>
               <li><Link to="/contact" className="text-sm text-cream/40 hover:text-amber transition-colors">Interior Design</Link></li>
-              <li><Link to="/contact" className="text-sm text-cream/40 hover:text-amber transition-colors">Available Properties</Link></li>
               <li><Link to="/contact" className="text-sm text-cream/40 hover:text-amber transition-colors">Financing Partners</Link></li>
             </ul>
           </div>
@@ -37,7 +73,6 @@ export default function Footer() {
             <ul className="space-y-4">
               <li><Link to="/about" className="text-sm text-cream/40 hover:text-amber transition-colors">Our Story</Link></li>
               <li><Link to="/process" className="text-sm text-cream/40 hover:text-amber transition-colors">The Process</Link></li>
-              <li><Link to="/contact" className="text-sm text-cream/40 hover:text-amber transition-colors">Maintenance Guide</Link></li>
               <li><Link to="/#testimonials" className="text-sm text-cream/40 hover:text-amber transition-colors">Client Testimonials</Link></li>
             </ul>
           </div>
@@ -47,16 +82,29 @@ export default function Footer() {
             <p className="text-sm text-cream/40 mb-6 leading-relaxed">
               Join our list to receive exclusive looks at new floor plans and design tips.
             </p>
-            <form className="relative">
+            <form className="relative" onSubmit={handleSubmit}>
               <input
                 type="email"
-                placeholder="Email Address"
-                className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm text-cream outline-none focus:border-amber/50 transition-all rounded-sm"
+                placeholder={status === "success" ? "THANK YOU!" : "Email Address"}
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={status === "loading" || status === "success"}
+                className={`w-full bg-white/5 border border-white/10 px-4 py-3 text-sm text-cream outline-none focus:border-amber/50 transition-all rounded-sm ${
+                  status === "success" ? "border-green-500/50" : status === "error" ? "border-red-500/50" : ""
+                }`}
               />
-              <button className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] uppercase tracking-widest font-bold text-amber hover:text-cream transition-colors">
-                JOIN
+              <button 
+                type="submit"
+                disabled={status === "loading" || status === "success"}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] uppercase tracking-widest font-bold text-amber hover:text-cream transition-colors disabled:opacity-0"
+              >
+                {status === "loading" ? "..." : "JOIN"}
               </button>
             </form>
+            {status === "error" && (
+              <p className="text-red-400 text-[10px] mt-2 text-center">Failed to join. Try again.</p>
+            )}
           </div>
         </div>
 
