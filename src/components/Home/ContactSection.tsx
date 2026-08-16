@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Mail, Phone } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import InquiryForm from "../Forms/InquiryForm";
 
 export default function ContactSection() {
