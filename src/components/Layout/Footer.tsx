@@ -65,6 +65,9 @@ export default function Footer() {
               <li><Link to="/small-log-homes" className="text-sm text-cream/40 hover:text-amber transition-colors">Small Log Homes</Link></li>
               <li><Link to="/nationwide-log-homes" className="text-sm text-cream/40 hover:text-amber transition-colors">Nationwide Building</Link></li>
               <li><Link to="/package" className="text-sm text-cream/40 hover:text-amber transition-colors">Superior Package</Link></li>
+              <li><Link to="/floor-plans" className="text-sm text-cream/40 hover:text-amber transition-colors">Commercial Lodges</Link></li>
+              <li><Link to="/contact" className="text-sm text-cream/40 hover:text-amber transition-colors">Interior Design</Link></li>
+              <li><Link to="/contact" className="text-sm text-cream/40 hover:text-amber transition-colors">Financing Partners</Link></li>
             </ul>
           </div>
 
@@ -74,6 +77,7 @@ export default function Footer() {
               <li><Link to="/about" className="text-sm text-cream/40 hover:text-amber transition-colors">Our Story</Link></li>
               <li><Link to="/process" className="text-sm text-cream/40 hover:text-amber transition-colors">The Process</Link></li>
               <li><Link to="/contact" className="text-sm text-cream/40 hover:text-amber transition-colors">Contact Us</Link></li>
+              <li><Link to="/#testimonials" className="text-sm text-cream/40 hover:text-amber transition-colors">Client Testimonials</Link></li>
             </ul>
           </div>
 

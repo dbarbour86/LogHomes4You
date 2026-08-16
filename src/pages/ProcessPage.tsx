@@ -7,6 +7,9 @@ import { useSEO } from "../hooks/useSEO";
 import imgProcess1 from "../assets/images/regenerated_image_1778949965867.jpg";
 import imgProcess2 from "../assets/images/regenerated_image_1778949970715.jpg";
 
+import imgProcess1 from "../assets/images/regenerated_image_1778949965867.jpg";
+import imgProcess2 from "../assets/images/regenerated_image_1778949970715.jpg";
+
 export default function ProcessPage() {
   useSEO({
     title: "Log Home Building Process | King's Cabins",

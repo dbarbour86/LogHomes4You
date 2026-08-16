@@ -4,6 +4,56 @@ import React from "react";
 import InquiryForm from "../Forms/InquiryForm";
 
 export default function ContactSection() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    interest: "Bespoke Custom Build",
+    message: ""
+  });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        setStatus("success");
+        setMessage(data.message || "Thank you! Your request has been sent. We will be in touch shortly.");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          interest: "Bespoke Custom Build",
+          message: ""
+        });
+      } else {
+        setStatus("error");
+        setMessage("Something went wrong. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setStatus("error");
+      setMessage("Failed to connect to the server.");
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
   return (
     <section className="py-24 bg-deep-brown" id="contact">
       <div className="max-w-7xl mx-auto px-6">
