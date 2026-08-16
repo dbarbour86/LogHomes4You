@@ -52,80 +52,25 @@ export default function ModelDetailPage() {
         breadcrumbs={breadcrumbs}
       />
       
-      {/* Intro Section */}
-      <section className="pt-12 pb-4 md:pt-16 md:pb-6 bg-charcoal">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h1 className="text-3xl font-serif text-cream mb-2">{model.name}</h1>
-            {model.secondaryDescriptor && (
-              <h2 className="text-amber text-lg font-light mb-6">{model.secondaryDescriptor}</h2>
-            )}
-            
-            {/* At a Glance */}
-            <div className="mb-8 inline-block bg-white/5 border border-white/10 p-6 shadow-luxury text-left">
-              <h3 className="text-[10px] uppercase tracking-[0.3em] text-amber mb-4 border-b border-white/10 pb-2">At a Glance</h3>
-              <ul className="grid grid-cols-2 gap-x-8 gap-y-3 text-cream/80 font-light text-sm">
-                <li><strong>Total Area:</strong> {model.sqft} sq. ft.</li>
-                <li><strong>Bedrooms:</strong> {model.beds}</li>
-                <li><strong>Bathrooms:</strong> {model.baths}</li>
-                {model.dimensions && <li><strong>Dimensions:</strong> {model.dimensions}</li>}
-                {model.interiorSqft && <li><strong>Interior:</strong> {model.interiorSqft} sq. ft.</li>}
-                {model.porchSqft && <li><strong>Covered Porch:</strong> {model.porchSqft} sq. ft.</li>}
-                {model.firstFloorSqft && <li><strong>First Floor:</strong> {model.firstFloorSqft} sq. ft.</li>}
-                {model.secondFloorSqft && <li><strong>Second Floor:</strong> {model.secondFloorSqft} sq. ft.</li>}
-              </ul>
-            </div>
+      {/* Main Content Section */}
+      <section className="pt-12 pb-16 md:pt-16 md:pb-20 bg-charcoal" id="floor-plan-section">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h1 className="text-3xl md:text-4xl font-serif text-cream mb-2">{model.name}</h1>
+              {model.secondaryDescriptor && (
+                <h2 className="text-amber text-lg font-light mb-8">{model.secondaryDescriptor}</h2>
+              )}
+            </motion.div>
+          </div>
 
-            <p className="text-cream/70 text-lg font-light leading-relaxed mb-8">
-              {model.tagline}
-              {" "}
-              {model.name === "First Chronicles" && "This design maximizes every square inch, providing a full-featured living experience wrapped in robust, hand-crafted logs. Ideal for mountain getaways or serene retreats, it delivers uncompromising quality. Need a little more room? Explore the 660 sq. ft. "}
-              {model.name === "First Chronicles" && <><a href="/floor-plans/second-chronicles" className="text-amber underline hover:text-white transition-colors">Second Chronicles</a>.</>}
-              
-              {model.name === "Second Chronicles" && "With an expansive open-concept living area and carefully placed bedrooms, this model offers breathing room and natural flow. It embodies the rustic elegance that defines a true log home lifestyle. Considering other sizes? Check out the efficient "}
-              {model.name === "Second Chronicles" && <a href="/floor-plans/first-chronicles" className="text-amber underline hover:text-white transition-colors">First Chronicles</a>}
-              {model.name === "Second Chronicles" && " or the slightly larger "}
-              {model.name === "Second Chronicles" && <><a href="/floor-plans/second-peter" className="text-amber underline hover:text-white transition-colors">Second Peter</a>.</>}
-
-              {model.name === "Second Peter" && "The addition of a full-width covered porch extends the living space into the outdoors, perfect for taking in mountain views or enjoying quiet evenings. Inside, the efficient layout prioritizes comfort without excess. Compare with the smaller "}
-              {model.name === "Second Peter" && <a href="/floor-plans/second-chronicles" className="text-amber underline hover:text-white transition-colors">Second Chronicles</a>}
-              {model.name === "Second Peter" && " or the two-story "}
-              {model.name === "Second Peter" && <><a href="/floor-plans/jude" className="text-amber underline hover:text-white transition-colors">Jude</a>.</>}
-
-              {model.name === "Jude" && "A striking two-story profile gives this home a commanding presence. The main floor handles daily living with grace, while the upper level provides valuable flexibility for guests, a study, or additional retreat space. Alternatively, view the single-level "}
-              {model.name === "Jude" && <a href="/floor-plans/second-peter" className="text-amber underline hover:text-white transition-colors">Second Peter</a>}
-              {model.name === "Jude" && " or return to the full "}
-              {model.name === "Jude" && <><a href="/floor-plans" className="text-amber underline hover:text-white transition-colors">Floor Plans</a> collection.</>}
-              
-              {model.name === "Philemon" && "Offering a balanced approach to mountain living, this layout provides enough space to host family and friends while maintaining the cozy, intimate feel that makes a log cabin special."}
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button variant="primary" onClick={() => document.getElementById('inquiry-section')?.scrollIntoView({ behavior: 'smooth' })}>
-                REQUEST PRICING
-              </Button>
-              <Button variant="outline" onClick={() => document.getElementById('floor-plan-section')?.scrollIntoView({ behavior: 'smooth' })}>
-                VIEW FLOOR PLAN
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Floor Plan & Exterior Images Section */}
-      {model.floorPlanImage && (
-        <section className="pt-6 pb-20 md:pt-8 md:pb-24 bg-deep-brown" id="floor-plan-section">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-8 md:mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-cream">
-                Explore the <span className="italic font-normal">Floor Plan</span>
-              </h2>
-            </div>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+          {/* Floor Plan & Exterior Images Grid */}
+          {model.floorPlanImage && (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start mb-16">
               {/* Exterior Image Column */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -148,7 +93,7 @@ export default function ModelDetailPage() {
                 </div>
                 
                 {/* Model Specs */}
-                <div className="bg-charcoal p-6 md:p-8 border border-amber/20 shadow-luxury">
+                <div className="bg-deep-brown p-6 md:p-8 border border-amber/20 shadow-luxury">
                   <h3 className="text-xl font-serif text-amber mb-6 uppercase tracking-widest text-center">Specifications</h3>
                   <div className="grid grid-cols-2 gap-6">
                     <div className="text-center">
@@ -189,9 +134,61 @@ export default function ModelDetailPage() {
                 </div>
               </motion.div>
             </div>
+          )}
+
+          {/* Intro Description & Details */}
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="mb-8 inline-block bg-white/5 border border-white/10 p-6 shadow-luxury text-left">
+                <h3 className="text-[10px] uppercase tracking-[0.3em] text-amber mb-4 border-b border-white/10 pb-2">At a Glance</h3>
+                <ul className="grid grid-cols-2 gap-x-8 gap-y-3 text-cream/80 font-light text-sm">
+                  <li><strong>Total Area:</strong> {model.sqft} sq. ft.</li>
+                  <li><strong>Bedrooms:</strong> {model.beds}</li>
+                  <li><strong>Bathrooms:</strong> {model.baths}</li>
+                  {model.dimensions && <li><strong>Dimensions:</strong> {model.dimensions}</li>}
+                  {model.interiorSqft && <li><strong>Interior:</strong> {model.interiorSqft} sq. ft.</li>}
+                  {model.porchSqft && <li><strong>Covered Porch:</strong> {model.porchSqft} sq. ft.</li>}
+                  {model.firstFloorSqft && <li><strong>First Floor:</strong> {model.firstFloorSqft} sq. ft.</li>}
+                  {model.secondFloorSqft && <li><strong>Second Floor:</strong> {model.secondFloorSqft} sq. ft.</li>}
+                </ul>
+              </div>
+
+              <p className="text-cream/70 text-lg font-light leading-relaxed mb-8">
+                {model.tagline}
+                {" "}
+                {model.name === "First Chronicles" && "This design maximizes every square inch, providing a full-featured living experience wrapped in robust, hand-crafted logs. Ideal for mountain getaways or serene retreats, it delivers uncompromising quality. Need a little more room? Explore the 660 sq. ft. "}
+                {model.name === "First Chronicles" && <><a href="/floor-plans/second-chronicles" className="text-amber underline hover:text-white transition-colors">Second Chronicles</a>.</>}
+                
+                {model.name === "Second Chronicles" && "With an expansive open-concept living area and carefully placed bedrooms, this model offers breathing room and natural flow. It embodies the rustic elegance that defines a true log home lifestyle. Considering other sizes? Check out the efficient "}
+                {model.name === "Second Chronicles" && <a href="/floor-plans/first-chronicles" className="text-amber underline hover:text-white transition-colors">First Chronicles</a>}
+                {model.name === "Second Chronicles" && " or the slightly larger "}
+                {model.name === "Second Chronicles" && <><a href="/floor-plans/second-peter" className="text-amber underline hover:text-white transition-colors">Second Peter</a>.</>}
+
+                {model.name === "Second Peter" && "The addition of a full-width covered porch extends the living space into the outdoors, perfect for taking in mountain views or enjoying quiet evenings. Inside, the efficient layout prioritizes comfort without excess. Compare with the smaller "}
+                {model.name === "Second Peter" && <a href="/floor-plans/second-chronicles" className="text-amber underline hover:text-white transition-colors">Second Chronicles</a>}
+                {model.name === "Second Peter" && " or the two-story "}
+                {model.name === "Second Peter" && <><a href="/floor-plans/jude" className="text-amber underline hover:text-white transition-colors">Jude</a>.</>}
+
+                {model.name === "Jude" && "A striking two-story profile gives this home a commanding presence. The main floor handles daily living with grace, while the upper level provides valuable flexibility for guests, a study, or additional retreat space. Alternatively, view the single-level "}
+                {model.name === "Jude" && <a href="/floor-plans/second-peter" className="text-amber underline hover:text-white transition-colors">Second Peter</a>}
+                {model.name === "Jude" && " or return to the full "}
+                {model.name === "Jude" && <><a href="/floor-plans" className="text-amber underline hover:text-white transition-colors">Floor Plans</a> collection.</>}
+                
+                {model.name === "Philemon" && "Offering a balanced approach to mountain living, this layout provides enough space to host family and friends while maintaining the cozy, intimate feel that makes a log cabin special."}
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button variant="primary" onClick={() => document.getElementById('inquiry-section')?.scrollIntoView({ behavior: 'smooth' })}>
+                  REQUEST PRICING
+                </Button>
+              </div>
+            </motion.div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* Customization Section */}
       <section className="py-24 bg-charcoal border-t border-white/5">
