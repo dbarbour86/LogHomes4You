@@ -18,6 +18,7 @@ export default function InnerHero({ title, subtitle, image, breadcrumbs }: Inner
           src={image}
           alt={title}
           className="w-full h-full object-cover grayscale-[10%] brightness-[0.5]"
+          referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-charcoal/60 to-charcoal" />
       </div>

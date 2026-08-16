@@ -21,8 +21,8 @@ export default function Navbar() {
     { name: "Home", href: "/" },
     { name: "Story", href: "/about" },
     { name: "Floor Plans", href: "/floor-plans" },
+    { name: "The Superior Package", href: "/package" },
     { name: "Process", href: "/process" },
-    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -57,15 +57,10 @@ export default function Navbar() {
             </Link>
           ))}
           <div className="h-6 w-px bg-white/10 mx-2" />
-          <a href="tel:+18005550123" className="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] font-medium text-amber hover:text-cream transition-colors">
+          <a href="tel:+18655915727" className="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] font-medium text-amber hover:text-cream transition-colors">
             <Phone size={14} />
-            <span>(800) 555-0123</span>
+            <span>(865) 591-5727</span>
           </a>
-          <Link to="/contact">
-            <Button variant="outline" className="px-6 py-2.5 text-[10px]">
-                REQUEST QUOTE
-            </Button>
-          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -96,14 +91,9 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
-                <Button className="mt-4">
-                REQUEST QUOTE
-                </Button>
-            </Link>
-            <a href="tel:+18005550123" className="text-amber flex items-center gap-2 mt-4">
+            <a href="tel:+18655915727" className="text-amber flex items-center gap-2 mt-4">
               <Phone size={20} />
-              <span>(800) 555-0123</span>
+              <span>(865) 591-5727</span>
             </a>
           </motion.div>
         )}

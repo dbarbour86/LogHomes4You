@@ -3,19 +3,80 @@ import InnerHero from "../components/ui/InnerHero";
 import PageLayout from "../components/Layout/PageLayout";
 import { Mail, Phone, MapPin, Clock, MessageSquare } from "lucide-react";
 import Button from "../components/ui/Button";
+import React, { useState } from "react";
+import { useSEO } from "../hooks/useSEO";
 
 export default function ContactPage() {
+  useSEO({
+    title: "Contact King's Cabins | Build Your Log Home",
+    description: "Contact King's Cabins to discuss your log home project, request a quote, or learn about our nationwide shipping and construction options.",
+    url: "https://www.kingscabins.com/contact"
+  });
+
   const breadcrumbs = [
     { name: "Home", href: "/" },
     { name: "Contact", href: "/contact" },
   ];
 
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    projectStage: "Just Researching",
+    message: ""
+  });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        setStatus("success");
+        setStatusMessage("Thank you! Your inquiry has been sent successfully. We will be in touch within 24 hours.");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          projectStage: "Just Researching",
+          message: ""
+        });
+      } else {
+        setStatus("error");
+        setStatusMessage("Something went wrong. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setStatus("error");
+      setStatusMessage("Failed to connect to the server.");
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
   return (
     <PageLayout showCTA={false}>
       <InnerHero 
-        title="Contact Our Studio"
+        title="Contact Us"
         subtitle="Schedule a consultation or inquire about a custom project. We respond to all serious inquiries within 24 hours."
-        image="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2000"
+        image="hero.png"
         breadcrumbs={breadcrumbs}
       />
 
@@ -38,7 +99,7 @@ export default function ContactPage() {
                         </div>
                         <div>
                             <span className="block text-[10px] uppercase tracking-widest text-cream/40 mb-1">Call Us</span>
-                            <a href="tel:+18005550123" className="text-lg font-serif hover:text-amber transition-colors">(800) 555-0123</a>
+                            <a href="tel:+18655915727" className="text-lg font-serif hover:text-amber transition-colors">(865) 591-5727</a>
                         </div>
                     </div>
                     <div className="flex items-start gap-4">
@@ -58,7 +119,7 @@ export default function ContactPage() {
                             <Clock size={18} />
                         </div>
                         <div>
-                            <span className="block text-[10px] uppercase tracking-widest text-cream/40 mb-1">Studio Hours</span>
+                            <span className="block text-[10px] uppercase tracking-widest text-cream/40 mb-1">Operating Hours</span>
                             <p className="text-sm text-cream/80 leading-relaxed font-medium uppercase tracking-wider">Mon - Fri: 9am - 6pm<br />Sat: By Appointment</p>
                         </div>
                     </div>
@@ -91,28 +152,64 @@ export default function ContactPage() {
               viewport={{ once: true }}
               className="bg-charcoal p-10 lg:p-14 border border-white/10 shadow-luxury"
             >
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-[10px] uppercase tracking-widest text-cream/40">First Name</label>
-                    <input type="text" className="w-full bg-white/5 border border-white/10 px-4 py-3 text-cream text-sm outline-none focus:border-amber/50 transition-all font-light" placeholder="Jane" />
+                    <input 
+                      type="text" 
+                      name="firstName"
+                      required
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      className="w-full bg-white/5 border border-white/10 px-4 py-3 text-cream text-sm outline-none focus:border-amber/50 transition-all font-light" 
+                      placeholder="Jane" 
+                    />
                   </div>
                   <div className="space-y-2">
                     <label className="text-[10px] uppercase tracking-widest text-cream/40">Last Name</label>
-                    <input type="text" className="w-full bg-white/5 border border-white/10 px-4 py-3 text-cream text-sm outline-none focus:border-amber/50 transition-all font-light" placeholder="Doe" />
+                    <input 
+                      type="text" 
+                      name="lastName"
+                      required
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      className="w-full bg-white/5 border border-white/10 px-4 py-3 text-cream text-sm outline-none focus:border-amber/50 transition-all font-light" 
+                      placeholder="Doe" 
+                    />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] uppercase tracking-widest text-cream/40">Email Address</label>
-                  <input type="email" className="w-full bg-white/5 border border-white/10 px-4 py-3 text-cream text-sm outline-none focus:border-amber/50 transition-all font-light" placeholder="jane@example.com" />
+                  <input 
+                    type="email" 
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full bg-white/5 border border-white/10 px-4 py-3 text-cream text-sm outline-none focus:border-amber/50 transition-all font-light" 
+                    placeholder="jane@example.com" 
+                  />
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] uppercase tracking-widest text-cream/40">Phone Number</label>
-                  <input type="tel" className="w-full bg-white/5 border border-white/10 px-4 py-3 text-cream text-sm outline-none focus:border-amber/50 transition-all font-light" placeholder="(555) 000-0000" />
+                  <input 
+                    type="tel" 
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full bg-white/5 border border-white/10 px-4 py-3 text-cream text-sm outline-none focus:border-amber/50 transition-all font-light" 
+                    placeholder="(555) 000-0000" 
+                  />
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] uppercase tracking-widest text-cream/40">Project Stage</label>
-                  <select className="w-full bg-white/5 border border-white/10 px-4 py-3 text-cream text-sm outline-none focus:border-amber/50 transition-all font-light appearance-none">
+                  <select 
+                    name="projectStage"
+                    value={formData.projectStage}
+                    onChange={handleChange}
+                    className="w-full bg-white/5 border border-white/10 px-4 py-3 text-cream text-sm outline-none focus:border-amber/50 transition-all font-light appearance-none"
+                  >
                     <option>Just Researching</option>
                     <option>Own Land, Ready to Build</option>
                     <option>Looking for Land + Home Package</option>
@@ -121,9 +218,30 @@ export default function ContactPage() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] uppercase tracking-widest text-cream/40">Your Vision</label>
-                  <textarea className="w-full bg-white/5 border border-white/10 px-4 py-3 text-cream text-sm outline-none focus:border-amber/50 transition-all font-light min-h-[120px]" placeholder="How can we help you build your legacy?"></textarea>
+                  <textarea 
+                    name="message"
+                    required
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full bg-white/5 border border-white/10 px-4 py-3 text-cream text-sm outline-none focus:border-amber/50 transition-all font-light min-h-[120px]" 
+                    placeholder="How can we help you build your legacy?"
+                  ></textarea>
                 </div>
-                <Button variant="primary" className="w-full py-4 text-center justify-center">SUBMIT INQUIRY</Button>
+                <Button 
+                  variant="primary" 
+                  className="w-full py-4 text-center justify-center disabled:opacity-50"
+                  type="submit"
+                  disabled={status === "loading"}
+                >
+                  {status === "loading" ? "SUBMITTING..." : "SUBMIT INQUIRY"}
+                </Button>
+
+                {status === "success" && (
+                  <p className="text-green-400 text-sm italic font-light text-center">{statusMessage}</p>
+                )}
+                {status === "error" && (
+                  <p className="text-red-400 text-sm italic font-light text-center">{statusMessage}</p>
+                )}
               </form>
             </motion.div>
           </div>
@@ -138,7 +256,7 @@ export default function ContactPage() {
             <div className="w-16 h-16 rounded-full bg-amber text-charcoal flex items-center justify-center shadow-2xl mb-4 mx-auto animate-pulse">
                 <MapPin size={24} />
             </div>
-            <span className="text-xs uppercase tracking-widest font-bold text-cream bg-charcoal/80 px-4 py-2 rounded-sm border border-amber/30">VISIT THE STUDIO</span>
+            <span className="text-xs uppercase tracking-widest font-bold text-cream bg-charcoal/80 px-4 py-2 rounded-sm border border-amber/30">VISIT US</span>
         </div>
       </section>
     </PageLayout>

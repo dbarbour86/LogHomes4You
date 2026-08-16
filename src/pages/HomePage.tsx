@@ -3,27 +3,77 @@ import Hero from "../components/Home/Hero";
 import OurStory from "../components/Home/OurStory";
 import FeaturedModels from "../components/Home/FeaturedModels";
 import Process from "../components/Home/Process";
-import Gallery from "../components/Home/Gallery";
+import SuperiorTeaser from "../components/Home/SuperiorTeaser";
 import Testimonials from "../components/Home/Testimonials";
 import FAQ from "../components/Home/FAQ";
 import ContactSection from "../components/Home/ContactSection";
-import { TrendingUp, Wallet, Calculator } from "lucide-react";
+import { TrendingUp, Wallet, Calculator, MapPin } from "lucide-react";
 import Button from "../components/ui/Button";
+import React, { useState } from "react";
+import { useSEO } from "../hooks/useSEO";
 
 export default function HomePage() {
+  const [guideEmail, setGuideEmail] = useState("");
+  const [guideStatus, setGuideStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  useSEO({
+    title: "Log Homes, Floor Plans & Packages | King's Cabins",
+    description: "Explore handcrafted King's Cabins log homes, floor plans and building packages. Choose from proven designs or customize your home. Available nationwide.",
+    url: "https://www.kingscabins.com/"
+  });
+
+  const handleGuideSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setGuideStatus("loading");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: "Guide Request",
+          lastName: "User",
+          email: guideEmail,
+          interest: "Planning Guide Download",
+          message: "User requested the 42-page planning guide."
+        }),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setGuideStatus("success");
+        setGuideEmail("");
+      } else {
+        setGuideStatus("error");
+      }
+    } catch (error) {
+      console.error("Guide request error:", error);
+      setGuideStatus("error");
+    }
+  };
+
   return (
     <>
       <Hero />
       
-      {/* Trust Bar */}
+      {/* Trust Bar & Nationwide Notice */}
       <section className="py-12 bg-charcoal border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-wrap justify-center md:justify-between items-center gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+          <div className="flex flex-wrap justify-center md:justify-between items-center gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 mb-12">
               <span className="text-xl font-serif tracking-widest">MOUNTAIN DIGS</span>
               <span className="text-xl font-serif tracking-widest">TIMBER WEEKLY</span>
               <span className="text-xl font-serif tracking-widest">ARCH LAND</span>
               <span className="text-xl font-serif tracking-widest">LOG LIVING</span>
               <span className="text-xl font-serif tracking-widest">CABIN LIFE</span>
+          </div>
+          
+          <div className="text-center max-w-2xl mx-auto flex items-center justify-center gap-3 border border-white/5 bg-deep-brown px-6 py-4">
+            <MapPin size={16} className="text-amber flex-shrink-0" />
+            <p className="text-cream/80 text-sm font-light">
+              King's Cabins offers log home plans, packages and construction options for customers throughout the United States.
+            </p>
           </div>
         </div>
       </section>
@@ -31,11 +81,11 @@ export default function HomePage() {
       <OurStory />
       <FeaturedModels />
       <Process />
-      <Gallery />
+      <SuperiorTeaser />
       <Testimonials />
       <FAQ />
 
-      {/* Financing/Planning Help Section (extracted from App.tsx early) */}
+      {/* Financing/Planning Help Section */}
       <section className="py-24 bg-charcoal border-y border-white/5 relative overflow-hidden" id="planning">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber/20 to-transparent" />
         <div className="max-w-7xl mx-auto px-6">
@@ -71,20 +121,69 @@ export default function HomePage() {
               <p className="text-cream/40 text-sm mb-8">
                 Get our exclusive 42-page guide on financing, land selection, and timber species.
               </p>
-              <div className="space-y-4">
+              <form onSubmit={handleGuideSubmit} className="space-y-4">
                 <input
                   type="email"
+                  required
+                  value={guideEmail}
+                  onChange={(e) => setGuideEmail(e.target.value)}
                   placeholder="Email Address"
                   className="w-full bg-charcoal border border-white/10 px-4 py-3 text-cream text-sm focus:border-amber/50 outline-none"
                 />
-                <Button variant="primary" className="w-full">DOWNLOAD GUIDE</Button>
-              </div>
+                <Button 
+                  variant="primary" 
+                  className="w-full disabled:opacity-50"
+                  type="submit"
+                  disabled={guideStatus === "loading"}
+                >
+                  {guideStatus === "loading" ? "SENDING..." : guideStatus === "success" ? "SENT! CHECK EMAIL" : "DOWNLOAD GUIDE"}
+                </Button>
+                {guideStatus === "error" && (
+                  <p className="text-red-400 text-xs italic text-center">Something went wrong. Please try again.</p>
+                )}
+              </form>
             </div>
           </div>
         </div>
       </section>
 
       <ContactSection />
+
+      {/* Investor Teaser Section */}
+      <section className="relative py-24 md:py-32 overflow-hidden border-t border-white/5">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/craftsmanship.png" 
+            alt="King's Cabins Craftsmanship" 
+            className="w-full h-full object-cover grayscale-[20%] brightness-[0.3]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-charcoal/80 via-charcoal/60 to-charcoal"></div>
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-amber text-xs uppercase tracking-[0.4em] font-medium mb-6 block">THE NEXT CHAPTER</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-cream mb-4">We've Built the Homes.</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-cream mb-8"><span className="italic font-normal serif">Now We're Building What's Next.</span></h2>
+            <p className="text-cream/70 text-lg font-light leading-relaxed mb-10 max-w-2xl mx-auto">
+              King's Cabins has spent decades building genuine log homes made to last for generations. We're now exploring relationships with qualified investors and strategic partners who share our vision for expanding production and bringing King's Cabins to more customers across America.
+            </p>
+            <Button 
+              variant="primary" 
+              className="mx-auto block"
+              onClick={() => window.location.href = '/investors'}
+            >
+              EXPLORE THE OPPORTUNITY
+            </Button>
+            <p className="text-[10px] uppercase tracking-widest text-cream/40 mt-6">
+              Investor & strategic partnership inquiries
+            </p>
+          </motion.div>
+        </div>
+      </section>
     </>
   );
 }

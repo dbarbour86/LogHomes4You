@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import Button from "../ui/Button";
 import { ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -13,9 +14,10 @@ export default function Hero() {
         className="absolute inset-0 z-0 text-white"
       >
         <img
-          src="https://images.unsplash.com/photo-1549144511-f099e773c147?auto=format&fit=crop&q=80&w=2000"
+          src="hero.png"
           alt="Luxury Log Cabin in Mountains"
-          className="w-full h-full object-cover opacity-60"
+          className="w-full h-full object-cover opacity-80"
+          referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-charcoal/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-charcoal/60" />
@@ -40,12 +42,14 @@ export default function Hero() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="primary" className="w-full sm:w-auto">
+            <Button variant="primary" className="w-full sm:w-auto" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
               REQUEST YOUR CABIN QUOTE
             </Button>
-            <Button variant="outline" className="w-full sm:w-auto">
-              EXPLORE FLOOR PLANS
-            </Button>
+            <Link to="/floor-plans" className="w-full sm:w-auto">
+              <Button variant="outline" className="w-full">
+                EXPLORE FLOOR PLANS
+              </Button>
+            </Link>
           </div>
         </motion.div>
       </div>

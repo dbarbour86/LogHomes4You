@@ -2,8 +2,18 @@ import { motion } from "motion/react";
 import InnerHero from "../components/ui/InnerHero";
 import PageLayout from "../components/Layout/PageLayout";
 import { Hammer, Ruler, Truck, Home, Sparkles, CheckCircle2 } from "lucide-react";
+import { useSEO } from "../hooks/useSEO";
+
+import imgProcess1 from "../assets/images/regenerated_image_1778949965867.jpg";
+import imgProcess2 from "../assets/images/regenerated_image_1778949970715.jpg";
 
 export default function ProcessPage() {
+  useSEO({
+    title: "Log Home Building Process | King's Cabins",
+    description: "Discover the step-by-step process of planning, designing, and building your custom log home with King's Cabins. We serve customers nationwide.",
+    url: "https://www.kingscabins.com/process"
+  });
+
   const breadcrumbs = [
     { name: "Home", href: "/" },
     { name: "Build Process", href: "/process" },
@@ -42,7 +52,7 @@ export default function ProcessPage() {
       <InnerHero 
         title="Our Signature Build Process"
         subtitle="A meticulous journey from raw timber to architectural masterpiece. We build for quality, not speed."
-        image="https://images.unsplash.com/photo-1464146072230-91cabc968266?auto=format&fit=crop&q=80&w=2000"
+        image="process_1.jpg"
         breadcrumbs={breadcrumbs}
       />
 
@@ -76,8 +86,8 @@ export default function ProcessPage() {
               </div>
             </motion.div>
             <div className="grid grid-cols-2 gap-4">
-               <img src="https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&q=80&w=600" className="w-full h-64 object-cover rounded-sm grayscale hover:grayscale-0 transition-all" alt="Process 1" />
-               <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=600" className="w-full h-64 object-cover rounded-sm mt-8 grayscale hover:grayscale-0 transition-all" alt="Process 2" />
+               <img src={imgProcess1} className="w-full h-64 object-cover rounded-sm grayscale hover:grayscale-0 transition-all" alt="Process 1" referrerPolicy="no-referrer" />
+               <img src={imgProcess2} className="w-full h-64 object-cover rounded-sm mt-8 grayscale hover:grayscale-0 transition-all" alt="Process 2" referrerPolicy="no-referrer" />
             </div>
           </div>
 

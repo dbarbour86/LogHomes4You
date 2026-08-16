@@ -53,7 +53,7 @@ export default function OurStory() {
 
             <div className="mt-12 grid grid-cols-2 gap-8 border-t border-white/5 pt-12">
               <div>
-                <span className="block text-4xl font-serif text-amber mb-1">20+</span>
+                <span className="block text-4xl font-serif text-amber mb-1">43+</span>
                 <span className="text-[10px] uppercase tracking-widest text-cream/40">Years of Craft</span>
               </div>
               <div>

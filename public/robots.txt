@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Prevent crawling of API routes just in case
+Disallow: /api/
+
+Sitemap: https://www.kingscabins.com/sitemap.xml
