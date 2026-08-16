@@ -1,4 +1,5 @@
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-core';
+import chromium from '@sparticuz/chromium';
 import express from 'express';
 import fs from 'fs';
 import path from 'path';
@@ -42,7 +43,17 @@ async function prerender() {
     
     try {
       console.log('Launching browser...');
-      const browser = await puppeteer.launch({ headless: 'new' });
+      
+      const isDev = process.env.NODE_ENV === 'development' || !process.env.VERCEL;
+      
+      // We must configure sparticuz/chromium correctly for the Vercel build environment
+      const browser = await puppeteer.launch({
+        args: isDev ? [] : chromium.args,
+        defaultViewport: chromium.defaultViewport,
+        executablePath: isDev ? undefined : await chromium.executablePath(),
+        headless: isDev ? 'new' : chromium.headless,
+        channel: isDev ? 'chrome' : undefined // Use local chrome when running locally
+      });
       const page = await browser.newPage();
       
       for (const route of routesToPrerender) {
