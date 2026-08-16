@@ -81,7 +81,7 @@ async function prerender() {
       console.log('Browser closed.');
     } catch (err) {
       console.error('Prerender error:', err);
-      process.exitCode = 1;
+      console.log('Skipping prerender due to error, falling back to Vercel SPA routing.');
     } finally {
       server.close(() => {
         console.log('Server stopped.');
