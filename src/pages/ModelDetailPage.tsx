@@ -53,7 +53,7 @@ export default function ModelDetailPage() {
       />
       
       {/* Intro Section */}
-      <section className="py-20 bg-charcoal">
+      <section className="pt-16 pb-8 md:pt-20 md:pb-12 bg-charcoal">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -62,11 +62,11 @@ export default function ModelDetailPage() {
           >
             <h1 className="text-3xl font-serif text-cream mb-2">{model.name}</h1>
             {model.secondaryDescriptor && (
-              <h2 className="text-amber text-lg font-light mb-8">{model.secondaryDescriptor}</h2>
+              <h2 className="text-amber text-lg font-light mb-6">{model.secondaryDescriptor}</h2>
             )}
             
             {/* At a Glance */}
-            <div className="mb-10 inline-block bg-white/5 border border-white/10 p-6 shadow-luxury text-left">
+            <div className="mb-8 inline-block bg-white/5 border border-white/10 p-6 shadow-luxury text-left">
               <h3 className="text-[10px] uppercase tracking-[0.3em] text-amber mb-4 border-b border-white/10 pb-2">At a Glance</h3>
               <ul className="grid grid-cols-2 gap-x-8 gap-y-3 text-cream/80 font-light text-sm">
                 <li><strong>Total Area:</strong> {model.sqft} sq. ft.</li>
@@ -117,9 +117,9 @@ export default function ModelDetailPage() {
 
       {/* Floor Plan & Exterior Images Section */}
       {model.floorPlanImage && (
-        <section className="py-20 bg-deep-brown" id="floor-plan-section">
+        <section className="pt-10 pb-20 md:pt-12 md:pb-24 bg-deep-brown" id="floor-plan-section">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-12">
+            <div className="text-center mb-8 md:mb-10">
               <h2 className="text-3xl md:text-4xl font-bold text-cream">
                 Explore the <span className="italic font-normal">Floor Plan</span>
               </h2>
