@@ -53,7 +53,7 @@ export default function ModelDetailPage() {
       />
       
       {/* Intro Section */}
-      <section className="pt-16 pb-8 md:pt-20 md:pb-12 bg-charcoal">
+      <section className="pt-12 pb-4 md:pt-16 md:pb-6 bg-charcoal">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -117,7 +117,7 @@ export default function ModelDetailPage() {
 
       {/* Floor Plan & Exterior Images Section */}
       {model.floorPlanImage && (
-        <section className="pt-10 pb-20 md:pt-12 md:pb-24 bg-deep-brown" id="floor-plan-section">
+        <section className="pt-6 pb-20 md:pt-8 md:pb-24 bg-deep-brown" id="floor-plan-section">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-8 md:mb-10">
               <h2 className="text-3xl md:text-4xl font-bold text-cream">
