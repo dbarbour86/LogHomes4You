@@ -3,12 +3,16 @@ import InnerHero from "../components/ui/InnerHero";
 import PageLayout from "../components/Layout/PageLayout";
 import Button from "../components/ui/Button";
 import { Maximize2, Bed, Bath, ArrowRight } from "lucide-react";
-
+import { useSearchParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { homeModels } from "../data/models";
+import { filterModels, sortModels, SortType, FilterCriteria } from "../utils/modelFilters";
 import { useSEO } from "../hooks/useSEO";
+import { useMemo } from "react";
 
 export default function FloorPlansPage() {
+  const [searchParams] = useSearchParams();
+
   useSEO({
     title: "Log Home Floor Plans & Cabin Designs | King's Cabins",
     description: "King's Cabins offers log-home floor plans ranging from efficient smaller homes to larger traditional log homes. Customizable and available nationwide.",
@@ -19,6 +23,36 @@ export default function FloorPlansPage() {
     { name: "Home", href: "/" },
     { name: "Floor Plans", href: "/floor-plans" },
   ];
+
+  // Parse filters from URL
+  const criteria: FilterCriteria = useMemo(() => {
+    const pBedrooms = searchParams.get("bedrooms");
+    const pBathrooms = searchParams.get("bathrooms");
+    const pStories = searchParams.get("stories");
+    const pMinSqFt = searchParams.get("minSqFt");
+    const pMaxSqFt = searchParams.get("maxSqFt");
+    const pCategory = searchParams.get("category");
+
+    return {
+      bedrooms: pBedrooms ? parseInt(pBedrooms, 10) : undefined,
+      bathrooms: pBathrooms ? parseInt(pBathrooms, 10) : undefined,
+      stories: pStories ? parseInt(pStories, 10) : undefined,
+      minSqFt: pMinSqFt ? parseInt(pMinSqFt, 10) : undefined,
+      maxSqFt: pMaxSqFt ? parseInt(pMaxSqFt, 10) : undefined,
+      category: pCategory || undefined,
+    };
+  }, [searchParams]);
+
+  // Parse sort from URL, defaulting to featured
+  const sortParam = (searchParams.get("sort") as SortType) || "featured";
+  const validSortTypes: SortType[] = ["featured", "sqft-asc", "sqft-desc"];
+  const sortType: SortType = validSortTypes.includes(sortParam) ? sortParam : "featured";
+
+  // Apply filtering and sorting
+  const filteredModels = useMemo(() => {
+    const filtered = filterModels(homeModels, criteria);
+    return sortModels(filtered, sortType);
+  }, [criteria, sortType]);
 
   return (
     <PageLayout>
@@ -43,50 +77,60 @@ export default function FloorPlansPage() {
               ))}
             </div>
             <div className="text-cream/40 text-xs italic">
-                Showing {homeModels.length} Signature Designs
+                Showing {filteredModels.length} Signature Designs
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-20">
-            {homeModels.map((model, idx) => (
-              <motion.div
-                key={model.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-              >
-                <Link to={`/floor-plans/${model.id}`} className="group block">
-                  <div className="relative aspect-[4/3] overflow-hidden mb-6 rounded-sm shadow-luxury bg-deep-brown border border-white/5">
-                    <img src={model.image} alt={model.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-amber text-charcoal text-[8px] font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-full">SIGNATURE</span>
-                    </div>
-                    <div className="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                      <Button variant="primary" className="text-xs">VIEW FULL SPECS</Button>
-                    </div>
-                  </div>
-                  <div className="space-y-4">
-                    <h3 className="text-2xl font-serif text-cream group-hover:text-amber transition-colors">{model.name}</h3>
-                    <div className="flex flex-wrap items-center gap-4 pt-2">
-                      <div className="flex items-center gap-1.5 text-xs text-amber font-medium">
-                        <Maximize2 size={12} />
-                        <span>{model.sqft} SQFT</span>
+          {filteredModels.length === 0 ? (
+            <div className="text-center py-20">
+              <h3 className="text-2xl font-serif text-cream mb-4">No models found</h3>
+              <p className="text-cream/60">Try adjusting your filters to see more results.</p>
+              <Link to="/floor-plans">
+                <Button variant="outline" className="mt-8">CLEAR FILTERS</Button>
+              </Link>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-20">
+              {filteredModels.map((model, idx) => (
+                <motion.div
+                  key={model.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                >
+                  <Link to={`/floor-plans/${model.id}`} className="group block">
+                    <div className="relative aspect-[4/3] overflow-hidden mb-6 rounded-sm shadow-luxury bg-deep-brown border border-white/5">
+                      <img src={model.image} alt={model.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                      <div className="absolute top-4 left-4">
+                        <span className="bg-amber text-charcoal text-[8px] font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-full">SIGNATURE</span>
                       </div>
-                      <div className="flex items-center gap-1.5 text-xs text-cream/40">
-                        <Bed size={12} />
-                        <span>{model.beds === "TBD" ? "TBD" : model.beds} BEDS</span>
-                      </div>
-                      <div className="flex items-center gap-1.5 text-xs text-cream/40">
-                        <Bath size={12} />
-                        <span>{model.baths === "TBD" ? "TBD" : model.baths} BATHS</span>
+                      <div className="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                        <Button variant="primary" className="text-xs">VIEW FULL SPECS</Button>
                       </div>
                     </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-serif text-cream group-hover:text-amber transition-colors">{model.name}</h3>
+                      <div className="flex flex-wrap items-center gap-4 pt-2">
+                        <div className="flex items-center gap-1.5 text-xs text-amber font-medium">
+                          <Maximize2 size={12} />
+                          <span>{model.sqft} SQFT</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 text-xs text-cream/40">
+                          <Bed size={12} />
+                          <span>{model.beds ?? "TBD"} BEDS</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 text-xs text-cream/40">
+                          <Bath size={12} />
+                          <span>{model.baths ?? "TBD"} BATHS</span>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          )}
 
           <motion.div 
             initial={{ opacity: 0, y: 20 }}

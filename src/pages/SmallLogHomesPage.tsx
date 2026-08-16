@@ -72,14 +72,14 @@ export default function SmallLogHomesPage() {
                       <span className="text-[10px] uppercase tracking-widest text-cream/40 mb-1">Layout</span>
                       <div className="flex items-center gap-1.5 text-sm text-cream/70">
                         <Bed size={14} />
-                        <span>{model.beds} BEDS</span>
+                        <span>{model.beds ?? "TBD"} BEDS</span>
                       </div>
                     </div>
                     <div className="flex flex-col">
                       <span className="text-[10px] uppercase tracking-widest text-cream/40 mb-1">Baths</span>
                       <div className="flex items-center gap-1.5 text-sm text-cream/70">
                         <Bath size={14} />
-                        <span>{model.baths} BATH</span>
+                        <span>{model.baths ?? "TBD"} BATH</span>
                       </div>
                     </div>
                     <div className="flex flex-col">

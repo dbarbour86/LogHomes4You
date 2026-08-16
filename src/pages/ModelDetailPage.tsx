@@ -47,7 +47,7 @@ export default function ModelDetailPage() {
     <PageLayout>
       <InnerHero 
         title={model.name}
-        subtitle={`${model.sqft} SQ FT • ${model.beds === "TBD" ? "TBD" : model.beds} BEDROOMS • ${model.baths === "TBD" ? "TBD" : model.baths} BATHROOMS • EXTERIOR: ${model.dimensions || "TBD"}`}
+        subtitle={`${model.sqft} SQ FT • ${model.beds ?? "TBD"} BEDROOMS • ${model.baths ?? "TBD"} BATHROOMS • EXTERIOR: ${model.dimensions || "TBD"}`}
         image={model.image}
         breadcrumbs={breadcrumbs}
       />
@@ -106,11 +106,11 @@ export default function ModelDetailPage() {
                     </div>
                     <div className="text-center">
                       <span className="block text-[10px] uppercase tracking-widest text-cream/40 mb-1">Bedrooms</span>
-                      <span className="text-xl font-light text-cream">{model.beds === "TBD" ? "TBD" : model.beds}</span>
+                      <span className="text-xl font-light text-cream">{model.beds ?? "TBD"}</span>
                     </div>
                     <div className="text-center">
                       <span className="block text-[10px] uppercase tracking-widest text-cream/40 mb-1">Bathrooms</span>
-                      <span className="text-xl font-light text-cream">{model.baths === "TBD" ? "TBD" : model.baths}</span>
+                      <span className="text-xl font-light text-cream">{model.baths ?? "TBD"}</span>
                     </div>
                   </div>
                 </div>
@@ -147,8 +147,8 @@ export default function ModelDetailPage() {
                 <h3 className="text-[10px] uppercase tracking-[0.3em] text-amber mb-4 border-b border-white/10 pb-2">At a Glance</h3>
                 <ul className="grid grid-cols-2 gap-x-8 gap-y-3 text-cream/80 font-light text-sm">
                   <li><strong>Total Area:</strong> {model.sqft} sq. ft.</li>
-                  <li><strong>Bedrooms:</strong> {model.beds}</li>
-                  <li><strong>Bathrooms:</strong> {model.baths}</li>
+                  <li><strong>Bedrooms:</strong> {model.beds ?? "TBD"}</li>
+                  <li><strong>Bathrooms:</strong> {model.baths ?? "TBD"}</li>
                   {model.dimensions && <li><strong>Dimensions:</strong> {model.dimensions}</li>}
                   {model.interiorSqft && <li><strong>Interior:</strong> {model.interiorSqft} sq. ft.</li>}
                   {model.porchSqft && <li><strong>Covered Porch:</strong> {model.porchSqft} sq. ft.</li>}

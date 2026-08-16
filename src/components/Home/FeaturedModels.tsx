@@ -72,11 +72,11 @@ export default function FeaturedModels() {
                     </div>
                     <div className="flex items-center gap-1.5 text-xs text-cream/70">
                       <Bed size={14} />
-                      <span>{model.beds === "TBD" ? "TBD" : model.beds} BEDS</span>
+                      <span>{model.beds ?? "TBD"} BEDS</span>
                     </div>
                     <div className="flex items-center gap-1.5 text-xs text-cream/70">
                       <Bath size={14} />
-                      <span>{model.baths === "TBD" ? "TBD" : model.baths} BATHS</span>
+                      <span>{model.baths ?? "TBD"} BATHS</span>
                     </div>
                   </div>
                 </div>
