@@ -251,6 +251,28 @@ export const homeModels: HomeModel[] = [
     tagline: "A beautifully arranged two-story home that perfectly balances private bedroom suites with expansive, open gathering spaces.",
     featured: false
   },
+  {
+    id: "second-thessalonians",
+    name: "Second Thessalonians",
+    seoTitle: "1,440 Sq Ft 3 Bedroom Log Home Plan | Second Thessalonians",
+    seoDescription: "Explore the Second Thessalonians, a 1,440 sq ft King's Cabins two-story log home featuring 3 bedrooms and generous living areas.",
+    secondaryDescriptor: "1,440 Sq. Ft. Three-Bedroom Log Home",
+    sqft: "1,440",
+    squareFeet: 1440,
+    firstFloorSqft: "720",
+    secondFloorSqft: "720",
+    dimensions: "30' × 24'",
+    width: 30,
+    depth: 24,
+    beds: 3,
+    baths: 1,
+    stories: 2,
+    category: "log-home",
+    image: "/SecondThessalonians.png",
+    floorPlanImage: "/SecondThessalonians_plan.png",
+    tagline: "A generous two-story layout featuring expansive main-floor living and dining areas, with all three bedrooms peacefully tucked away on the upper level.",
+    featured: false
+  },
   // Keep original larger models for reference
   {
     id: "the-matthew",
