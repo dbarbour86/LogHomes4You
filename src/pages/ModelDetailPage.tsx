@@ -227,11 +227,12 @@ export default function ModelDetailPage() {
             <div>
               <h3 className="text-lg font-medium text-cream mb-2">How large is the {model.name}?</h3>
               <p className="text-cream/70 font-light leading-relaxed">
-                {model.name === "First Chronicles" && `The First Chronicles is an efficient 480-square-foot log home with a ${model.dimensions} footprint.`}
-                {model.name === "Second Chronicles" && `Second Chronicles provides 660 square feet of total living space in a ${model.dimensions} layout.`}
-                {model.name === "Second Peter" && `Second Peter provides 784 square feet total, including 560 square feet of interior space and a 224-square-foot covered porch.`}
-                {model.name === "Jude" && `Jude provides 900 square feet of total living space, featuring a 600-square-foot first floor and a 300-square-foot upper level.`}
-                {model.name === "Philemon" && `Philemon provides 1,080 square feet of living space across two levels.`}
+                {model.name === "First Chronicles" ? `The First Chronicles is an efficient 480-square-foot log home with a ${model.dimensions} footprint.` :
+                 model.name === "Second Chronicles" ? `Second Chronicles provides 660 square feet of total living space in a ${model.dimensions} layout.` :
+                 model.name === "Second Peter" ? `Second Peter provides 784 square feet total, including 560 square feet of interior space and a 224-square-foot covered porch.` :
+                 model.name === "Jude" ? `Jude provides 900 square feet of total living space, featuring a 600-square-foot first floor and a 300-square-foot upper level.` :
+                 model.name === "Philemon" ? `Philemon provides 1,080 square feet of living space across two levels.` :
+                 `The ${model.name} provides ${model.sqft} square feet of total living space.`}
               </p>
             </div>
             <div>

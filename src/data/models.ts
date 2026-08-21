@@ -67,6 +67,26 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "acts",
+    name: "Acts",
+    seoTitle: "528 Sq Ft 2 Bedroom Log Home Plan | Acts",
+    seoDescription: "Explore the Acts model, an ultra-efficient 528 sq ft King's Cabins log home featuring 2 bedrooms and 1 bath in a smart 24' × 22' layout.",
+    secondaryDescriptor: "528 Sq. Ft. Two-Bedroom Log Home",
+    sqft: "528",
+    squareFeet: 528,
+    dimensions: "24' × 22'",
+    width: 24,
+    depth: 22,
+    beds: 2,
+    baths: 1,
+    stories: 1,
+    category: "log-home",
+    image: "/Acts.png",
+    floorPlanImage: "/Acts_plan.png",
+    tagline: "A masterful use of space, the Acts model comfortably fits two bedrooms and full living amenities into a streamlined 528 square foot footprint.",
+    featured: false
+  },
+  {
     id: "second-chronicles",
     name: "Second Chronicles",
     seoTitle: "660 Sq Ft 2 Bedroom Log Home Plan | Second Chronicles",
