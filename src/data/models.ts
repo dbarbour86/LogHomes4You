@@ -252,6 +252,27 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "derek",
+    name: "Derek",
+    seoTitle: "1,400 Sq Ft 3 Bedroom Log Home Plan | Derek",
+    seoDescription: "Explore the Derek, a 1,400 sq ft King's Cabins single-story log home featuring 3 bedrooms, 2 baths, and stunning cathedral ceilings.",
+    secondaryDescriptor: "1,400 Sq. Ft. Single-Story Log Home",
+    sqft: "1,400",
+    squareFeet: 1400,
+    porchSqft: "176",
+    dimensions: "50' × 28'",
+    width: 50,
+    depth: 28,
+    beds: 3,
+    baths: 2,
+    stories: 1,
+    category: "log-home",
+    image: "/Derek.png",
+    floorPlanImage: "/Derek_plan.png",
+    tagline: "A beautifully proportioned single-story layout highlighted by a spectacular cathedral ceiling spanning the central living and dining areas.",
+    featured: false
+  },
+  {
     id: "second-thessalonians",
     name: "Second Thessalonians",
     seoTitle: "1,440 Sq Ft 3 Bedroom Log Home Plan | Second Thessalonians",
