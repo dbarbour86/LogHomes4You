@@ -129,6 +129,27 @@ export const homeModels: HomeModel[] = [
     featured: true
   },
   {
+    id: "brittany-sue",
+    name: "Brittany Sue",
+    seoTitle: "832 Sq Ft 2 Bedroom Log Home with Porch | Brittany Sue",
+    seoDescription: "Explore the Brittany Sue, an 832 sq ft King's Cabins log home featuring 2 bedrooms, 1 bath, and a generous 8' × 32' front porch.",
+    secondaryDescriptor: "832 Sq. Ft. Two-Bedroom Log Home with Porch",
+    sqft: "832",
+    squareFeet: 832,
+    porchSqft: "256",
+    dimensions: "32' × 26'",
+    width: 32,
+    depth: 26,
+    beds: 2,
+    baths: 1,
+    stories: 1,
+    category: "log-home",
+    image: "/BrittanySue.png",
+    floorPlanImage: "/BrittanySue_plan.png",
+    tagline: "A perfectly proportioned single-level home. The Brittany Sue combines an open-concept living area with a massive full-width front porch to maximize both indoor and outdoor living.",
+    featured: false
+  },
+  {
     id: "jude",
     name: "Jude",
     seoTitle: "900 Sq Ft Log Home with Loft | Jude | King's Cabins",
