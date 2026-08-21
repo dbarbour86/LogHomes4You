@@ -11,7 +11,7 @@ import { useSEO } from "../hooks/useSEO";
 import { useMemo } from "react";
 
 export default function FloorPlansPage() {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useSEO({
     title: "Log Home Floor Plans & Cabin Designs | King's Cabins",
