@@ -34,7 +34,7 @@ export default function FeaturedModels() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {homeModels.filter(m => m.featured).map((model, index) => (
+          {homeModels.filter(m => m.featured).slice(0, 3).map((model, index) => (
             <motion.div
               key={model.id}
               initial={{ opacity: 0, y: 30 }}
