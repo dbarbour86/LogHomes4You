@@ -25,6 +25,28 @@ export interface HomeModel {
 
 export const homeModels: HomeModel[] = [
   {
+    id: "the-little-king",
+    name: "The Little King",
+    seoTitle: "960 Sq Ft 2 Bedroom Log Home Special | The Little King",
+    seoDescription: "Take advantage of our special pricing on The Little King. A 960 sq ft King's Cabins log home featuring 2 bedrooms, 1 bath, and a loft.",
+    secondaryDescriptor: "Limited Time Special: $49,925",
+    sqft: "960",
+    squareFeet: 960,
+    firstFloorSqft: "864",
+    secondFloorSqft: "96",
+    dimensions: "40' × 24'",
+    width: 40,
+    depth: 24,
+    beds: 2,
+    baths: 1,
+    stories: 2,
+    category: "log-home",
+    image: "/LittleKing.png",
+    floorPlanImage: "/LittleKing_plan.png",
+    tagline: "An incredible value for a genuine log home. The Little King offers a highly efficient 2-bedroom layout with an additional loft space, all at an unbeatable special price.",
+    featured: true
+  },
+  {
     id: "first-chronicles",
     name: "First Chronicles",
     seoTitle: "480 Sq Ft 2 Bedroom Log Home Plan | First Chronicles",

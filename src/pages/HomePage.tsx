@@ -79,6 +79,66 @@ export default function HomePage() {
       </section>
 
       <OurStory />
+      
+      {/* The Little King Special Promo */}
+      <section className="py-20 bg-espresso border-y border-white/5 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="order-2 lg:order-1"
+            >
+              <div className="inline-block bg-amber/10 border border-amber/20 px-4 py-1.5 mb-6">
+                <span className="text-amber text-[10px] uppercase tracking-[0.3em] font-medium">LIMITED TIME SPECIAL</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-cream mb-6">
+                The Little King <br/>
+                <span className="italic font-normal serif text-amber">$49,925.00</span>
+              </h2>
+              <p className="text-cream/70 text-lg font-light leading-relaxed mb-8">
+                An incredible value for a genuine log home. The Little King offers a highly efficient 960 sq. ft. footprint featuring a 2-bedroom main floor layout with an additional loft space, all at an unbeatable special price.
+              </p>
+              <ul className="space-y-3 text-cream/80 font-light mb-10">
+                <li className="flex items-center gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-amber"></div>
+                  960 Total Sq. Ft. (Under Roof)
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-amber"></div>
+                  2 Bedrooms / 1 Bath
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-amber"></div>
+                  Spacious Loft & Covered Porch
+                </li>
+              </ul>
+              <Button 
+                variant="primary" 
+                onClick={() => window.location.href = '/floor-plans/the-little-king'}
+              >
+                VIEW FLOOR PLAN & DETAILS
+              </Button>
+            </motion.div>
+            
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="order-1 lg:order-2 relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-tr from-amber/20 to-transparent blur-3xl rounded-full opacity-50 -z-10"></div>
+              <img 
+                src="/LittleKing.png" 
+                alt="The Little King Log Home Special" 
+                className="w-full h-auto object-cover border border-white/10 shadow-luxury"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       <FeaturedModels />
       <Process />
       <SuperiorTeaser />
