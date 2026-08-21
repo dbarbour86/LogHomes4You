@@ -266,6 +266,26 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "the-blessed",
+    name: "The Blessed",
+    seoTitle: "1,876 Sq Ft 3 Bedroom Log Home Plan | The Blessed",
+    seoDescription: "Explore The Blessed, an expansive King's Cabins log home featuring 3 bedrooms, 2 baths, and a sprawling single-story layout.",
+    secondaryDescriptor: "1,876 Sq. Ft. Single-Story Log Home",
+    sqft: "1,876",
+    squareFeet: 1876,
+    dimensions: "56' × 38'",
+    width: 56,
+    depth: 38,
+    beds: 3,
+    baths: 2,
+    stories: 1,
+    category: "log-home",
+    image: "/TheBlessed.png",
+    floorPlanImage: "/TheBlessed_plan.png",
+    tagline: "A sprawling single-story sanctuary offering a split-bedroom layout, massive open gathering spaces, and deep covered porches.",
+    featured: false
+  },
+  {
     id: "the-mark",
     name: "The Mark",
     sqft: "1,888",
