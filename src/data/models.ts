@@ -309,6 +309,24 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "steven",
+    name: "Steven",
+    seoTitle: "1,728 Sq Ft Log Home Plan | Steven",
+    seoDescription: "Explore the Steven, a 1,728 sq ft King's Cabins two-story log home featuring a generous 36' × 24' layout.",
+    secondaryDescriptor: "1,728 Sq. Ft. Two-Story Log Home",
+    sqft: "1,728",
+    squareFeet: 1728,
+    dimensions: "36' × 24'",
+    width: 36,
+    depth: 24,
+    stories: 2,
+    category: "log-home",
+    image: "/Steven.png",
+    floorPlanImage: "/Steven_plan.png",
+    tagline: "A substantial two-story design providing wide-open main floor living spaces and ample room to grow on the upper level.",
+    featured: false
+  },
+  {
     id: "the-blessed",
     name: "The Blessed",
     seoTitle: "1,876 Sq Ft 3 Bedroom Log Home Plan | The Blessed",
