@@ -187,6 +187,28 @@ export const homeModels: HomeModel[] = [
     tagline: "A perfectly balanced layout offering expanded living space while maintaining attainable luxury.",
     featured: false
   },
+  {
+    id: "first-thessalonians",
+    name: "First Thessalonians",
+    seoTitle: "1,200 Sq Ft 3 Bedroom Log Home Plan | First Thessalonians",
+    seoDescription: "Explore the First Thessalonians, a 1,200 sq ft King's Cabins two-story log home featuring 3 bedrooms and 2 baths.",
+    secondaryDescriptor: "1,200 Sq. Ft. Three-Bedroom Log Home",
+    sqft: "1,200",
+    squareFeet: 1200,
+    firstFloorSqft: "600",
+    secondFloorSqft: "600",
+    dimensions: "30' × 20'",
+    width: 30,
+    depth: 20,
+    beds: 3,
+    baths: 2,
+    stories: 2,
+    category: "log-home",
+    image: "/FirstThessalonians.png",
+    floorPlanImage: "/FirstThessalonians_plan.png",
+    tagline: "A classic two-story log home that efficiently packages three bedrooms and two full baths into a highly functional 1,200 square foot layout.",
+    featured: false
+  },
   // Keep original larger models for reference
   {
     id: "the-matthew",
