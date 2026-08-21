@@ -209,6 +209,28 @@ export const homeModels: HomeModel[] = [
     tagline: "A classic two-story log home that efficiently packages three bedrooms and two full baths into a highly functional 1,200 square foot layout.",
     featured: false
   },
+  {
+    id: "titus",
+    name: "Titus",
+    seoTitle: "1,326 Sq Ft 4 Bedroom Log Home Plan | Titus",
+    seoDescription: "Explore the Titus, a 1,326 sq ft King's Cabins two-story log home featuring 4 bedrooms and a spectacular open-to-below living area.",
+    secondaryDescriptor: "1,326 Sq. Ft. Four-Bedroom Log Home",
+    sqft: "1,326",
+    squareFeet: 1326,
+    firstFloorSqft: "884",
+    secondFloorSqft: "442",
+    dimensions: "34' × 26'",
+    width: 34,
+    depth: 26,
+    beds: 4,
+    baths: 1,
+    stories: 2,
+    category: "log-home",
+    image: "/Titus.png",
+    floorPlanImage: "/Titus_plan.png",
+    tagline: "An impressive design that maximizes volume and capacity, offering four bedrooms and a dramatic open-to-below living space in just 1,326 square feet.",
+    featured: false
+  },
   // Keep original larger models for reference
   {
     id: "the-matthew",
