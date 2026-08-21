@@ -65,82 +65,185 @@ export default function FloorPlansPage() {
 
       <section className="py-24 bg-charcoal">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-16 border-b border-white/5 pb-8">
-            <div className="flex items-center gap-8 overflow-x-auto pb-4 md:pb-0 scrollbar-hide">
-              {["All Models"].map((cat, i) => (
-                <button 
-                  key={cat} 
-                  className={`text-[10px] uppercase tracking-[0.3em] whitespace-nowrap transition-colors text-amber font-bold`}
+          <div className="flex flex-col lg:flex-row gap-12">
+            
+            {/* Filter Sidebar */}
+            <div className="w-full lg:w-64 flex-shrink-0 space-y-8 lg:border-r lg:border-white/5 lg:pr-8">
+              <div>
+                <h3 className="text-amber text-[10px] uppercase tracking-[0.3em] font-medium mb-4">Sort By</h3>
+                <select 
+                  className="w-full bg-deep-brown border border-white/10 px-4 py-3 text-cream text-sm focus:border-amber/50 outline-none appearance-none cursor-pointer"
+                  value={sortType}
+                  onChange={(e) => {
+                    const newParams = new URLSearchParams(searchParams);
+                    if (e.target.value === "featured") newParams.delete("sort");
+                    else newParams.set("sort", e.target.value);
+                    setSearchParams(newParams);
+                  }}
                 >
-                  {cat}
-                </button>
-              ))}
+                  <option value="featured">Featured First</option>
+                  <option value="sqft-asc">Square Footage: Low to High</option>
+                  <option value="sqft-desc">Square Footage: High to Low</option>
+                </select>
+              </div>
+
+              <div>
+                <h3 className="text-amber text-[10px] uppercase tracking-[0.3em] font-medium mb-4">Bedrooms</h3>
+                <select 
+                  className="w-full bg-deep-brown border border-white/10 px-4 py-3 text-cream text-sm focus:border-amber/50 outline-none appearance-none cursor-pointer"
+                  value={searchParams.get("bedrooms") || "any"}
+                  onChange={(e) => {
+                    const newParams = new URLSearchParams(searchParams);
+                    if (e.target.value === "any") newParams.delete("bedrooms");
+                    else newParams.set("bedrooms", e.target.value);
+                    setSearchParams(newParams);
+                  }}
+                >
+                  <option value="any">Any</option>
+                  <option value="1">1 Bedroom</option>
+                  <option value="2">2 Bedrooms</option>
+                  <option value="3">3 Bedrooms</option>
+                  <option value="4">4+ Bedrooms</option>
+                </select>
+              </div>
+
+              <div>
+                <h3 className="text-amber text-[10px] uppercase tracking-[0.3em] font-medium mb-4">Bathrooms</h3>
+                <select 
+                  className="w-full bg-deep-brown border border-white/10 px-4 py-3 text-cream text-sm focus:border-amber/50 outline-none appearance-none cursor-pointer"
+                  value={searchParams.get("bathrooms") || "any"}
+                  onChange={(e) => {
+                    const newParams = new URLSearchParams(searchParams);
+                    if (e.target.value === "any") newParams.delete("bathrooms");
+                    else newParams.set("bathrooms", e.target.value);
+                    setSearchParams(newParams);
+                  }}
+                >
+                  <option value="any">Any</option>
+                  <option value="1">1 Bathroom</option>
+                  <option value="2">2 Bathrooms</option>
+                  <option value="3">3+ Bathrooms</option>
+                </select>
+              </div>
+
+              <div>
+                <h3 className="text-amber text-[10px] uppercase tracking-[0.3em] font-medium mb-4">Square Footage</h3>
+                <select 
+                  className="w-full bg-deep-brown border border-white/10 px-4 py-3 text-cream text-sm focus:border-amber/50 outline-none appearance-none cursor-pointer"
+                  value={
+                    searchParams.get("maxSqFt") === "999" ? "under-1000" :
+                    searchParams.get("minSqFt") === "1000" && searchParams.get("maxSqFt") === "1499" ? "1000-1500" :
+                    searchParams.get("minSqFt") === "1500" && searchParams.get("maxSqFt") === "1999" ? "1500-2000" :
+                    searchParams.get("minSqFt") === "2000" ? "over-2000" :
+                    "any"
+                  }
+                  onChange={(e) => {
+                    const newParams = new URLSearchParams(searchParams);
+                    newParams.delete("minSqFt");
+                    newParams.delete("maxSqFt");
+                    
+                    if (e.target.value === "under-1000") {
+                      newParams.set("maxSqFt", "999");
+                    } else if (e.target.value === "1000-1500") {
+                      newParams.set("minSqFt", "1000");
+                      newParams.set("maxSqFt", "1499");
+                    } else if (e.target.value === "1500-2000") {
+                      newParams.set("minSqFt", "1500");
+                      newParams.set("maxSqFt", "1999");
+                    } else if (e.target.value === "over-2000") {
+                      newParams.set("minSqFt", "2000");
+                    }
+                    
+                    setSearchParams(newParams);
+                  }}
+                >
+                  <option value="any">Any</option>
+                  <option value="under-1000">Under 1,000 sq ft</option>
+                  <option value="1000-1500">1,000 - 1,500 sq ft</option>
+                  <option value="1500-2000">1,500 - 2,000 sq ft</option>
+                  <option value="over-2000">Over 2,000 sq ft</option>
+                </select>
+              </div>
+              
+              <Button 
+                variant="outline" 
+                className="w-full"
+                onClick={() => setSearchParams(new URLSearchParams())}
+              >
+                RESET FILTERS
+              </Button>
             </div>
-            <div className="text-cream/40 text-xs italic">
-                Showing {filteredModels.length} Signature Designs
+
+            {/* Main Content */}
+            <div className="flex-1">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-12 border-b border-white/5 pb-8">
+                <div className="flex items-center gap-8 overflow-x-auto pb-4 md:pb-0 scrollbar-hide">
+                  <h2 className="text-2xl font-serif text-cream">Floor Plans</h2>
+                </div>
+                <div className="text-cream/40 text-xs italic">
+                    Showing {filteredModels.length} Design{filteredModels.length !== 1 ? 's' : ''}
+                </div>
+              </div>
+
+              {filteredModels.length === 0 ? (
+                <div className="text-center py-20 bg-deep-brown border border-white/5">
+                  <h3 className="text-2xl font-serif text-cream mb-4">No models found</h3>
+                  <p className="text-cream/60">Try adjusting your filters to see more results.</p>
+                  <Button variant="outline" className="mt-8" onClick={() => setSearchParams(new URLSearchParams())}>
+                    CLEAR FILTERS
+                  </Button>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
+                  {filteredModels.map((model, idx) => (
+                    <motion.div
+                      key={model.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.1 }}
+                    >
+                      <Link to={`/floor-plans/${model.id}`} className="group block h-full flex flex-col">
+                        <div className="relative aspect-[4/3] overflow-hidden mb-6 rounded-sm shadow-luxury bg-deep-brown border border-white/5">
+                          <img src={model.image} alt={model.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                          <div className="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                            <Button variant="primary" className="text-xs">VIEW FULL SPECS</Button>
+                          </div>
+                        </div>
+                        <div className="space-y-4 flex-1 flex flex-col justify-between">
+                          <h3 className="text-2xl font-serif text-cream group-hover:text-amber transition-colors">{model.name}</h3>
+                          <div className="flex flex-wrap items-center gap-4 pt-2 border-t border-white/5 mt-auto">
+                            <div className="flex items-center gap-1.5 text-xs text-amber font-medium">
+                              <Maximize2 size={12} />
+                              <span>{model.sqft} SQFT</span>
+                            </div>
+                            <div className="flex items-center gap-1.5 text-xs text-cream/40">
+                              <Bed size={12} />
+                              <span>{model.beds ?? "TBD"} BEDS</span>
+                            </div>
+                            <div className="flex items-center gap-1.5 text-xs text-cream/40">
+                              <Bath size={12} />
+                              <span>{model.baths ?? "TBD"} BATHS</span>
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
+              )}
+
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-center py-12 border-t border-white/5 mt-12"
+              >
+                <p className="text-amber font-serif italic text-2xl">We are constantly adding new floor plans, so please check back often.</p>
+                <div className="mt-4 h-px w-24 bg-amber/20 mx-auto" />
+              </motion.div>
             </div>
           </div>
-
-          {filteredModels.length === 0 ? (
-            <div className="text-center py-20">
-              <h3 className="text-2xl font-serif text-cream mb-4">No models found</h3>
-              <p className="text-cream/60">Try adjusting your filters to see more results.</p>
-              <Link to="/floor-plans">
-                <Button variant="outline" className="mt-8">CLEAR FILTERS</Button>
-              </Link>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-20">
-              {filteredModels.map((model, idx) => (
-                <motion.div
-                  key={model.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                >
-                  <Link to={`/floor-plans/${model.id}`} className="group block">
-                    <div className="relative aspect-[4/3] overflow-hidden mb-6 rounded-sm shadow-luxury bg-deep-brown border border-white/5">
-                      <img src={model.image} alt={model.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                      <div className="absolute top-4 left-4">
-                        <span className="bg-amber text-charcoal text-[8px] font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-full">SIGNATURE</span>
-                      </div>
-                      <div className="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                        <Button variant="primary" className="text-xs">VIEW FULL SPECS</Button>
-                      </div>
-                    </div>
-                    <div className="space-y-4">
-                      <h3 className="text-2xl font-serif text-cream group-hover:text-amber transition-colors">{model.name}</h3>
-                      <div className="flex flex-wrap items-center gap-4 pt-2">
-                        <div className="flex items-center gap-1.5 text-xs text-amber font-medium">
-                          <Maximize2 size={12} />
-                          <span>{model.sqft} SQFT</span>
-                        </div>
-                        <div className="flex items-center gap-1.5 text-xs text-cream/40">
-                          <Bed size={12} />
-                          <span>{model.beds ?? "TBD"} BEDS</span>
-                        </div>
-                        <div className="flex items-center gap-1.5 text-xs text-cream/40">
-                          <Bath size={12} />
-                          <span>{model.baths ?? "TBD"} BATHS</span>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          )}
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center py-12 border-t border-white/5"
-          >
-            <p className="text-amber font-serif italic text-2xl">We are constantly adding new floor plans, so please check back often.</p>
-            <div className="mt-4 h-px w-24 bg-amber/20 mx-auto" />
-          </motion.div>
         </div>
       </section>
 
