@@ -294,6 +294,29 @@ export const homeModels: HomeModel[] = [
     tagline: "A generous two-story layout featuring expansive main-floor living and dining areas, with all three bedrooms peacefully tucked away on the upper level.",
     featured: false
   },
+  {
+    id: "romans",
+    name: "Romans",
+    seoTitle: "1,512 Sq Ft 3 Bedroom Log Home Plan | Romans",
+    seoDescription: "Explore the Romans, a 1,512 sq ft King's Cabins two-story log home featuring 3 bedrooms, 2 baths, and a stunning open-to-below living area.",
+    secondaryDescriptor: "1,512 Sq. Ft. Three-Bedroom Log Home",
+    sqft: "1,512",
+    squareFeet: 1512,
+    firstFloorSqft: "1,008",
+    secondFloorSqft: "504",
+    porchSqft: "231",
+    dimensions: "36' × 28'",
+    width: 36,
+    depth: 28,
+    beds: 3,
+    baths: 2,
+    stories: 2,
+    category: "log-home",
+    image: "/Romans.png",
+    floorPlanImage: "/Romans_plan.png",
+    tagline: "A stunning two-story design featuring a dramatic open-to-below living area, expansive covered porches, and a spacious 1,512 square foot layout.",
+    featured: false
+  },
   // Keep original larger models for reference
   {
     id: "the-matthew",
