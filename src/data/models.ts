@@ -231,6 +231,26 @@ export const homeModels: HomeModel[] = [
     tagline: "An impressive design that maximizes volume and capacity, offering four bedrooms and a dramatic open-to-below living space in just 1,326 square feet.",
     featured: false
   },
+  {
+    id: "daniel",
+    name: "Daniel",
+    seoTitle: "1,356 Sq Ft 3 Bedroom Log Home Plan | Daniel",
+    seoDescription: "Explore the Daniel, a 1,356 sq ft King's Cabins log home featuring 3 bedrooms, 2 baths, and a spacious wrap-around deck.",
+    secondaryDescriptor: "1,356 Sq. Ft. Three-Bedroom Log Home",
+    sqft: "1,356",
+    squareFeet: 1356,
+    dimensions: "40' × 26'",
+    width: 40,
+    depth: 26,
+    beds: 3,
+    baths: 2,
+    stories: 2,
+    category: "log-home",
+    image: "/Daniel.png",
+    floorPlanImage: "/Daniel_plan.png",
+    tagline: "A beautifully arranged two-story home that perfectly balances private bedroom suites with expansive, open gathering spaces.",
+    featured: false
+  },
   // Keep original larger models for reference
   {
     id: "the-matthew",
