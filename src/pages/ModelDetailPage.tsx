@@ -135,6 +135,12 @@ export default function ModelDetailPage() {
               </motion.div>
             </div>
           )}
+          
+          {model.floorPlanImage && (
+            <div className="text-center text-[10px] text-cream/30 italic mb-12 max-w-2xl mx-auto -mt-6">
+              Artist rendering — Actual plans may vary. Refer to blueprints for specific details.
+            </div>
+          )}
 
           {/* Intro Description & Details */}
           <div className="max-w-4xl mx-auto text-center">
