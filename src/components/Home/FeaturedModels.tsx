@@ -91,7 +91,7 @@ export default function FeaturedModels() {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <p className="text-amber font-serif italic text-2xl">Adding more models very soon!</p>
+          <p className="text-amber font-serif italic text-2xl">We are constantly adding new floor plans, so please check back often.</p>
           <div className="mt-4 h-px w-24 bg-amber/20 mx-auto" />
         </motion.div>
       </div>

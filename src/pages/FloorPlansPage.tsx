@@ -138,7 +138,7 @@ export default function FloorPlansPage() {
             viewport={{ once: true }}
             className="text-center py-12 border-t border-white/5"
           >
-            <p className="text-amber font-serif italic text-2xl">Adding more models very soon!</p>
+            <p className="text-amber font-serif italic text-2xl">We are constantly adding new floor plans, so please check back often.</p>
             <div className="mt-4 h-px w-24 bg-amber/20 mx-auto" />
           </motion.div>
         </div>
