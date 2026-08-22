@@ -817,6 +817,26 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "colossian",
+    name: "Colossian",
+    seoTitle: "2,548 Sq Ft 3 Bedroom Log Home Plan | Colossian",
+    seoDescription: "Explore the Colossian, an estimated 2,548 sq ft King's Cabins log home featuring an attached double garage with a massive 520 sq ft bonus family room above it.",
+    secondaryDescriptor: "2,548 Sq. Ft. Three-Bedroom Log Home",
+    sqft: "2,548",
+    squareFeet: 2548,
+    dimensions: "64' × 30'",
+    width: 64,
+    depth: 30,
+    beds: 3,
+    baths: 1.5,
+    stories: 2,
+    category: "log-home",
+    image: "/Colossian.png",
+    floorPlanImage: "/Colossian_plan.png",
+    tagline: "A unique 2,548 square foot layout featuring an attached double garage with a massive 520 sq ft bonus family room built right above it.",
+    featured: false
+  },
+  {
     id: "eagles-nest",
     name: "Eagle's Nest",
     seoTitle: "2,652 Sq Ft 2 Bedroom Log Home Plan | Eagle's Nest",
