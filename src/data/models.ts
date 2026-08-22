@@ -209,6 +209,28 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "first-samuel",
+    name: "First Samuel",
+    seoTitle: "1,196 Sq Ft 2 Bedroom Log Cabin Plan | First Samuel",
+    seoDescription: "Explore the First Samuel, a 1,196 sq ft King's Cabins log home featuring a soaring open-to-below great room and a flexible upstairs loft.",
+    secondaryDescriptor: "1,196 Sq. Ft. Two-Bedroom Log Cabin",
+    sqft: "1,196",
+    squareFeet: 1196,
+    firstFloorSqft: "780",
+    secondFloorSqft: "416",
+    dimensions: "26' × 30'",
+    width: 26,
+    depth: 30,
+    beds: 2,
+    baths: 1,
+    stories: 2,
+    category: "log-home",
+    image: "/FirstSamuel.png",
+    floorPlanImage: "/FirstSamuel_plan.png",
+    tagline: "A classic and efficient 1,196 square foot cabin featuring a soaring open-to-below great room and a flexible upstairs loft.",
+    featured: false
+  },
+  {
     id: "first-thessalonians",
     name: "First Thessalonians",
     seoTitle: "1,200 Sq Ft 3 Bedroom Log Home Plan | First Thessalonians",
