@@ -587,6 +587,28 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "third-john",
+    name: "Third John",
+    seoTitle: "2,030 Sq Ft 3 Bedroom Log Home Plan | Third John",
+    seoDescription: "Explore the Third John, a 2,030 sq ft King's Cabins log home featuring 3 main-floor bedrooms, a large country kitchen, and a spacious loft.",
+    secondaryDescriptor: "2,030 Sq. Ft. Three-Bedroom Log Home",
+    sqft: "2,030",
+    squareFeet: 2030,
+    firstFloorSqft: "1,616",
+    secondFloorSqft: "414",
+    dimensions: "52' × 28'",
+    width: 52,
+    depth: 28,
+    beds: 3,
+    baths: 1.5,
+    stories: 2,
+    category: "log-home",
+    image: "/ThirdJohn.png",
+    floorPlanImage: "/ThirdJohn_plan.png",
+    tagline: "A spacious 2,030 square foot home featuring three main-floor bedrooms, a large country kitchen, and a versatile 414 square foot loft.",
+    featured: false
+  },
+  {
     id: "the-conqueror",
     name: "The Conqueror",
     seoTitle: "2,132 Sq Ft 3 Bedroom Log Home Plan | The Conqueror",
