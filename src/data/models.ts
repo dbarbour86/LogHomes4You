@@ -835,5 +835,25 @@ export const homeModels: HomeModel[] = [
     floorPlanImage: "/EaglesNest_plan.png",
     tagline: "A massive 2,652 square foot, two-bedroom retreat featuring an expansive loft and a unique 108 sq ft 'Love Nest' hideaway.",
     featured: false
+  },
+  {
+    id: "second-john",
+    name: "Second John",
+    seoTitle: "2,704 Sq Ft 3 Bedroom Log Home Plan | Second John",
+    seoDescription: "Explore the Second John, a spectacular 2,704 sq ft King's Cabins log home featuring a T-shape footprint, dual main-floor bedrooms, and a huge open loft area.",
+    secondaryDescriptor: "2,704 Sq. Ft. Three-Bedroom Log Home",
+    sqft: "2,704",
+    squareFeet: 2704,
+    dimensions: "56' × 52'",
+    width: 56,
+    depth: 52,
+    beds: 3,
+    baths: 3,
+    stories: 2,
+    category: "log-home",
+    image: "/SecondJohn.png",
+    floorPlanImage: "/SecondJohn_plan.png",
+    tagline: "A stunning 2,704 square foot cross-shaped home with dual main-floor bedroom suites and an incredible open-to-below second story.",
+    featured: false
   }
 ];
