@@ -629,6 +629,26 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "philippians",
+    name: "Philippians",
+    seoTitle: "2,130 Sq Ft 3 Bedroom Log Home Plan | Philippians",
+    seoDescription: "Explore the Philippians, an estimated 2,130 sq ft King's Cabins two-story log home featuring 3 bedrooms, 2.5 baths, and a massive great room.",
+    secondaryDescriptor: "2,130 Sq. Ft. Three-Bedroom Log Home",
+    sqft: "2,130",
+    squareFeet: 2130,
+    dimensions: "Approx 41' × 26'",
+    width: 41,
+    depth: 26,
+    beds: 3,
+    baths: 2.5,
+    stories: 2,
+    category: "log-home",
+    image: "/Philippians.png",
+    floorPlanImage: "/Philippians_plan.png",
+    tagline: "A classic two-story design providing over 2,100 square feet, a massive great room, and three generous upstairs bedrooms.",
+    featured: false
+  },
+  {
     id: "the-conqueror",
     name: "The Conqueror",
     seoTitle: "2,132 Sq Ft 3 Bedroom Log Home Plan | The Conqueror",
