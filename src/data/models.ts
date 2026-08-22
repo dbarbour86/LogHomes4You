@@ -353,6 +353,28 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "gentleness",
+    name: "Gentleness",
+    seoTitle: "1,676 Sq Ft 3 Bedroom Log Home Plan | Gentleness",
+    seoDescription: "Explore the Gentleness, a 1,676 sq ft King's Cabins 1.5-story log home featuring 3 bedrooms, 2 baths, and extensive covered porches.",
+    secondaryDescriptor: "1,676 Sq. Ft. Three-Bedroom Log Home",
+    sqft: "1,676",
+    squareFeet: 1676,
+    firstFloorSqft: "1,056",
+    secondFloorSqft: "620",
+    dimensions: "44' × 24'",
+    width: 44,
+    depth: 24,
+    beds: 3,
+    baths: 2,
+    stories: 2,
+    category: "log-home",
+    image: "/Gentleness.png",
+    floorPlanImage: "/Gentleness_plan.png",
+    tagline: "A beautifully balanced 1.5-story home offering a private second-floor master suite, an open loft, and wrap-around covered porches.",
+    featured: false
+  },
+  {
     id: "steven",
     name: "Steven",
     seoTitle: "1,728 Sq Ft Log Home Plan | Steven",
