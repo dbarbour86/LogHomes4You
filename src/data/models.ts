@@ -371,6 +371,26 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "the-prosperous",
+    name: "The Prosperous",
+    seoTitle: "1,750 Sq Ft 3 Bedroom Log Home Plan | The Prosperous",
+    seoDescription: "Explore The Prosperous, a 1,750 sq ft King's Cabins single-story log home featuring 3 bedrooms, 2 baths, and an attached two-car garage.",
+    secondaryDescriptor: "1,750 Sq. Ft. Single-Story Log Home",
+    sqft: "1,750",
+    squareFeet: 1750,
+    dimensions: "70' × 40'",
+    width: 70,
+    depth: 40,
+    beds: 3,
+    baths: 2,
+    stories: 1,
+    category: "log-home",
+    image: "/TheProsperous.png",
+    floorPlanImage: "/The Prosperous_plan.png",
+    tagline: "A wide 70-foot single-story footprint offering an attached two-car garage, three bedrooms, and a massive central great room.",
+    featured: false
+  },
+  {
     id: "danny-boy",
     name: "Danny Boy",
     seoTitle: "1,760 Sq Ft 3 Bedroom Log Home Plan | Danny Boy",
