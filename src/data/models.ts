@@ -609,6 +609,26 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "galatians",
+    name: "Galatians",
+    seoTitle: "2,100 Sq Ft 3 Bedroom Log Home Plan | Galatians",
+    seoDescription: "Explore the Galatians, a sprawling 2,100 sq ft King's Cabins L-shaped ranch log home featuring 3 bedrooms, 2 baths, and a massive wrap-around deck.",
+    secondaryDescriptor: "2,100 Sq. Ft. Three-Bedroom Log Home",
+    sqft: "2,100",
+    squareFeet: 2100,
+    dimensions: "62' × 42'",
+    width: 62,
+    depth: 42,
+    beds: 3,
+    baths: 2,
+    stories: 1,
+    category: "log-home",
+    image: "/Galatians.png",
+    floorPlanImage: "/Galatians_plan.png",
+    tagline: "A sprawling L-shaped 2,100 square foot ranch with a grand 25-foot living room and a massive wrap-around deck.",
+    featured: false
+  },
+  {
     id: "the-conqueror",
     name: "The Conqueror",
     seoTitle: "2,132 Sq Ft 3 Bedroom Log Home Plan | The Conqueror",
