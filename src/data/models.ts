@@ -371,6 +371,28 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "danny-boy",
+    name: "Danny Boy",
+    seoTitle: "1,760 Sq Ft 3 Bedroom Log Home Plan | Danny Boy",
+    seoDescription: "Explore the Danny Boy, a 1,760 sq ft King's Cabins two-story log home featuring 3 bedrooms, 1.5 baths, and a sprawling T-shaped layout.",
+    secondaryDescriptor: "1,760 Sq. Ft. Three-Bedroom Log Home",
+    sqft: "1,760",
+    squareFeet: 1760,
+    firstFloorSqft: "880",
+    secondFloorSqft: "880",
+    dimensions: "42' × 24'",
+    width: 42,
+    depth: 24,
+    beds: 3,
+    baths: 1.5,
+    stories: 2,
+    category: "log-home",
+    image: "/DannyBoy.png",
+    floorPlanImage: "/DannyBoy_plan.png",
+    tagline: "A unique T-shaped two-story design providing 1,760 square feet of comfortable living space with a sprawling main-floor layout.",
+    featured: false
+  },
+  {
     id: "the-blessed",
     name: "The Blessed",
     seoTitle: "1,876 Sq Ft 3 Bedroom Log Home Plan | The Blessed",
