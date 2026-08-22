@@ -8,10 +8,11 @@ import { Link } from "react-router-dom";
 import { homeModels } from "../data/models";
 import { filterModels, sortModels, SortType, FilterCriteria } from "../utils/modelFilters";
 import { useSEO } from "../hooks/useSEO";
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 
 export default function FloorPlansPage() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [visibleCount, setVisibleCount] = useState(12);
 
   useSEO({
     title: "Log Home Floor Plans & Cabin Designs | King's Cabins",
@@ -53,6 +54,13 @@ export default function FloorPlansPage() {
     const filtered = filterModels(homeModels, criteria);
     return sortModels(filtered, sortType);
   }, [criteria, sortType]);
+
+  // Reset pagination when filters change
+  useEffect(() => {
+    setVisibleCount(12);
+  }, [criteria, sortType]);
+
+  const visibleModels = filteredModels.slice(0, visibleCount);
 
   return (
     <PageLayout>
@@ -194,42 +202,55 @@ export default function FloorPlansPage() {
                   </Button>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
-                  {filteredModels.map((model, idx) => (
-                    <motion.div
-                      key={model.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: idx * 0.1 }}
-                    >
-                      <Link to={`/floor-plans/${model.id}`} className="group block h-full flex flex-col">
-                        <div className="relative aspect-[4/3] overflow-hidden mb-6 rounded-sm shadow-luxury bg-deep-brown border border-white/5">
-                          <img src={model.image} alt={model.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                          <div className="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                            <Button variant="primary" className="text-xs">VIEW FULL SPECS</Button>
-                          </div>
-                        </div>
-                        <div className="space-y-4 flex-1 flex flex-col justify-between">
-                          <h3 className="text-2xl font-serif text-cream group-hover:text-amber transition-colors">{model.name}</h3>
-                          <div className="flex flex-wrap items-center gap-4 pt-2 border-t border-white/5 mt-auto">
-                            <div className="flex items-center gap-1.5 text-xs text-amber font-medium">
-                              <Maximize2 size={12} />
-                              <span>{model.sqft} SQFT</span>
-                            </div>
-                            <div className="flex items-center gap-1.5 text-xs text-cream/40">
-                              <Bed size={12} />
-                              <span>{model.beds ?? "TBD"} BEDS</span>
-                            </div>
-                            <div className="flex items-center gap-1.5 text-xs text-cream/40">
-                              <Bath size={12} />
-                              <span>{model.baths ?? "TBD"} BATHS</span>
+                <div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+                    {visibleModels.map((model, idx) => (
+                      <motion.div
+                        key={model.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: (idx % 12) * 0.1 }}
+                      >
+                        <Link to={`/floor-plans/${model.id}`} className="group block h-full flex flex-col">
+                          <div className="relative aspect-[4/3] overflow-hidden mb-6 rounded-sm shadow-luxury bg-deep-brown border border-white/5">
+                            <img src={model.image} alt={model.name} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                            <div className="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                              <Button variant="primary" className="text-xs">VIEW FULL SPECS</Button>
                             </div>
                           </div>
-                        </div>
-                      </Link>
-                    </motion.div>
-                  ))}
+                          <div className="space-y-4 flex-1 flex flex-col justify-between">
+                            <h3 className="text-2xl font-serif text-cream group-hover:text-amber transition-colors">{model.name}</h3>
+                            <div className="flex flex-wrap items-center gap-4 pt-2 border-t border-white/5 mt-auto">
+                              <div className="flex items-center gap-1.5 text-xs text-amber font-medium">
+                                <Maximize2 size={12} />
+                                <span>{model.sqft} SQFT</span>
+                              </div>
+                              <div className="flex items-center gap-1.5 text-xs text-cream/40">
+                                <Bed size={12} />
+                                <span>{model.beds ?? "TBD"} BEDS</span>
+                              </div>
+                              <div className="flex items-center gap-1.5 text-xs text-cream/40">
+                                <Bath size={12} />
+                                <span>{model.baths ?? "TBD"} BATHS</span>
+                              </div>
+                            </div>
+                          </div>
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
+                  
+                  {visibleCount < filteredModels.length && (
+                    <div className="text-center mb-20">
+                      <Button 
+                        variant="outline" 
+                        onClick={() => setVisibleCount(prev => prev + 12)}
+                      >
+                        LOAD MORE PLANS
+                      </Button>
+                    </div>
+                  )}
                 </div>
               )}
 
