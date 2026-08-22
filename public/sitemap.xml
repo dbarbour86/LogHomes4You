@@ -101,6 +101,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.kingscabins.com/floor-plans/constance</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.kingscabins.com/floor-plans/first-john</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -132,6 +137,11 @@
   </url>
   <url>
     <loc>https://www.kingscabins.com/floor-plans/romans</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.kingscabins.com/floor-plans/queen-esther</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
