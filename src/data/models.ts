@@ -651,6 +651,26 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "second-corinthians",
+    name: "Second Corinthians",
+    seoTitle: "2,124 Sq Ft 3 Bedroom Log Home Plan | Second Corinthians",
+    seoDescription: "Explore the Second Corinthians, a 2,124 sq ft King's Cabins log home featuring a 90-foot rambling footprint, an attached garage, and dormer bedrooms.",
+    secondaryDescriptor: "2,124 Sq. Ft. Three-Bedroom Log Home",
+    sqft: "2,124",
+    squareFeet: 2124,
+    dimensions: "90' × 28' (with Garage)",
+    width: 90,
+    depth: 28,
+    beds: 3,
+    baths: 2.5,
+    stories: 2,
+    category: "log-home",
+    image: "/SecondCorinthians.png",
+    floorPlanImage: "/SecondCorinthians_plan.png",
+    tagline: "A rambling 2,124 square foot ranch-style design featuring an attached garage, a massive 27-foot living room, and a pair of generous dormer bedrooms.",
+    featured: false
+  },
+  {
     id: "philippians",
     name: "Philippians",
     seoTitle: "2,130 Sq Ft 3 Bedroom Log Home Plan | Philippians",
