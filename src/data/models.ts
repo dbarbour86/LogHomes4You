@@ -735,6 +735,26 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "second-kings",
+    name: "Second Kings",
+    seoTitle: "2,464 Sq Ft 4 Bedroom Log Home Plan | Second Kings",
+    seoDescription: "Explore the Second Kings, a 2,464 sq ft King's Cabins two-story log home featuring 4 bedrooms, 2 baths, and a massive second-floor loft space.",
+    secondaryDescriptor: "2,464 Sq. Ft. Four-Bedroom Log Home",
+    sqft: "2,464",
+    squareFeet: 2464,
+    dimensions: "38' × 28'",
+    width: 38,
+    depth: 28,
+    beds: 4,
+    baths: 2,
+    stories: 2,
+    category: "log-home",
+    image: "/SecondKings.png",
+    floorPlanImage: "/SecondKings_plan.png",
+    tagline: "A massive 2,464 square foot design featuring a spectacular 24' × 28' second-floor bedroom and loft space open to the living room below.",
+    featured: false
+  },
+  {
     id: "the-faithful",
     name: "The Faithful",
     seoTitle: "2,500+ Sq Ft 3 Bedroom Log Home Plan | The Faithful",
