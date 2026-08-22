@@ -188,6 +188,27 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "first-peter",
+    name: "First Peter",
+    seoTitle: "1,064 Sq Ft 2 Bedroom Log Home Plan | First Peter",
+    seoDescription: "Explore the First Peter, a 1,064 sq ft King's Cabins log home featuring 2 bedrooms, 1 bath, and massive front and back covered porches.",
+    secondaryDescriptor: "1,064 Sq. Ft. Two-Bedroom Log Home",
+    sqft: "1,064",
+    squareFeet: 1064,
+    porchSqft: "608",
+    dimensions: "38' × 28'",
+    width: 38,
+    depth: 28,
+    beds: 2,
+    baths: 1,
+    stories: 1,
+    category: "log-home",
+    image: "/FirstPeter.png",
+    floorPlanImage: "/FirstPeter_plan.png",
+    tagline: "A remarkably efficient 1,064 square foot layout that maximizes outdoor living with deep covered porches on both the front and back.",
+    featured: false
+  },
+  {
     id: "first-thessalonians",
     name: "First Thessalonians",
     seoTitle: "1,200 Sq Ft 3 Bedroom Log Home Plan | First Thessalonians",
