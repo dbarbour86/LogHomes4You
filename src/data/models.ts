@@ -393,6 +393,26 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "kristy",
+    name: "Kristy",
+    seoTitle: "1,728 Sq Ft 4 Bedroom Log Home Plan | Kristy",
+    seoDescription: "Explore the Kristy, a 1,728 sq ft King's Cabins single-story ranch log home featuring 4 bedrooms, 2 baths, and dual gathering spaces.",
+    secondaryDescriptor: "1,728 Sq. Ft. Four-Bedroom Log Home",
+    sqft: "1,728",
+    squareFeet: 1728,
+    dimensions: "58' × 32'",
+    width: 58,
+    depth: 32,
+    beds: 4,
+    baths: 2,
+    stories: 1,
+    category: "log-home",
+    image: "/Kristy.png",
+    floorPlanImage: "/Kristy_plan.png",
+    tagline: "A sprawling single-story ranch boasting 1,728 square feet, four bedrooms, and multiple dedicated gathering spaces.",
+    featured: false
+  },
+  {
     id: "the-prosperous",
     name: "The Prosperous",
     seoTitle: "1,750 Sq Ft 3 Bedroom Log Home Plan | The Prosperous",
