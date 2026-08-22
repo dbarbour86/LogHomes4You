@@ -585,5 +585,27 @@ export const homeModels: HomeModel[] = [
     image: "/Luke.png",
     tagline: "A sanctuary of light and praise, where grand windows frame nature's majesty in every season.",
     featured: false
+  },
+  {
+    id: "the-conqueror",
+    name: "The Conqueror",
+    seoTitle: "2,132 Sq Ft 3 Bedroom Log Home Plan | The Conqueror",
+    seoDescription: "Explore The Conqueror, an estimated 2,132 sq ft King's Cabins two-story log home featuring 3 bedrooms, 2 baths, and a striking prow front.",
+    secondaryDescriptor: "2,132 Sq. Ft. Three-Bedroom Log Home",
+    sqft: "2,132",
+    squareFeet: 2132,
+    firstFloorSqft: "1,400",
+    secondFloorSqft: "732",
+    dimensions: "34' × 46'",
+    width: 34,
+    depth: 46,
+    beds: 3,
+    baths: 2,
+    stories: 2,
+    category: "log-home",
+    image: "/TheConqueror.png",
+    floorPlanImage: "/TheConqueror_plan.png",
+    tagline: "A striking two-story prow-front design featuring an expansive wrap-around deck and over 2,100 square feet of living space.",
+    featured: false
   }
 ];
