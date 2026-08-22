@@ -773,5 +773,25 @@ export const homeModels: HomeModel[] = [
     floorPlanImage: "/TheFaithful_plan.png",
     tagline: "A massive, sprawling ranch-style layout with an attached garage, wide open center living area, and a versatile second-floor loft and bonus room.",
     featured: false
+  },
+  {
+    id: "eagles-nest",
+    name: "Eagle's Nest",
+    seoTitle: "2,652 Sq Ft 2 Bedroom Log Home Plan | Eagle's Nest",
+    seoDescription: "Explore the Eagle's Nest, an expansive 2,652 sq ft King's Cabins log home featuring 2 massive bedrooms, a large loft, and a unique 108 sq ft 'Love Nest'.",
+    secondaryDescriptor: "2,652 Sq. Ft. Two-Bedroom Log Home",
+    sqft: "2,652",
+    squareFeet: 2652,
+    firstFloorSqft: "1,508",
+    secondFloorSqft: "1,036",
+    dimensions: "See Blueprint",
+    beds: 2,
+    baths: 2.5,
+    stories: 2,
+    category: "log-home",
+    image: "/EaglesNest.png",
+    floorPlanImage: "/EaglesNest_plan.png",
+    tagline: "A massive 2,652 square foot, two-bedroom retreat featuring an expansive loft and a unique 108 sq ft 'Love Nest' hideaway.",
+    featured: false
   }
 ];
