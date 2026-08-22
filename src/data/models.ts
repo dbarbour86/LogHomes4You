@@ -649,5 +649,27 @@ export const homeModels: HomeModel[] = [
     floorPlanImage: "/TheConqueror_plan.png",
     tagline: "A striking two-story prow-front design featuring an expansive wrap-around deck and over 2,100 square feet of living space.",
     featured: false
+  },
+  {
+    id: "second-timothy",
+    name: "Second Timothy",
+    seoTitle: "2,149 Sq Ft 4 Bedroom Log Home Plan | Second Timothy",
+    seoDescription: "Explore the Second Timothy, a 2,149 sq ft King's Cabins two-story log home featuring 4 bedrooms, 2.5 baths, and a massive first-floor master suite.",
+    secondaryDescriptor: "2,149 Sq. Ft. Four-Bedroom Log Home",
+    sqft: "2,149",
+    squareFeet: 2149,
+    firstFloorSqft: "1,768",
+    secondFloorSqft: "381",
+    dimensions: "47' × 34'",
+    width: 47,
+    depth: 34,
+    beds: 4,
+    baths: 2.5,
+    stories: 2,
+    category: "log-home",
+    image: "/SecondTimothy.png",
+    floorPlanImage: "/SecondTimothy_plan.png",
+    tagline: "A grand 2,149 square foot design centered around a massive cathedral-ceiling living room, featuring a sprawling first-floor master suite.",
+    featured: false
   }
 ];
