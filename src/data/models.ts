@@ -393,6 +393,28 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "ephesians",
+    name: "Ephesians",
+    seoTitle: "1,792 Sq Ft 4 Bedroom Log Home Plan | Ephesians",
+    seoDescription: "Explore the Ephesians, a 1,792 sq ft King's Cabins two-story log home featuring 4 bedrooms, 1.5 baths, and an efficient footprint.",
+    secondaryDescriptor: "1,792 Sq. Ft. Four-Bedroom Log Home",
+    sqft: "1,792",
+    squareFeet: 1792,
+    firstFloorSqft: "896",
+    secondFloorSqft: "896",
+    dimensions: "30' × 32'",
+    width: 30,
+    depth: 32,
+    beds: 4,
+    baths: 1.5,
+    stories: 2,
+    category: "log-home",
+    image: "/Ephesians.png",
+    floorPlanImage: "/Ephesians_plan.png",
+    tagline: "A robust two-story design featuring four bedrooms and expansive gathering areas within a highly efficient 1,792 square foot footprint.",
+    featured: false
+  },
+  {
     id: "the-blessed",
     name: "The Blessed",
     seoTitle: "1,876 Sq Ft 3 Bedroom Log Home Plan | The Blessed",
