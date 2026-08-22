@@ -7,6 +7,7 @@ export interface FilterCriteria {
   minSqFt?: number;
   maxSqFt?: number;
   category?: string;
+  query?: string;
 }
 
 export function filterModels(models: HomeModel[], criteria: FilterCriteria): HomeModel[] {
@@ -17,6 +18,7 @@ export function filterModels(models: HomeModel[], criteria: FilterCriteria): Hom
     if (criteria.minSqFt !== undefined && model.squareFeet < criteria.minSqFt) return false;
     if (criteria.maxSqFt !== undefined && model.squareFeet > criteria.maxSqFt) return false;
     if (criteria.category !== undefined && model.category !== criteria.category) return false;
+    if (criteria.query && !model.name.toLowerCase().includes(criteria.query.toLowerCase())) return false;
     return true;
   });
 }

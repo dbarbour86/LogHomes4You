@@ -33,6 +33,7 @@ export default function FloorPlansPage() {
     const pMinSqFt = searchParams.get("minSqFt");
     const pMaxSqFt = searchParams.get("maxSqFt");
     const pCategory = searchParams.get("category");
+    const pQuery = searchParams.get("q");
 
     return {
       bedrooms: pBedrooms ? parseInt(pBedrooms, 10) : undefined,
@@ -41,6 +42,7 @@ export default function FloorPlansPage() {
       minSqFt: pMinSqFt ? parseInt(pMinSqFt, 10) : undefined,
       maxSqFt: pMaxSqFt ? parseInt(pMaxSqFt, 10) : undefined,
       category: pCategory || undefined,
+      query: pQuery || undefined,
     };
   }, [searchParams]);
 
@@ -77,6 +79,22 @@ export default function FloorPlansPage() {
             
             {/* Filter Sidebar */}
             <div className="w-full lg:w-64 flex-shrink-0 space-y-8 lg:border-r lg:border-white/5 lg:pr-8">
+              <div>
+                <h3 className="text-amber text-[10px] uppercase tracking-[0.3em] font-medium mb-4">Search</h3>
+                <input 
+                  type="text"
+                  placeholder="Search models by name..."
+                  className="w-full bg-deep-brown border border-white/10 px-4 py-3 text-cream text-sm focus:border-amber/50 outline-none placeholder:text-cream/30"
+                  value={searchParams.get("q") || ""}
+                  onChange={(e) => {
+                    const newParams = new URLSearchParams(searchParams);
+                    if (e.target.value) newParams.set("q", e.target.value);
+                    else newParams.delete("q");
+                    setSearchParams(newParams);
+                  }}
+                />
+              </div>
+
               <div>
                 <h3 className="text-amber text-[10px] uppercase tracking-[0.3em] font-medium mb-4">Sort By</h3>
                 <select 
