@@ -552,6 +552,28 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "the-saint",
+    name: "The Saint",
+    seoTitle: "1,900 Sq Ft 2 Bedroom Log Home Plan | The Saint",
+    seoDescription: "Explore The Saint, an estimated 1,900 sq ft King's Cabins 1.5-story log home featuring 2 bedrooms, 2 baths, and a large loft.",
+    secondaryDescriptor: "1,900 Sq. Ft. Two-Bedroom Log Home",
+    sqft: "1,900",
+    squareFeet: 1900,
+    firstFloorSqft: "1,140",
+    secondFloorSqft: "760",
+    dimensions: "38' × 30'",
+    width: 38,
+    depth: 30,
+    beds: 2,
+    baths: 2,
+    stories: 2,
+    category: "log-home",
+    image: "/TheSaint.png",
+    floorPlanImage: "/TheSaint_plan.png",
+    tagline: "A beautifully arranged 1.5-story layout with expansive wrap-around porches, a large loft, and a private second-floor master suite.",
+    featured: false
+  },
+  {
     id: "the-luke",
     name: "The Luke",
     sqft: "1,926",
