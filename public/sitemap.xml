@@ -116,6 +116,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.kingscabins.com/floor-plans/the-believer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.kingscabins.com/floor-plans/derek</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -127,6 +132,11 @@
   </url>
   <url>
     <loc>https://www.kingscabins.com/floor-plans/romans</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.kingscabins.com/floor-plans/the-glory</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
