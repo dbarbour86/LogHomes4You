@@ -196,6 +196,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.kingscabins.com/floor-plans/his-peace</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.kingscabins.com/floor-plans/philippians</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

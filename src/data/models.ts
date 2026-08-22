@@ -629,6 +629,28 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "his-peace",
+    name: "His Peace",
+    seoTitle: "2,108 Sq Ft 3 Bedroom Log Home Plan | His Peace",
+    seoDescription: "Explore His Peace, a 2,108 sq ft King's Cabins log home featuring a 400 sq ft loft, 3 main-floor bedrooms, and a massive attached garage.",
+    secondaryDescriptor: "2,108 Sq. Ft. Three-Bedroom Log Home",
+    sqft: "2,108",
+    squareFeet: 2108,
+    firstFloorSqft: "1,708",
+    secondFloorSqft: "400",
+    dimensions: "Approx 80' × 28' (with Garage)",
+    width: 80,
+    depth: 28,
+    beds: 3,
+    baths: 2,
+    stories: 2,
+    category: "log-home",
+    image: "/HisPeace.png",
+    floorPlanImage: "/HisPeace_plan.png",
+    tagline: "A spacious 2,108 square foot home featuring a massive attached garage, matching front and rear porches, and three main-floor bedrooms.",
+    featured: false
+  },
+  {
     id: "philippians",
     name: "Philippians",
     seoTitle: "2,130 Sq Ft 3 Bedroom Log Home Plan | Philippians",
