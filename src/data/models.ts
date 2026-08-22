@@ -231,6 +231,26 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "first-john",
+    name: "First John",
+    seoTitle: "1,300 Sq Ft 2 Bedroom Log Home Plan | First John",
+    seoDescription: "Explore the First John, an estimated 1,300 sq ft King's Cabins single-story log home featuring 2 bedrooms, 3 baths, and stunning bay windows.",
+    secondaryDescriptor: "1,300 Sq. Ft. Two-Bedroom Log Home",
+    sqft: "1,300",
+    squareFeet: 1300,
+    dimensions: "52' × 28'",
+    width: 52,
+    depth: 28,
+    beds: 2,
+    baths: 3,
+    stories: 1,
+    category: "log-home",
+    image: "/FirstJohn.png",
+    floorPlanImage: "/FirstJohn_plan.png",
+    tagline: "A stunning single-story design featuring a dramatic bay-window living area, cathedral ceilings, and an incredibly luxurious master bath.",
+    featured: false
+  },
+  {
     id: "titus",
     name: "Titus",
     seoTitle: "1,326 Sq Ft 4 Bedroom Log Home Plan | Titus",
