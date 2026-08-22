@@ -691,5 +691,27 @@ export const homeModels: HomeModel[] = [
     floorPlanImage: "/FirstCorinthians_plan.png",
     tagline: "A stately 2,240 square foot home offering highly customizable first-floor living spaces and expansive second-story bedrooms.",
     featured: false
+  },
+  {
+    id: "charity",
+    name: "Charity",
+    seoTitle: "2,337 Sq Ft 3 Bedroom Log Home Plan | Charity",
+    seoDescription: "Explore the Charity, a 2,337 sq ft King's Cabins two-story log home featuring 3 upstairs bedrooms, 2.5 baths, and four distinct main-level living areas.",
+    secondaryDescriptor: "2,337 Sq. Ft. Three-Bedroom Log Home",
+    sqft: "2,337",
+    squareFeet: 2337,
+    firstFloorSqft: "1,249",
+    secondFloorSqft: "1,088",
+    dimensions: "48' × 28'",
+    width: 48,
+    depth: 28,
+    beds: 3,
+    baths: 2.5,
+    stories: 2,
+    category: "log-home",
+    image: "/Charity.png",
+    floorPlanImage: "/Charity_plan.png",
+    tagline: "A generous 2,337 square foot traditional two-story featuring four distinct gathering spaces on the main level and all bedrooms tucked privately upstairs.",
+    featured: false
   }
 ];
