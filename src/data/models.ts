@@ -713,5 +713,25 @@ export const homeModels: HomeModel[] = [
     floorPlanImage: "/Charity_plan.png",
     tagline: "A generous 2,337 square foot traditional two-story featuring four distinct gathering spaces on the main level and all bedrooms tucked privately upstairs.",
     featured: false
+  },
+  {
+    id: "the-faithful",
+    name: "The Faithful",
+    seoTitle: "2,500+ Sq Ft 3 Bedroom Log Home Plan | The Faithful",
+    seoDescription: "Explore The Faithful, an expansive King's Cabins log home featuring an attached garage, 3 main-floor bedrooms, and a huge second-story bonus room.",
+    secondaryDescriptor: "2,500+ Sq. Ft. Three-Bedroom Log Home",
+    sqft: "2,500+",
+    squareFeet: 2500,
+    dimensions: "Approx 90' × 40'",
+    width: 90,
+    depth: 40,
+    beds: 3,
+    baths: 2.5,
+    stories: 2,
+    category: "log-home",
+    image: "/TheFaithful.png",
+    floorPlanImage: "/TheFaithful_plan.png",
+    tagline: "A massive, sprawling ranch-style layout with an attached garage, wide open center living area, and a versatile second-floor loft and bonus room.",
+    featured: false
   }
 ];
