@@ -671,5 +671,25 @@ export const homeModels: HomeModel[] = [
     floorPlanImage: "/SecondTimothy_plan.png",
     tagline: "A grand 2,149 square foot design centered around a massive cathedral-ceiling living room, featuring a sprawling first-floor master suite.",
     featured: false
+  },
+  {
+    id: "first-corinthians",
+    name: "First Corinthians",
+    seoTitle: "2,240 Sq Ft 4 Bedroom Log Home Plan | First Corinthians",
+    seoDescription: "Explore the First Corinthians, a 2,240 sq ft King's Cabins two-story log home featuring 4 bedrooms, 3 baths, and customizable layout options.",
+    secondaryDescriptor: "2,240 Sq. Ft. Four-Bedroom Log Home",
+    sqft: "2,240",
+    squareFeet: 2240,
+    dimensions: "40' × 28'",
+    width: 40,
+    depth: 28,
+    beds: 4,
+    baths: 3,
+    stories: 2,
+    category: "log-home",
+    image: "/FirstCorinthians.png",
+    floorPlanImage: "/FirstCorinthians_plan.png",
+    tagline: "A stately 2,240 square foot home offering highly customizable first-floor living spaces and expansive second-story bedrooms.",
+    featured: false
   }
 ];
