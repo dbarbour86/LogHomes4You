@@ -457,6 +457,28 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "second-samuel",
+    name: "Second Samuel",
+    seoTitle: "1,848 Sq Ft 3 Bedroom Log Home Plan | Second Samuel",
+    seoDescription: "Explore the Second Samuel, a 1,848 sq ft King's Cabins two-story log home featuring 3 bedrooms, 1 bath, and a soaring open-to-below great room.",
+    secondaryDescriptor: "1,848 Sq. Ft. Three-Bedroom Log Home",
+    sqft: "1,848",
+    squareFeet: 1848,
+    firstFloorSqft: "1,232",
+    secondFloorSqft: "616",
+    dimensions: "28' × 44'",
+    width: 28,
+    depth: 44,
+    beds: 3,
+    baths: 1,
+    stories: 2,
+    category: "log-home",
+    image: "/SecondSamuel.png",
+    floorPlanImage: "/SecondSamuel_plan.png",
+    tagline: "A soaring 1,848 square foot layout featuring an open-to-below great room and a versatile second-floor loft and bedroom.",
+    featured: false
+  },
+  {
     id: "the-blessed",
     name: "The Blessed",
     seoTitle: "1,876 Sq Ft 3 Bedroom Log Home Plan | The Blessed",
