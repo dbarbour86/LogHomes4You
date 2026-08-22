@@ -216,6 +216,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.kingscabins.com/floor-plans/saint-james</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.kingscabins.com/floor-plans/the-luke</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -251,12 +256,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.kingscabins.com/floor-plans/first-timothy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.kingscabins.com/floor-plans/second-timothy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.kingscabins.com/floor-plans/first-corinthians</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.kingscabins.com/floor-plans/apostle-paul</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
