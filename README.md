@@ -29,3 +29,5 @@ When you are ready to build a visual filter sidebar for the public:
 
 ### Adding New Cabins
 To add a new cabin model to the website, simply add a new object to the `homeModels` array in `src/data/models.ts`. As long as you fill out the numerical fields (`squareFeet`, `beds`, etc.), the model will automatically be integrated into the hidden filtering system and future metadata counts.
+
+<!-- Deployment trigger -->
