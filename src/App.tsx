@@ -11,6 +11,7 @@ import SmallLogHomesPage from "./pages/SmallLogHomesPage";
 import NationwideLogHomesPage from "./pages/NationwideLogHomesPage";
 import InvestorsPage from "./pages/InvestorsPage";
 import TwoBedroomLogHomesPage from "./pages/TwoBedroomLogHomesPage";
+import ThreeBedroomLogHomesPage from "./pages/ThreeBedroomLogHomesPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import Navbar from "./components/Layout/Navbar";
 import Footer from "./components/Layout/Footer";
@@ -62,6 +63,7 @@ export default function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/floor-plans" element={<FloorPlansPage />} />
           <Route path="/floor-plans/2-bedroom-log-homes" element={<TwoBedroomLogHomesPage />} />
+          <Route path="/floor-plans/3-bedroom-log-homes" element={<ThreeBedroomLogHomesPage />} />
           <Route path="/floor-plans/:modelId" element={<ModelDetailPage />} />
           <Route path="/small-log-homes" element={<SmallLogHomesPage />} />
           <Route path="/nationwide-log-homes" element={<NationwideLogHomesPage />} />

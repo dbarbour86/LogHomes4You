@@ -235,6 +235,7 @@ export default function FloorPlansPage() {
                 <div className="flex flex-col space-y-3">
                   <Link to="/small-log-homes" className="text-sm text-cream/70 hover:text-amber transition-colors">Small Log Homes</Link>
                   <Link to="/floor-plans/2-bedroom-log-homes" className="text-sm text-cream/70 hover:text-amber transition-colors">2 Bedroom Log Homes</Link>
+                  <Link to="/floor-plans/3-bedroom-log-homes" className="text-sm text-cream/70 hover:text-amber transition-colors">3 Bedroom Log Homes</Link>
                 </div>
               </div>
             </div>
