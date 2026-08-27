@@ -7,19 +7,19 @@ import { Link } from "react-router-dom";
 import { homeModels } from "../data/models";
 import { useSEO } from "../hooks/useSEO";
 
-export default function SmallLogHomesPage() {
-  const smallModels = homeModels.filter(m => m.squareFeet < 1000);
+export default function TwoBedroomLogHomesPage() {
+  const twoBedroomModels = homeModels.filter(m => m.beds === 2);
 
   // Schema Generation
   const collectionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Small Log Homes & Floor Plans",
-    "description": "Explore Kings Cabins log home plans under 1,000 square feet.",
-    "url": "https://kingscabins.com/small-log-homes",
+    "name": "2 Bedroom Log Home Plans",
+    "description": "Explore 2 bedroom log home plans from Kings Cabins.",
+    "url": "https://kingscabins.com/floor-plans/2-bedroom-log-homes",
     "mainEntity": {
       "@type": "ItemList",
-      "itemListElement": smallModels.map((m, i) => ({
+      "itemListElement": twoBedroomModels.map((m, i) => ({
         "@type": "ListItem",
         "position": i + 1,
         "url": `https://kingscabins.com/floor-plans/${m.id}`,
@@ -31,7 +31,7 @@ export default function SmallLogHomesPage() {
   const breadcrumbs = [
     { name: "Home", href: "/" },
     { name: "Floor Plans", href: "/floor-plans" },
-    { name: "Small Log Homes", href: "/small-log-homes" },
+    { name: "2 Bedroom Log Home Plans", href: "/floor-plans/2-bedroom-log-homes" },
   ];
 
   const breadcrumbSchema = {
@@ -46,34 +46,34 @@ export default function SmallLogHomesPage() {
   };
 
   useSEO({
-    title: "Small Log Homes & Floor Plans Under 1,000 Sq Ft | Kings Cabins",
-    description: "Explore small log home plans from Kings Cabins. This collection contains log cabin floor plans under 1,000 sq ft.",
-    url: "https://kingscabins.com/small-log-homes",
+    title: "2 Bedroom Log Home Plans & Floor Plans | Kings Cabins",
+    description: "Explore 2 bedroom log home plans from Kings Cabins. Compare square footage, dimensions, bathrooms and available floor plans across the two-bedroom collection.",
+    url: "https://kingscabins.com/floor-plans/2-bedroom-log-homes",
     structuredData: [collectionSchema, breadcrumbSchema]
   });
 
   return (
     <PageLayout>
       <InnerHero 
-        title="Small Log Homes & Floor Plans"
-        subtitle="This collection contains Kings Cabins models under 1,000 square feet. Smaller footprints can provide options for buyers specifically seeking less square footage. Compare bedroom counts, dimensions, exterior images, and floor plans where available."
-        image="/FirstChronicles.png"
+        title="2 Bedroom Log Home Plans"
+        subtitle="This collection gathers Kings Cabins models with two verified bedrooms into one place for easier comparison. Model specifications such as square footage, bathroom count, dimensions and floor-plan imagery are displayed where available."
+        image="/Acts.png"
         breadcrumbs={breadcrumbs}
       />
 
       <section className="py-24 bg-charcoal">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-12 border-b border-white/5 pb-8">
-            <h2 className="text-2xl font-serif text-cream">Explore {smallModels.length} Kings Cabins log home plans under 1,000 square feet.</h2>
+            <h2 className="text-2xl font-serif text-cream">Explore {twoBedroomModels.length} Kings Cabins 2 bedroom log cabin plans.</h2>
             <div className="flex items-center gap-4">
-              <Link to="/floor-plans/2-bedroom-log-homes" className="text-sm text-cream/70 hover:text-amber transition-colors">
-                View 2 Bedroom Log Homes &rarr;
+              <Link to="/small-log-homes" className="text-sm text-cream/70 hover:text-amber transition-colors">
+                View Small Log Homes &rarr;
               </Link>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
-            {smallModels.map((model, idx) => (
+            {twoBedroomModels.map((model, idx) => (
               <motion.div
                 key={model.id}
                 initial={{ opacity: 0, y: 20 }}

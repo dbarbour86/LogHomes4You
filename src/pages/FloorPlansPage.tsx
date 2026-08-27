@@ -14,16 +14,46 @@ export default function FloorPlansPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [visibleCount, setVisibleCount] = useState(12);
 
-  useSEO({
-    title: "Log Home Floor Plans & Cabin Designs | King's Cabins",
-    description: "King's Cabins offers log-home floor plans ranging from efficient smaller homes to larger traditional log homes. Customizable and available nationwide.",
-    url: "https://kingscabins.com/floor-plans"
-  });
+  // Schema Generation
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Log Home Floor Plans",
+    "description": "Explore the Kings Cabins collection of log home floor plans.",
+    "url": "https://kingscabins.com/floor-plans",
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": homeModels.map((m, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "url": `https://kingscabins.com/floor-plans/${m.id}`,
+        "name": m.name
+      }))
+    }
+  };
 
   const breadcrumbs = [
     { name: "Home", href: "/" },
     { name: "Floor Plans", href: "/floor-plans" },
   ];
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((b, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": b.name,
+      "item": `https://kingscabins.com${b.href === '/' ? '' : b.href}`
+    }))
+  };
+
+  useSEO({
+    title: "Log Home Floor Plans & Cabin Plans | Kings Cabins",
+    description: "Explore the Kings Cabins collection of log home floor plans. Compare sizes, bedroom counts, layouts, and exterior imagery.",
+    url: "https://kingscabins.com/floor-plans",
+    structuredData: [collectionSchema, breadcrumbSchema]
+  });
 
   // Parse filters from URL
   const criteria: FilterCriteria = useMemo(() => {
@@ -68,7 +98,7 @@ export default function FloorPlansPage() {
     <PageLayout>
       <InnerHero 
         title="Log Home Floor Plans"
-        subtitle="King's Cabins offers log-home floor plans ranging from efficient smaller homes to larger traditional log homes. Customers can begin with an existing design and speak with King's Cabins about available customization. King's can sell, ship and build homes throughout the United States."
+        subtitle="Explore the Kings Cabins collection of log home floor plans. Our catalog ranges from efficient smaller footprints to larger estate cabins. Individual model pages provide available specifications and floor-plan imagery to help you compare layouts."
         image="/Philippians.png"
         breadcrumbs={breadcrumbs}
       />
@@ -198,6 +228,15 @@ export default function FloorPlansPage() {
               >
                 RESET FILTERS
               </Button>
+
+              {/* Collections Navigation */}
+              <div className="pt-8 border-t border-white/5">
+                <h3 className="text-amber text-[10px] uppercase tracking-[0.3em] font-medium mb-4">Collections</h3>
+                <div className="flex flex-col space-y-3">
+                  <Link to="/small-log-homes" className="text-sm text-cream/70 hover:text-amber transition-colors">Small Log Homes</Link>
+                  <Link to="/floor-plans/2-bedroom-log-homes" className="text-sm text-cream/70 hover:text-amber transition-colors">2 Bedroom Log Homes</Link>
+                </div>
+              </div>
             </div>
 
             {/* Main Content */}
@@ -232,7 +271,7 @@ export default function FloorPlansPage() {
                       >
                         <Link to={`/floor-plans/${model.id}`} className="group block h-full flex flex-col">
                           <div className="relative aspect-[4/3] overflow-hidden mb-6 rounded-sm shadow-luxury bg-deep-brown border border-white/5">
-                            <img src={model.image} alt={model.name} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                            <img src={model.image} alt={`${model.name} log home exterior`} loading={idx < 4 ? "eager" : "lazy"} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                             <div className="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                               <Button variant="primary" className="text-xs">VIEW FULL SPECS</Button>
                             </div>
@@ -285,7 +324,7 @@ export default function FloorPlansPage() {
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="max-w-4xl mx-auto p-12 md:p-20 border border-amber/20 bg-charcoal shadow- luxury relative"
+              className="max-w-4xl mx-auto p-12 md:p-20 border border-amber/20 bg-charcoal shadow-luxury relative"
             >
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-espresso border border-amber/20 px-6 py-2">
                     <span className="text-[10px] uppercase tracking-[0.4em] text-amber">TRUE BESPOKE</span>
