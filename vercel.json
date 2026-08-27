@@ -14,17 +14,12 @@
       "permanent": true
     },
     {
-      "source": "/about-us/?",
+      "source": "/about-us",
       "destination": "/about",
       "permanent": true
     },
     {
-      "source": "/contact/?",
-      "destination": "/contact",
-      "permanent": true
-    },
-    {
-      "source": "/matthew/?",
+      "source": "/matthew",
       "destination": "/floor-plans/the-matthew",
       "permanent": true
     }
