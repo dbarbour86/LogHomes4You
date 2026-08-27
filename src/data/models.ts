@@ -1143,5 +1143,26 @@ export const homeModels: HomeModel[] = [
     floorPlanImage: "/Hebrews_plan.png",
     tagline: "A spacious two-story log home featuring three bedrooms, two baths, open-concept living, and a welcoming covered porch.",
     featured: false
+  },
+  {
+    id: "revelation",
+    name: "Revelation",
+    seoTitle: "4,307 Sq Ft 4 Bedroom Log Home Plan | Revelation",
+    seoDescription: "Explore the Revelation, a 4,307 sq ft Kings Cabins 2-story log home featuring 4 bedrooms, 2.5 baths, dramatic living space, and an attached garage/workshop.",
+    sqft: "4,307",
+    squareFeet: 4307,
+    firstFloorSqft: "2,707",
+    secondFloorSqft: "1,600",
+    dimensions: "74' × 60' (overall)",
+    width: 74,
+    depth: 60,
+    beds: 4,
+    baths: 2.5,
+    stories: 2,
+    category: "log-home",
+    image: "/Revelation.png",
+    floorPlanImage: "/Revelation_plan.png",
+    tagline: "An expansive two-story log home featuring four bedrooms, dramatic cathedral-ceiling living space, multiple gathering areas, and an attached garage and workshop.",
+    featured: false
   }
 ];
