@@ -1223,5 +1223,24 @@ export const homeModels: HomeModel[] = [
     floorPlanImage: "/TheTruthful_plan.png",
     tagline: "A spacious two-story log home featuring three bedrooms, a dramatic open great room, private primary suite, and expansive outdoor living spaces.",
     featured: false
+  },
+  {
+    id: "sandy-t",
+    name: "Sandy T",
+    seoTitle: "1,768 Sq Ft 3 Bedroom Log Home Plan | Sandy T",
+    seoDescription: "Explore the Sandy T, a 1,768 sq ft Kings Cabins 3-level log home featuring 3 bedrooms, 3 baths, an expansive upper loft, and generous deck space.",
+    sqft: "1,768",
+    squareFeet: 1768,
+    dimensions: "26' × 24'",
+    width: 26,
+    depth: 24,
+    beds: 3,
+    baths: 3,
+    stories: 3,
+    category: "log-home",
+    image: "/SandyT.png",
+    floorPlanImage: "/SandyT_plan.png",
+    tagline: "A distinctive three-level log home featuring three bedrooms, an expansive upper loft, open-concept living, and generous outdoor deck space.",
+    featured: false
   }
 ];
