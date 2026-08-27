@@ -1124,5 +1124,24 @@ export const homeModels: HomeModel[] = [
     floorPlanImage: "/SaintJohn_plan.png",
     tagline: "A spacious three-bedroom log home with open living, a full-length covered porch, and attached garage.",
     featured: false
+  },
+  {
+    id: "hebrews",
+    name: "Hebrews",
+    seoTitle: "1,596 Sq Ft 3 Bedroom Log Home Plan | Hebrews",
+    seoDescription: "Explore the Hebrews, a 1,596 sq ft Kings Cabins 2-story log home featuring 3 bedrooms, 2 baths, open-concept living, and a welcoming covered porch.",
+    sqft: "1,596",
+    squareFeet: 1596,
+    dimensions: "32' × 24' main footprint + 10' × 6' extension",
+    width: 32,
+    depth: 30,
+    beds: 3,
+    baths: 2,
+    stories: 2,
+    category: "log-home",
+    image: "/Hebrews.png",
+    floorPlanImage: "/Hebrews_plan.png",
+    tagline: "A spacious two-story log home featuring three bedrooms, two baths, open-concept living, and a welcoming covered porch.",
+    featured: false
   }
 ];
