@@ -87,6 +87,28 @@ export const homeModels: HomeModel[] = [
     featured: false
   },
   {
+    id: "little-jude",
+    name: "Little Jude",
+    seoTitle: "550 Sq Ft 1 Bedroom Log Cabin Plan | Little Jude",
+    seoDescription: "Explore Little Jude, a 550 sq ft King's Cabins log cabin featuring a main-floor bedroom, a sleeping loft, and a covered front porch.",
+    secondaryDescriptor: "550 Sq. Ft. One-Bedroom Log Cabin",
+    sqft: "550",
+    squareFeet: 550,
+    firstFloorSqft: "360",
+    secondFloorSqft: "190",
+    dimensions: "20' × 18'",
+    width: 20,
+    depth: 18,
+    beds: 1,
+    baths: 1,
+    stories: 2,
+    category: "log-cabin",
+    image: "/LittleJude.png",
+    floorPlanImage: "/LittleJude_plan.png",
+    tagline: "An adorable and highly efficient 550 square foot cabin featuring a main-floor bedroom, a spacious sleeping loft, and a covered front porch.",
+    featured: false
+  },
+  {
     id: "second-chronicles",
     name: "Second Chronicles",
     seoTitle: "660 Sq Ft 2 Bedroom Log Home Plan | Second Chronicles",
