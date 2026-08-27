@@ -1204,5 +1204,24 @@ export const homeModels: HomeModel[] = [
     floorPlanImage: "/FirstKings_plan.png",
     tagline: "A spacious three-bedroom log home featuring an open living and dining area, private primary suite, and generous wraparound porch and deck.",
     featured: false
+  },
+  {
+    id: "the-truthful",
+    name: "The Truthful",
+    seoTitle: "2,782 Sq Ft 3 Bedroom Log Home Plan | The Truthful",
+    seoDescription: "Explore The Truthful, a 2,782 sq ft Kings Cabins 2-story log home featuring 3 bedrooms, 2.5 baths, a dramatic open great room, and expansive outdoor living spaces.",
+    sqft: "2,782",
+    squareFeet: 2782,
+    dimensions: "56' × 28'",
+    width: 56,
+    depth: 28,
+    beds: 3,
+    baths: 2.5,
+    stories: 2,
+    category: "log-home",
+    image: "/TheTruthful.png",
+    floorPlanImage: "/TheTruthful_plan.png",
+    tagline: "A spacious two-story log home featuring three bedrooms, a dramatic open great room, private primary suite, and expansive outdoor living spaces.",
+    featured: false
   }
 ];
