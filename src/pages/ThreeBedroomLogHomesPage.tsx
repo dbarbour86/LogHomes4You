@@ -57,7 +57,7 @@ export default function ThreeBedroomLogHomesPage() {
       <InnerHero 
         title="3 Bedroom Log Home Plans"
         subtitle="This collection centralizes all Kings Cabins models featuring three verified bedrooms into a single catalog. Review existing specifications—such as square footage, bathroom counts, exterior designs, and overall dimensions—to evaluate options that meet your size requirements."
-        image="/Ecclesiastes.png"
+        image="/ApostlePaul.png"
         breadcrumbs={breadcrumbs}
       />
 
