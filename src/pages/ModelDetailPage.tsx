@@ -24,8 +24,7 @@ export default function ModelDetailPage() {
   const autoTitle = `${model.name} — ${model.sqft} Sq Ft ${bedsText}Log Home | Kings Cabins`;
   const finalTitle = model.seoTitle || autoTitle;
 
-  // Generate Meta Description
-  const autoDesc = `Explore the ${model.name} floor plan. A ${model.sqft} square foot log home featuring ${model.beds ? model.beds + ' bedrooms' : 'genuine log construction'} and luxury craftsmanship from Kings Cabins.`;
+  const autoDesc = `Explore the ${model.name}, a ${model.squareFeet} sq ft log home floor plan${model.beds ? ` with ${model.beds} bedroom${model.beds > 1 ? 's' : ''}` : ''}${model.baths ? ` and ${model.baths} bathroom${model.baths > 1 ? 's' : ''}` : ''} from Kings Cabins.`;
   const finalDesc = model.seoDescription || autoDesc;
 
   // Schema Generation
@@ -222,9 +221,8 @@ export default function ModelDetailPage() {
                 {model.tagline}
               </p>
               <p className="text-cream/70 text-lg font-light leading-relaxed mb-8 text-left sm:text-center">
-                The {model.name} is a {model.squareFeet}-square-foot log home plan {model.beds ? `featuring ${model.beds} bedroom${model.beds > 1 ? 's' : ''}` : ''} {model.baths ? `and ${model.baths} bathroom${model.baths > 1 ? 's' : ''}` : ''}.
-                {model.dimensions ? ` Its ${model.dimensions} footprint provides a well-considered layout.` : ''}
-                {model.stories ? ` The home is designed with ${model.stories} stor${model.stories > 1 ? 'ies' : 'y'}.` : ''}
+                The {model.name} is a {model.squareFeet}-square-foot log home plan {model.beds ? `with ${model.beds} bedroom${model.beds > 1 ? 's' : ''}` : ''} {model.baths ? `and ${model.baths} bathroom${model.baths > 1 ? 's' : ''}` : ''}{model.dimensions ? `, built within a ${model.dimensions} footprint` : ''}.
+                {model.stories ? ` The home features ${model.stories} stor${model.stories > 1 ? 'ies' : 'y'}.` : ''}
                 
                 {model.name === "First Chronicles" && " This design maximizes every square inch, providing a full-featured living experience wrapped in robust, hand-crafted logs."}
                 {model.name === "Second Chronicles" && " With an expansive open-concept living area and carefully placed bedrooms, this model offers breathing room and natural flow."}
