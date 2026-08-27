@@ -1183,5 +1183,26 @@ export const homeModels: HomeModel[] = [
     floorPlanImage: "/Petra_plan.png",
     tagline: "A spacious three-bedroom log home featuring dramatic A-frame windows, an open living area, private primary suite, and cozy loft.",
     featured: false
+  },
+  {
+    id: "first-kings",
+    name: "First Kings",
+    seoTitle: "1,664 Sq Ft 3 Bedroom Log Home Plan | First Kings",
+    seoDescription: "Explore the First Kings, a 1,664 sq ft Kings Cabins 1-story log home featuring 3 bedrooms, 2 baths, open living area, and a generous wraparound porch.",
+    sqft: "1,664",
+    squareFeet: 1664,
+    firstFloorSqft: "1,664",
+    porchSqft: "274",
+    dimensions: "40' × 42'",
+    width: 40,
+    depth: 42,
+    beds: 3,
+    baths: 2,
+    stories: 1,
+    category: "log-home",
+    image: "/FirstKings.png",
+    floorPlanImage: "/FirstKings_plan.png",
+    tagline: "A spacious three-bedroom log home featuring an open living and dining area, private primary suite, and generous wraparound porch and deck.",
+    featured: false
   }
 ];
