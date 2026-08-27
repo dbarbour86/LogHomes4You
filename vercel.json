@@ -25,6 +25,7 @@
     }
   ],
   "rewrites": [
+    { "source": "/(wp-includes|wp-content|wp-admin|wp-json|wp-login|xmlrpc|cgi-bin)(.*)", "destination": "/404.html" },
     { "source": "/(.*)", "destination": "/index" }
   ]
 }
