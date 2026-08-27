@@ -12,7 +12,7 @@ export default function ProcessPage() {
   useSEO({
     title: "Log Home Building Process | King's Cabins",
     description: "Discover the step-by-step process of planning, designing, and building your custom log home with King's Cabins. We serve customers nationwide.",
-    url: "https://www.kingscabins.com/process"
+    url: "https://kingscabins.com/process"
   });
 
   const breadcrumbs = [

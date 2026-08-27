@@ -17,7 +17,7 @@ export default function FloorPlansPage() {
   useSEO({
     title: "Log Home Floor Plans & Cabin Designs | King's Cabins",
     description: "King's Cabins offers log-home floor plans ranging from efficient smaller homes to larger traditional log homes. Customizable and available nationwide.",
-    url: "https://www.kingscabins.com/floor-plans"
+    url: "https://kingscabins.com/floor-plans"
   });
 
   const breadcrumbs = [

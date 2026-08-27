@@ -10,6 +10,7 @@ import ModelDetailPage from "./pages/ModelDetailPage";
 import SmallLogHomesPage from "./pages/SmallLogHomesPage";
 import NationwideLogHomesPage from "./pages/NationwideLogHomesPage";
 import InvestorsPage from "./pages/InvestorsPage";
+import NotFoundPage from "./pages/NotFoundPage";
 import Navbar from "./components/Layout/Navbar";
 import Footer from "./components/Layout/Footer";
 import { motion } from "motion/react";
@@ -66,6 +67,7 @@ export default function App() {
           <Route path="/process" element={<ProcessPage />} />
           <Route path="/package" element={<SuperiorPackagePage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
     </Router>

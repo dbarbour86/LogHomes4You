@@ -7,9 +7,10 @@ interface SEOProps {
   url?: string;
   type?: string;
   structuredData?: any;
+  noindex?: boolean;
 }
 
-export function useSEO({ title, description, image, url, type = "website", structuredData }: SEOProps) {
+export function useSEO({ title, description, image, url, type = "website", structuredData, noindex = false }: SEOProps) {
   useEffect(() => {
     document.title = title;
 
@@ -63,5 +64,12 @@ export function useSEO({ title, description, image, url, type = "website", struc
       if (script) script.remove();
     }
 
-  }, [title, description, image, url, type, structuredData]);
+    if (noindex) {
+      setMeta('robots', 'noindex, nofollow');
+    } else {
+      const robots = document.querySelector('meta[name="robots"]');
+      if (robots) robots.remove();
+    }
+
+  }, [title, description, image, url, type, structuredData, noindex]);
 }

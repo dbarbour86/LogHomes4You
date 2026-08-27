@@ -22,13 +22,13 @@ export default function ModelDetailPage() {
   useSEO({
     title: model.seoTitle || `${model.name} ${model.sqft} Sq Ft Log Home | King's Cabins`,
     description: model.seoDescription || `Explore the ${model.name}, a King's Cabins log home featuring ${model.sqft} sq ft, genuine log construction, and luxury craftsmanship.`,
-    image: `https://www.kingscabins.com${model.image}`,
-    url: `https://www.kingscabins.com/floor-plans/${model.id}`,
+    image: `https://kingscabins.com${model.image}`,
+    url: `https://kingscabins.com/floor-plans/${model.id}`,
     structuredData: {
       "@context": "https://schema.org",
       "@type": "Product",
       "name": `King's Cabins ${model.name}`,
-      "image": `https://www.kingscabins.com${model.image}`,
+      "image": `https://kingscabins.com${model.image}`,
       "description": model.seoDescription || `Explore the ${model.name}, a King's Cabins log home featuring ${model.sqft} sq ft.`,
       "brand": {
         "@type": "Brand",

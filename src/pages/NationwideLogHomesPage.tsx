@@ -9,7 +9,7 @@ export default function NationwideLogHomesPage() {
   useSEO({
     title: "Log Homes Shipped & Built Nationwide | King's Cabins",
     description: "King's Cabins works with customers throughout the United States. Explore our log home packages, nationwide shipping, and construction options.",
-    url: "https://www.kingscabins.com/nationwide-log-homes"
+    url: "https://kingscabins.com/nationwide-log-homes"
   });
 
   const breadcrumbs = [

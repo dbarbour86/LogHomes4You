@@ -11,7 +11,7 @@ export default function SmallLogHomesPage() {
   useSEO({
     title: "Small Log Homes & Floor Plans Under 1,000 Sq Ft | King's Cabins",
     description: "Explore genuine King's Cabins log homes designed around more efficient footprints. Discover smaller floor plans, pricing, and nationwide availability.",
-    url: "https://www.kingscabins.com/small-log-homes"
+    url: "https://kingscabins.com/small-log-homes"
   });
 
   const breadcrumbs = [

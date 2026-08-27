@@ -10,7 +10,7 @@ export default function InvestorsPage() {
   useSEO({
     title: "Investors & Strategic Partners | King's Cabins",
     description: "King's Cabins is exploring relationships with qualified investors and strategic partners as we build the next chapter of our nationwide log-home business.",
-    url: "https://www.kingscabins.com/investors"
+    url: "https://kingscabins.com/investors"
   });
 
   const featuredModelsIds = ["first-chronicles", "second-chronicles", "second-peter", "jude"];

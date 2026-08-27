@@ -19,7 +19,7 @@ export default function HomePage() {
   useSEO({
     title: "Log Homes, Floor Plans & Packages | King's Cabins",
     description: "Explore handcrafted King's Cabins log homes, floor plans and building packages. Choose from proven designs or customize your home. Available nationwide.",
-    url: "https://www.kingscabins.com/"
+    url: "https://kingscabins.com/"
   });
 
   const handleGuideSubmit = async (e: React.FormEvent) => {

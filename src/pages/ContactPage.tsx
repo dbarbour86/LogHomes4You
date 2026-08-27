@@ -10,7 +10,7 @@ export default function ContactPage() {
   useSEO({
     title: "Contact King's Cabins | Build Your Log Home",
     description: "Contact King's Cabins to discuss your log home project, request a quote, or learn about our nationwide shipping and construction options.",
-    url: "https://www.kingscabins.com/contact"
+    url: "https://kingscabins.com/contact"
   });
 
   const breadcrumbs = [

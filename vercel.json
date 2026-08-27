@@ -1,4 +1,34 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.kingscabins.com"
+        }
+      ],
+      "destination": "https://kingscabins.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/?",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/contact/?",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/matthew/?",
+      "destination": "/floor-plans/the-matthew",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]

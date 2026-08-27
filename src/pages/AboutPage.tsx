@@ -10,7 +10,7 @@ export default function AboutPage() {
   useSEO({
     title: "Our Story & Log Home Heritage | King's Cabins",
     description: "Learn about the heritage, craftsmanship, and faith behind King's Cabins log homes. Building legacy mountain retreats nationwide.",
-    url: "https://www.kingscabins.com/about"
+    url: "https://kingscabins.com/about"
   });
 
   const breadcrumbs = [
