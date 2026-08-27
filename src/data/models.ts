@@ -1164,5 +1164,24 @@ export const homeModels: HomeModel[] = [
     floorPlanImage: "/Revelation_plan.png",
     tagline: "An expansive two-story log home featuring four bedrooms, dramatic cathedral-ceiling living space, multiple gathering areas, and an attached garage and workshop.",
     featured: false
+  },
+  {
+    id: "petra",
+    name: "Petra",
+    seoTitle: "1,488 Sq Ft 3 Bedroom Log Home Plan | Petra",
+    seoDescription: "Explore the Petra, a 1,488 sq ft Kings Cabins 1.5-story log home featuring 3 bedrooms, 2 baths, dramatic A-frame windows, and a cozy loft.",
+    sqft: "1,488",
+    squareFeet: 1488,
+    dimensions: "50' × 32'",
+    width: 50,
+    depth: 32,
+    beds: 3,
+    baths: 2,
+    stories: 1.5,
+    category: "log-home",
+    image: "/Petra.png",
+    floorPlanImage: "/Petra_plan.png",
+    tagline: "A spacious three-bedroom log home featuring dramatic A-frame windows, an open living area, private primary suite, and cozy loft.",
+    featured: false
   }
 ];
