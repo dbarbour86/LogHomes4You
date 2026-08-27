@@ -272,15 +272,7 @@ export default function FloorPlansPage() {
                 </div>
               )}
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="text-center py-12 border-t border-white/5 mt-12"
-              >
-                <p className="text-amber font-serif italic text-2xl">We are constantly adding new floor plans, so please check back often.</p>
-                <div className="mt-4 h-px w-24 bg-amber/20 mx-auto" />
-              </motion.div>
+
             </div>
           </div>
         </div>
