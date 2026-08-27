@@ -1105,5 +1105,24 @@ export const homeModels: HomeModel[] = [
     floorPlanImage: "/SecondJohn_plan.png",
     tagline: "A stunning 2,704 square foot cross-shaped home with dual main-floor bedroom suites and an incredible open-to-below second story.",
     featured: false
+  },
+  {
+    id: "saint-john",
+    name: "Saint John",
+    seoTitle: "1,248 Sq Ft 3 Bedroom Log Home Plan | Saint John",
+    seoDescription: "Explore the Saint John, a 1,248 sq ft Kings Cabins 1-story log home featuring 3 bedrooms, 1 bath, a full-length covered porch, and an attached garage.",
+    sqft: "1,248",
+    squareFeet: 1248,
+    dimensions: "62' × 26' (overall)",
+    width: 62,
+    depth: 26,
+    beds: 3,
+    baths: 1,
+    stories: 1,
+    category: "log-home",
+    image: "/SaintJohn.png",
+    floorPlanImage: "/SaintJohn_plan.png",
+    tagline: "A spacious three-bedroom log home with open living, a full-length covered porch, and attached garage.",
+    featured: false
   }
 ];
