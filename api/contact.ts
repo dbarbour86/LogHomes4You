@@ -39,7 +39,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     
     const { data, error } = await resend.emails.send({
       from: 'Kings Cabins <onboarding@resend.dev>',
-      to: ['derek.barbour@gmail.com'], 
+      to: ['dannyturner09@gmail.com'], 
       subject: subject,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #333; line-height: 1.6;">
