@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import Hero from "../components/Home/Hero";
+import DreamHomeLayaway from "../components/Home/DreamHomeLayaway";
 import OurStory from "../components/Home/OurStory";
 import FeaturedModels from "../components/Home/FeaturedModels";
 import Process from "../components/Home/Process";
@@ -57,6 +58,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <DreamHomeLayaway />
       
       {/* Trust Bar & Nationwide Notice */}
       <section className="py-12 bg-charcoal border-b border-white/5">
