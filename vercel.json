@@ -3,7 +3,32 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/(.*)",
+      "source": "/index.html",
+      "destination": "https://kingscabins.com/",
+      "permanent": true
+    },
+    {
+      "source": "/home",
+      "destination": "https://kingscabins.com/",
+      "permanent": true
+    },
+    {
+      "source": "/home/",
+      "destination": "https://kingscabins.com/",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "https://kingscabins.com/about",
+      "permanent": true
+    },
+    {
+      "source": "/matthew",
+      "destination": "https://kingscabins.com/floor-plans/the-matthew",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)\\.html",
       "has": [
         {
           "type": "host",
@@ -14,18 +39,19 @@
       "permanent": true
     },
     {
-      "source": "/about-us",
-      "destination": "/about",
-      "permanent": true
-    },
-    {
-      "source": "/matthew",
-      "destination": "/floor-plans/the-matthew",
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.kingscabins.com"
+        }
+      ],
+      "destination": "https://kingscabins.com/$1",
       "permanent": true
     }
   ],
   "rewrites": [
-    { "source": "/(wp-includes|wp-content|wp-admin|wp-json|wp-login|xmlrpc|cgi-bin)(.*)", "destination": "/404.html" },
+    { "source": "/(wp-includes|wp-content|wp-admin|wp-json|wp-login|xmlrpc|cgi-bin)(.*)", "destination": "/api/gone" },
     { "source": "/(.*)", "destination": "/index" }
   ]
 }

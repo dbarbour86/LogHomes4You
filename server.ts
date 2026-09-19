@@ -25,6 +25,16 @@ async function startServer() {
     }
   });
 
+  app.all("/api/gone", async (req, res) => {
+    try {
+      const { default: goneHandler } = await import("./api/gone.js");
+      await goneHandler(req as any, res as any);
+    } catch (err) {
+      console.error("Failed to execute gone handler:", err);
+      res.status(500).json({ success: false, message: "Internal server error" });
+    }
+  });
+
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({

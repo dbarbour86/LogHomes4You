@@ -92,6 +92,12 @@ const optionalItems = [
 ];
 
 export default function SuperiorPackagePage() {
+  useSEO({
+    title: "The Superior Package | King's Cabins Log Home Kits",
+    description: "Explore King's Cabins Superior Package - the most complete log home kit in the industry. Everything you need to turn vision into reality.",
+    url: "https://kingscabins.com/package"
+  });
+
   const breadcrumbs = [
     { name: "Home", href: "/" },
     { name: "Superior Package", href: "/package" },
