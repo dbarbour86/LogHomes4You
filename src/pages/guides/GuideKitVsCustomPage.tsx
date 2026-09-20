@@ -20,20 +20,20 @@ export default function GuideKitVsCustomPage() {
     "author": {
       "@type": "Organization",
       "name": "Log Homes 4 You",
-      "url": "https://www.loghomes4you.com"
+      "url": "https://loghomes4you.com"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Log Homes 4 You",
-      "url": "https://www.loghomes4you.com"
+      "url": "https://loghomes4you.com"
     },
-    "mainEntityOfPage": "https://www.loghomes4you.com/guides/log-home-kit-vs-custom-build"
+    "mainEntityOfPage": "https://loghomes4you.com/guides/log-home-kit-vs-custom-build"
   };
 
   useSEO({
     title: "Log Home Kit vs. Custom Build: What's the Difference? | Log Homes 4 You",
     description: "Compare pre-cut manufactured log home packages with full custom builds. Learn the pros, cons, cost predictability, timelines, and when each approach makes sense.",
-    url: "https://www.loghomes4you.com/guides/log-home-kit-vs-custom-build",
+    url: "https://loghomes4you.com/guides/log-home-kit-vs-custom-build",
     type: "article",
     structuredData: articleSchema,
   });

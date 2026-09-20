@@ -20,20 +20,20 @@ export default function GuideCostPage() {
     "author": {
       "@type": "Organization",
       "name": "Log Homes 4 You",
-      "url": "https://www.loghomes4you.com"
+      "url": "https://loghomes4you.com"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Log Homes 4 You",
-      "url": "https://www.loghomes4you.com"
+      "url": "https://loghomes4you.com"
     },
-    "mainEntityOfPage": "https://www.loghomes4you.com/guides/how-much-does-a-log-home-cost"
+    "mainEntityOfPage": "https://loghomes4you.com/guides/how-much-does-a-log-home-cost"
   };
 
   useSEO({
     title: "How Much Does a Log Home Cost? Real Budget Factors | Log Homes 4 You",
     description: "Understand the real cost of building a log home. Learn why materials packages are only one component of total turnkey expenses, and explore site prep, foundation, and labor variables.",
-    url: "https://www.loghomes4you.com/guides/how-much-does-a-log-home-cost",
+    url: "https://loghomes4you.com/guides/how-much-does-a-log-home-cost",
     type: "article",
     structuredData: articleSchema,
   });

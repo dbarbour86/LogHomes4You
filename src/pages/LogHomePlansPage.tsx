@@ -21,7 +21,7 @@ export default function LogHomePlansPage() {
     "@type": "CollectionPage",
     "name": "Log Home Floor Plans",
     "description": "Explore log home floor plans, layouts, and dimensions to plan your log home build.",
-    "url": "https://www.loghomes4you.com/log-home-plans",
+    "url": "https://loghomes4you.com/log-home-plans",
     "mainEntity": {
       "@type": "ItemList",
       "numberOfItems": verifiedModels.length,
@@ -37,7 +37,7 @@ export default function LogHomePlansPage() {
   useSEO({
     title: "Explore Log Home Floor Plans | Log Homes 4 You",
     description: "Browse and filter log home floor plans by square footage, bedroom count, bathrooms, and loft layout. Discover practical floor plans offered by verified builders.",
-    url: "https://www.loghomes4you.com/log-home-plans",
+    url: "https://loghomes4you.com/log-home-plans",
     structuredData: collectionSchema,
   });
 

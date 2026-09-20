@@ -11,11 +11,11 @@ export default function HomePage() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Log Homes 4 You",
-    "url": "https://www.loghomes4you.com/",
+    "url": "https://loghomes4you.com/",
     "description": "Log-home education, comparison, planning, and floor plan discovery resource.",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://www.loghomes4you.com/log-home-plans?q={search_term_string}",
+      "target": "https://loghomes4you.com/log-home-plans?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   };
@@ -23,7 +23,7 @@ export default function HomePage() {
   useSEO({
     title: "Log Homes 4 You | Guides, Floor Plans & Planning Tools",
     description: "Find the log home that's right for you. Explore floor plans, compare sizes, understand real building costs, and learn what to look for before building.",
-    url: "https://www.loghomes4you.com/",
+    url: "https://loghomes4you.com/",
     structuredData: websiteSchema,
   });
 

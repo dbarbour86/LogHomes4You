@@ -20,13 +20,13 @@ export default function FindYourLogHomePage() {
   useSEO({
     title: "Find Your Log Home | Interactive Floor Plan Recommendation Tool",
     description: "Answer four straightforward questions about your bedroom needs, desired square footage, and lifestyle to discover matching log home floor plans.",
-    url: "https://www.loghomes4you.com/find-a-log-home",
+    url: "https://loghomes4you.com/find-a-log-home",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "WebPage",
       "name": "Find Your Log Home Tool",
       "description": "Interactive log home floor plan sizing and recommendation tool.",
-      "url": "https://www.loghomes4you.com/find-a-log-home"
+      "url": "https://loghomes4you.com/find-a-log-home"
     }
   });
 

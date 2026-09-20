@@ -26,7 +26,7 @@ export default function KingsCabinsProviderPage() {
   useSEO({
     title: "King's Cabins | Provider Overview & Floor Plans | Log Homes 4 You",
     description: "Learn about King's Cabins, the manufacturer and provider behind the floor plans featured on LogHomes4You. Handcrafted packages and nationwide delivery.",
-    url: "https://www.loghomes4you.com/builders/kings-cabins",
+    url: "https://loghomes4you.com/builders/kings-cabins",
     structuredData: providerSchema,
   });
 

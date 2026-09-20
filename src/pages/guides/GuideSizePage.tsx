@@ -20,20 +20,20 @@ export default function GuideSizePage() {
     "author": {
       "@type": "Organization",
       "name": "Log Homes 4 You",
-      "url": "https://www.loghomes4you.com"
+      "url": "https://loghomes4you.com"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Log Homes 4 You",
-      "url": "https://www.loghomes4you.com"
+      "url": "https://loghomes4you.com"
     },
-    "mainEntityOfPage": "https://www.loghomes4you.com/guides/choosing-log-home-size"
+    "mainEntityOfPage": "https://loghomes4you.com/guides/choosing-log-home-size"
   };
 
   useSEO({
     title: "What Size Log Home Do You Actually Need? Sizing Guide | Log Homes 4 You",
     description: "Avoid building too much or too little space. Learn how household size, lofts, covered porches, storage, and heating cubic volume influence ideal log cabin square footage.",
-    url: "https://www.loghomes4you.com/guides/choosing-log-home-size",
+    url: "https://loghomes4you.com/guides/choosing-log-home-size",
     type: "article",
     structuredData: articleSchema,
   });

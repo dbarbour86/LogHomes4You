@@ -16,11 +16,11 @@ export default function AboutPage() {
     "@type": "AboutPage",
     "name": "About Log Homes 4 You",
     "description": "Learn about the mission, editorial standards, and transparent publisher disclosure of LogHomes4You.",
-    "url": "https://www.loghomes4you.com/about",
+    "url": "https://loghomes4you.com/about",
     "mainEntity": {
       "@type": "Organization",
       "name": "Log Homes 4 You",
-      "url": "https://www.loghomes4you.com",
+      "url": "https://loghomes4you.com",
       "description": "Log home education, floor plan discovery, and sizing resource."
     }
   };
@@ -28,7 +28,7 @@ export default function AboutPage() {
   useSEO({
     title: "About Log Homes 4 You | Mission & Transparency Disclosure",
     description: "Learn about LogHomes4You. We provide straightforward guides, real floor plans, and sizing tools to help you research log homes before contacting builders.",
-    url: "https://www.loghomes4you.com/about",
+    url: "https://loghomes4you.com/about",
     structuredData: aboutSchema,
   });
 

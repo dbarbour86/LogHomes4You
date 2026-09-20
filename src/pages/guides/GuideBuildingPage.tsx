@@ -20,20 +20,20 @@ export default function GuideBuildingPage() {
     "author": {
       "@type": "Organization",
       "name": "Log Homes 4 You",
-      "url": "https://www.loghomes4you.com"
+      "url": "https://loghomes4you.com"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Log Homes 4 You",
-      "url": "https://www.loghomes4you.com"
+      "url": "https://loghomes4you.com"
     },
-    "mainEntityOfPage": "https://www.loghomes4you.com/guides/building-a-log-home"
+    "mainEntityOfPage": "https://loghomes4you.com/guides/building-a-log-home"
   };
 
   useSEO({
     title: "Building a Log Home: A Beginner's Guide | Log Homes 4 You",
     description: "The complete beginner's roadmap to building a log cabin. 10 practical steps covering land search, permitting, choosing a builder, log delivery, and construction.",
-    url: "https://www.loghomes4you.com/guides/building-a-log-home",
+    url: "https://loghomes4you.com/guides/building-a-log-home",
     type: "article",
     structuredData: articleSchema,
   });

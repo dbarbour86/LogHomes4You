@@ -20,20 +20,20 @@ export default function GuideKitsPage() {
     "author": {
       "@type": "Organization",
       "name": "Log Homes 4 You",
-      "url": "https://www.loghomes4you.com"
+      "url": "https://loghomes4you.com"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Log Homes 4 You",
-      "url": "https://www.loghomes4you.com"
+      "url": "https://loghomes4you.com"
     },
-    "mainEntityOfPage": "https://www.loghomes4you.com/guides/log-home-kits-explained"
+    "mainEntityOfPage": "https://loghomes4you.com/guides/log-home-kits-explained"
   };
 
   useSEO({
     title: "Log Home Kits Explained: What Do You Actually Get? | Log Homes 4 You",
     description: "Understand log cabin kit inclusions, package tiers, shell vs dry-in packages, and what materials you still need to buy locally before building.",
-    url: "https://www.loghomes4you.com/guides/log-home-kits-explained",
+    url: "https://loghomes4you.com/guides/log-home-kits-explained",
     type: "article",
     structuredData: articleSchema,
   });

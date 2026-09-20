@@ -16,13 +16,13 @@ export default function GuidesHubPage() {
     "@type": "CollectionPage",
     "name": "Log Home Guides",
     "description": "Practical answers to the questions that come up when you're thinking about building or buying a log home.",
-    "url": "https://www.loghomes4you.com/guides"
+    "url": "https://loghomes4you.com/guides"
   };
 
   useSEO({
     title: "Log Home Guides | Cost, Kits, Sizing & Building Advice | Log Homes 4 You",
     description: "Practical answers to the questions that come up when you're thinking about building or buying a log home. Honest breakdowns of costs, packages, sizing, and building steps.",
-    url: "https://www.loghomes4you.com/guides",
+    url: "https://loghomes4you.com/guides",
     structuredData: collectionSchema,
   });
 

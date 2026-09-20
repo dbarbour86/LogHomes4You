@@ -4,4 +4,4 @@ Allow: /
 # Prevent crawling of API routes
 Disallow: /api/
 
-Sitemap: https://www.loghomes4you.com/sitemap.xml
+Sitemap: https://loghomes4you.com/sitemap.xml

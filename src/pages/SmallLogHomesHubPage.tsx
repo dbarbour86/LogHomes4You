@@ -18,13 +18,13 @@ export default function SmallLogHomesHubPage() {
     "@type": "CollectionPage",
     "name": "Small Log Homes: Plans, Sizes & What to Consider",
     "description": "Comprehensive guide to planning and building small log homes under 1,500 sq ft, including layout tradeoffs and verified floor plans.",
-    "url": "https://www.loghomes4you.com/small-log-homes"
+    "url": "https://loghomes4you.com/small-log-homes"
   };
 
   useSEO({
     title: "Small Log Homes: Plans, Sizes & What to Consider | Log Homes 4 You",
     description: "Explore small log homes under 1,500 sq ft. Learn about footprint tradeoffs, sleeping lofts, storage solutions, and view real verified cabin floor plans.",
-    url: "https://www.loghomes4you.com/small-log-homes",
+    url: "https://loghomes4you.com/small-log-homes",
     structuredData: collectionSchema,
   });
 
