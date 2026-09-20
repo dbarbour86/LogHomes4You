@@ -16,6 +16,12 @@ import AboutPage from "./pages/AboutPage";
 import KingsCabinsProviderPage from "./pages/KingsCabinsProviderPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
+// Editorial Floor-Plan Collections
+import ThreeBedroomLogHomesPage from "./pages/ThreeBedroomLogHomesPage";
+import TwoBedroomLogHomesPage from "./pages/TwoBedroomLogHomesPage";
+import LogHomePlansWithLoftsPage from "./pages/LogHomePlansWithLoftsPage";
+import OneStoryLogHomesPage from "./pages/OneStoryLogHomesPage";
+
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
 
@@ -53,10 +59,16 @@ export default function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/builders/kings-cabins" element={<KingsCabinsProviderPage />} />
 
+        {/* Editorial Floor-Plan Collections */}
+        <Route path="/three-bedroom-log-homes" element={<ThreeBedroomLogHomesPage />} />
+        <Route path="/two-bedroom-log-homes" element={<TwoBedroomLogHomesPage />} />
+        <Route path="/log-home-plans-with-lofts" element={<LogHomePlansWithLoftsPage />} />
+        <Route path="/one-story-log-homes" element={<OneStoryLogHomesPage />} />
+
         {/* Legacy redirects for previous King's Cabins routes if visited directly */}
         <Route path="/floor-plans" element={<Navigate to="/log-home-plans" replace />} />
-        <Route path="/floor-plans/2-bedroom-log-homes" element={<Navigate to="/log-home-plans?bedrooms=2" replace />} />
-        <Route path="/floor-plans/3-bedroom-log-homes" element={<Navigate to="/log-home-plans?bedrooms=3" replace />} />
+        <Route path="/floor-plans/2-bedroom-log-homes" element={<Navigate to="/two-bedroom-log-homes" replace />} />
+        <Route path="/floor-plans/3-bedroom-log-homes" element={<Navigate to="/three-bedroom-log-homes" replace />} />
         <Route path="/package" element={<Navigate to="/guides/log-home-kits-explained" replace />} />
         <Route path="/process" element={<Navigate to="/guides/building-a-log-home" replace />} />
 

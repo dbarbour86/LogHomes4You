@@ -137,6 +137,33 @@ export default function GuideSizePage() {
                   </tbody>
                 </table>
               </div>
+
+              {/* Contextual links to curated bedroom collections */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6 not-prose">
+                <Link
+                  to="/two-bedroom-log-homes"
+                  className="bg-sand-muted border border-sand-border hover:border-forest p-4 rounded-lg flex items-center justify-between group transition-colors"
+                >
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-forest block mb-1">Curated Collection</span>
+                    <span className="font-serif font-bold text-timber text-base group-hover:text-forest transition-colors">2-Bedroom Floor Plans</span>
+                    <span className="text-xs text-timber-muted block mt-0.5">Explore 17 verified layouts from 480 to 2,652 sq ft</span>
+                  </div>
+                  <ArrowRight size={18} className="text-forest transition-transform group-hover:translate-x-1 shrink-0 ml-3" />
+                </Link>
+
+                <Link
+                  to="/three-bedroom-log-homes"
+                  className="bg-sand-muted border border-sand-border hover:border-forest p-4 rounded-lg flex items-center justify-between group transition-colors"
+                >
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-forest block mb-1">Curated Collection</span>
+                    <span className="font-serif font-bold text-timber text-base group-hover:text-forest transition-colors">3-Bedroom Floor Plans</span>
+                    <span className="text-xs text-timber-muted block mt-0.5">Compare 26 verified layouts from 1,200 to 2,704 sq ft</span>
+                  </div>
+                  <ArrowRight size={18} className="text-forest transition-transform group-hover:translate-x-1 shrink-0 ml-3" />
+                </Link>
+              </div>
             </section>
 
             <section>

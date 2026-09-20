@@ -7,32 +7,30 @@ import ModelDiscoveryCard from "../components/ui/ModelDiscoveryCard";
 import { verifiedModels } from "../data/models";
 import { useSEO } from "../hooks/useSEO";
 
-export default function TwoBedroomLogHomesPage() {
-  // Model selection: beds === 2 strictly from verified dataset
-  const twoBedModels = useMemo(() => {
-    return verifiedModels.filter((m) => m.beds === 2);
+export default function LogHomePlansWithLoftsPage() {
+  // Model selection: hasLoft === true strictly from verified dataset
+  const loftModels = useMemo(() => {
+    return verifiedModels.filter((m) => m.hasLoft === true);
   }, []);
 
   // Dynamic statistics derived directly from matching dataset
-  const totalPlans = twoBedModels.length;
-  const minSqFt = Math.min(...twoBedModels.map((m) => m.squareFeet));
-  const maxSqFt = Math.max(...twoBedModels.map((m) => m.squareFeet));
-  const singleStoryCount = twoBedModels.filter((m) => m.stories === 1).length;
-  const multiLevelCount = twoBedModels.filter((m) => (m.stories ?? 1) > 1 || m.hasLoft).length;
-  const loftCount = twoBedModels.filter((m) => m.hasLoft).length;
-  const noLoftCount = twoBedModels.filter((m) => !m.hasLoft).length;
+  const totalPlans = loftModels.length;
+  const minSqFt = Math.min(...loftModels.map((m) => m.squareFeet));
+  const maxSqFt = Math.max(...loftModels.map((m) => m.squareFeet));
+  const oneBedCount = loftModels.filter((m) => m.beds === 1).length;
+  const twoBedCount = loftModels.filter((m) => m.beds === 2).length;
+  const threeBedCount = loftModels.filter((m) => m.beds === 3).length;
 
   // Sorting & secondary filtering
   const [sortOption, setSortOption] = useState<"sqft-asc" | "sqft-desc" | "name-asc">("sqft-asc");
-  const [sizeFilter, setSizeFilter] = useState<"all" | "under-1000" | "over-1000">("all");
+  const [bedFilter, setBedFilter] = useState<"all" | "1" | "2" | "3">("all");
 
   const filteredAndSortedModels = useMemo(() => {
-    let result = [...twoBedModels];
+    let result = [...loftModels];
 
-    if (sizeFilter === "under-1000") {
-      result = result.filter((m) => m.squareFeet < 1000);
-    } else if (sizeFilter === "over-1000") {
-      result = result.filter((m) => m.squareFeet >= 1000);
+    if (bedFilter !== "all") {
+      const bedsNum = parseInt(bedFilter, 10);
+      result = result.filter((m) => m.beds === bedsNum);
     }
 
     if (sortOption === "sqft-asc") {
@@ -44,30 +42,30 @@ export default function TwoBedroomLogHomesPage() {
     }
 
     return result;
-  }, [twoBedModels, sizeFilter, sortOption]);
+  }, [loftModels, bedFilter, sortOption]);
 
   const breadcrumbs = [
     { name: "Home", href: "/" },
     { name: "Floor Plans", href: "/log-home-plans" },
-    { name: "2-Bedroom Log Homes", href: "/two-bedroom-log-homes" },
+    { name: "Plans with Lofts", href: "/log-home-plans-with-lofts" },
   ];
 
-  const canonicalUrl = "https://loghomes4you.com/two-bedroom-log-homes";
+  const canonicalUrl = "https://loghomes4you.com/log-home-plans-with-lofts";
 
   const collectionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "2-Bedroom Log Home Floor Plans: 480 to 2,650+ Sq Ft",
-    "description": `Explore ${totalPlans} verified two-bedroom log home floor plans from ${minSqFt.toLocaleString()} to ${maxSqFt.toLocaleString()} sq ft. Compare compact cabins and larger two-bedroom designs with verified specifications.`,
+    "name": "Log Home Plans with Lofts: Layouts & Sizes",
+    "description": `Explore ${totalPlans} verified log home floor plans with lofts ranging from ${minSqFt.toLocaleString()} to ${maxSqFt.toLocaleString()} sq ft. Compare bedroom counts, dimensions, and loft layouts with verified specifications.`,
     "url": canonicalUrl,
     "mainEntity": {
       "@type": "ItemList",
       "numberOfItems": totalPlans,
-      "itemListElement": twoBedModels.map((m, i) => ({
+      "itemListElement": loftModels.map((m, i) => ({
         "@type": "ListItem",
         "position": i + 1,
         "name": m.name,
-        "description": `${m.squareFeet} sq ft 2-bedroom log home floor plan with ${m.baths || 1} bath(s).`
+        "description": `${m.squareFeet} sq ft loft-layout log home floor plan with ${m.beds || "flexible"} bedroom(s).`
       }))
     }
   };
@@ -84,8 +82,8 @@ export default function TwoBedroomLogHomesPage() {
   };
 
   useSEO({
-    title: "2-Bedroom Log Home Floor Plans: 480 to 2,650+ Sq Ft | Log Homes 4 You",
-    description: `Browse ${totalPlans} verified 2-bedroom log home floor plans spanning ${minSqFt.toLocaleString()} to ${maxSqFt.toLocaleString()} sq ft. Compare compact cabins, larger layouts, and loft floor plans.`,
+    title: "Log Home Plans with Lofts: Layouts & Sizes | Log Homes 4 You",
+    description: `Explore ${totalPlans} verified log home plans with lofts ranging from ${minSqFt.toLocaleString()} to ${maxSqFt.toLocaleString()} sq ft. Compare bedroom counts, dimensions, and floor-plan configurations.`,
     url: canonicalUrl,
     structuredData: [collectionSchema, breadcrumbSchema]
   });
@@ -93,8 +91,8 @@ export default function TwoBedroomLogHomesPage() {
   return (
     <PageLayout showCTA={true}>
       <InnerHero
-        title="2-Bedroom Log Home Floor Plans"
-        subtitle={`Browse ${totalPlans} verified two-bedroom log home designs spanning an unusually wide range from ${minSqFt.toLocaleString()} to ${maxSqFt.toLocaleString()} square feet. Compare smaller-footprint cabins with expansive multi-level floor plans.`}
+        title="Log Home Plans with Lofts"
+        subtitle={`Explore ${totalPlans} verified log home designs featuring upper-level loft spaces ranging from ${minSqFt.toLocaleString()} to ${maxSqFt.toLocaleString()} square feet. Compare bedroom counts, bathroom allocations, and floor-plan arrangements.`}
         breadcrumbs={breadcrumbs}
       />
 
@@ -107,10 +105,10 @@ export default function TwoBedroomLogHomesPage() {
                 Verified Inventory
               </span>
               <div className="flex items-center justify-center gap-1.5 text-forest font-serif font-bold text-2xl sm:text-3xl">
-                <Bed size={22} className="text-cedar shrink-0" />
+                <Layers size={22} className="text-cedar shrink-0" />
                 <span>{totalPlans} Plans</span>
               </div>
-              <span className="text-xs text-timber-muted mt-1 block">All with 2 bedrooms</span>
+              <span className="text-xs text-timber-muted mt-1 block">All featuring loft layouts</span>
             </div>
 
             <div className="bg-sand-muted border border-sand-border rounded-lg p-4 text-center">
@@ -121,29 +119,28 @@ export default function TwoBedroomLogHomesPage() {
                 <Maximize2 size={20} className="text-cedar shrink-0" />
                 <span>{minSqFt.toLocaleString()} – {maxSqFt.toLocaleString()}</span>
               </div>
-              <span className="text-xs text-timber-muted mt-1 block">Wide floor-space range</span>
+              <span className="text-xs text-timber-muted mt-1 block">Total living area sq ft</span>
             </div>
 
             <div className="bg-sand-muted border border-sand-border rounded-lg p-4 text-center">
               <span className="text-[11px] font-bold uppercase tracking-wider text-timber-subtle block mb-1">
-                Bathrooms
+                Bedroom Range
               </span>
               <div className="flex items-center justify-center gap-1.5 text-forest font-serif font-bold text-2xl sm:text-3xl">
-                <Bath size={20} className="text-cedar shrink-0" />
-                <span>1 to 2.5 Baths</span>
+                <Bed size={20} className="text-cedar shrink-0" />
+                <span>1 to 3+ Beds</span>
               </div>
-              <span className="text-xs text-timber-muted mt-1 block">Single & multi-bath layouts</span>
+              <span className="text-xs text-timber-muted mt-1 block">Enclosed bedroom count</span>
             </div>
 
             <div className="bg-sand-muted border border-sand-border rounded-lg p-4 text-center">
               <span className="text-[11px] font-bold uppercase tracking-wider text-timber-subtle block mb-1">
-                Loft Distribution
+                Bedroom Distribution
               </span>
-              <div className="flex items-center justify-center gap-1.5 text-forest font-serif font-bold text-2xl sm:text-3xl">
-                <Layers size={20} className="text-cedar shrink-0" />
-                <span>{loftCount} / {noLoftCount}</span>
+              <div className="flex items-center justify-center gap-1.5 text-forest font-serif font-bold text-lg sm:text-xl">
+                <span>{oneBedCount} / {twoBedCount} / {threeBedCount}</span>
               </div>
-              <span className="text-xs text-timber-muted mt-1 block">With loft vs without loft</span>
+              <span className="text-xs text-timber-muted mt-1 block">1-bed / 2-bed / 3-bed</span>
             </div>
           </div>
         </div>
@@ -157,50 +154,31 @@ export default function TwoBedroomLogHomesPage() {
               Editorial Planning Guidance
             </span>
             <h2 className="text-3xl font-serif font-bold text-timber mb-6">
-              Understanding the Wide Range of Two-Bedroom Plans
+              Understanding Loft Layouts in Log Home Plans
             </h2>
             <p className="text-base sm:text-lg text-timber-muted leading-relaxed mb-6">
-              A two-bedroom log home does not always mean a small cabin. While this collection includes streamlined cabins starting at {minSqFt.toLocaleString()} square feet, it also extends to larger layouts up to {maxSqFt.toLocaleString()} square feet. In larger two-bedroom designs, additional square footage is dedicated to expanded central living rooms, spacious kitchens, extra bathrooms, and expansive outdoor porch areas rather than additional bedrooms.
+              In this collection, the loft classification identifies floor plans that incorporate an elevated upper level overlooking or adjacent to the primary living space below. These designs span from smaller-footprint layouts of {minSqFt.toLocaleString()} square feet up to expansive homes of {maxSqFt.toLocaleString()} square feet, offering a variety of approaches to vertical floor-plan organization.
             </p>
 
-            {/* Practical Contextual Callout for Small Homes */}
-            <div className="bg-white border-l-4 border-cedar p-6 rounded-r-lg shadow-subtle my-8 not-prose">
-              <div className="flex items-start gap-3">
-                <Compass size={22} className="text-cedar shrink-0 mt-0.5" />
-                <div>
-                  <h3 className="font-serif font-bold text-timber text-base">
-                    Specifically researching smaller footprints?
-                  </h3>
-                  <p className="text-sm text-timber-muted mt-1 leading-relaxed">
-                    If your primary focus is keeping overall square footage under 1,000 or 1,500 sq ft, visit our dedicated{" "}
-                    <Link to="/small-log-homes" className="text-forest font-semibold hover:underline">
-                      Small Log Homes Hub
-                    </Link>{" "}
-                    to compare compact layout tradeoffs, storage strategies, and smaller-footprint cabin plans.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Comparison Cards */}
+            {/* Layout Comparison Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8 not-prose">
               <div className="bg-white border border-sand-border rounded-lg p-6 shadow-subtle">
                 <div className="flex items-center gap-2 text-forest font-bold text-sm uppercase tracking-wider mb-3">
                   <CheckCircle size={18} />
-                  <span>Comparing Layout Structures</span>
+                  <span>How Loft Plans Differ</span>
                 </div>
                 <ul className="space-y-3 text-sm text-timber-muted leading-relaxed">
                   <li className="flex items-start gap-2">
                     <span className="text-forest font-bold">•</span>
-                    <span><strong>Single-story vs. multi-level:</strong> {singleStoryCount} of the 17 plans are arranged entirely on one level, while {multiLevelCount} plans feature an upper level or loft.</span>
+                    <span><strong>Overall square-footage range:</strong> Smaller layouts feature compact upper levels designed to fit within modest footprints, while larger homes integrate spacious upper living or bedroom zones.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-forest font-bold">•</span>
-                    <span><strong>Bathroom distribution:</strong> Smaller layouts commonly feature a single shared bathroom, whereas larger two-bedroom designs provide two or more dedicated baths.</span>
+                    <span><strong>Bedroom allocation:</strong> The {totalPlans} loft designs include 1-bedroom ({oneBedCount} models), 2-bedroom ({twoBedCount} models), and 3-bedroom ({threeBedCount} models) enclosed layouts, with the loft providing supplemental floor area.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-forest font-bold">•</span>
-                    <span><strong>Living space allocation:</strong> Larger plans allocate square footage to expansive common areas and dining space, providing room for entertaining without extra bedrooms.</span>
+                    <span><strong>Floor-plan arrangement:</strong> Some plans place enclosed bedrooms on the main level with an open loft above, while others position bedrooms on the upper level alongside the loft overlook.</span>
                   </li>
                 </ul>
               </div>
@@ -208,20 +186,20 @@ export default function TwoBedroomLogHomesPage() {
               <div className="bg-white border border-sand-border rounded-lg p-6 shadow-subtle">
                 <div className="flex items-center gap-2 text-cedar font-bold text-sm uppercase tracking-wider mb-3">
                   <HelpCircle size={18} />
-                  <span>Layout Evaluation Questions</span>
+                  <span>Questions to Ask the Manufacturer</span>
                 </div>
                 <ul className="space-y-3 text-sm text-timber-muted leading-relaxed">
                   <li className="flex items-start gap-2">
                     <span className="text-cedar font-bold">•</span>
-                    <span><strong>Daily living vs. guest use:</strong> Will both bedrooms be occupied daily, or is the second bedroom intended primarily for occasional guests, a home office, or storage?</span>
+                    <span><strong>Design and intended use:</strong> What does the manufacturer's blueprint specify for how the upper loft area is proportioned and accessed?</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-cedar font-bold">•</span>
-                    <span><strong>Shared living relationship:</strong> Are bedrooms located on opposite sides of the central living area, or clustered together near a shared bathroom?</span>
+                    <span><strong>Access design:</strong> Does the floor plan incorporate a full residential staircase, an alternating-tread stair, or a ladder access to reach the upper level?</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-cedar font-bold">•</span>
-                    <span><strong>Loft preference:</strong> Do you prefer an open upper loft overlook, or the simplicity of all rooms situated on one primary level?</span>
+                    <span><strong>Open vs. enclosed space:</strong> How much of the upper floor plan remains open to the living area below versus enclosed into designated rooms or storage?</span>
                   </li>
                 </ul>
               </div>
@@ -230,8 +208,8 @@ export default function TwoBedroomLogHomesPage() {
             {/* Contextual Link Banner */}
             <div className="bg-sand-muted border border-sand-border rounded-lg p-5 my-8 not-prose flex flex-col sm:flex-row items-center justify-between gap-4">
               <div>
-                <h3 className="font-serif font-bold text-timber text-base">Unsure if two bedrooms provide enough space?</h3>
-                <p className="text-xs text-timber-muted mt-1">Explore our size selection guide to evaluate square-footage needs across different household stages.</p>
+                <h3 className="font-serif font-bold text-timber text-base">Comparing single-story vs. loft designs?</h3>
+                <p className="text-xs text-timber-muted mt-1">Read our sizing guide or use our interactive recommendation tool to explore layouts matching your living requirements.</p>
               </div>
               <div className="flex items-center gap-3 shrink-0">
                 <Link
@@ -259,10 +237,10 @@ export default function TwoBedroomLogHomesPage() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8 pb-6 border-b border-sand-border">
             <div>
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-timber">
-                Browse 2-Bedroom Plans
+                Browse Plans with Lofts
               </h2>
               <p className="text-xs sm:text-sm text-timber-muted mt-1">
-                Showing {filteredAndSortedModels.length} of {totalPlans} verified two-bedroom models
+                Showing {filteredAndSortedModels.length} of {totalPlans} verified loft designs
               </p>
             </div>
 
@@ -270,15 +248,16 @@ export default function TwoBedroomLogHomesPage() {
             <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
               <div className="flex items-center gap-2 text-xs">
                 <SlidersHorizontal size={14} className="text-timber-subtle" />
-                <span className="font-semibold text-timber-subtle uppercase tracking-wider">Size:</span>
+                <span className="font-semibold text-timber-subtle uppercase tracking-wider">Bedrooms:</span>
                 <select
-                  value={sizeFilter}
-                  onChange={(e) => setSizeFilter(e.target.value as any)}
+                  value={bedFilter}
+                  onChange={(e) => setBedFilter(e.target.value as any)}
                   className="bg-white border border-sand-border text-timber text-xs rounded-md px-3 py-1.5 focus:outline-none focus:border-forest"
                 >
-                  <option value="all">All Sizes ({totalPlans})</option>
-                  <option value="under-1000">Under 1,000 sq ft ({twoBedModels.filter(m => m.squareFeet < 1000).length})</option>
-                  <option value="over-1000">1,000+ sq ft ({twoBedModels.filter(m => m.squareFeet >= 1000).length})</option>
+                  <option value="all">All Bedrooms ({totalPlans})</option>
+                  <option value="1">1 Bedroom ({oneBedCount})</option>
+                  <option value="2">2 Bedrooms ({twoBedCount})</option>
+                  <option value="3">3 Bedrooms ({threeBedCount})</option>
                 </select>
               </div>
 
@@ -307,15 +286,15 @@ export default function TwoBedroomLogHomesPage() {
           {/* Directory Navigation Footer */}
           <div className="mt-16 pt-8 border-t border-sand-border flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
             <div>
-              <p className="text-sm font-serif font-bold text-timber">Interested in comparing 3-bedroom designs or full-catalog filters?</p>
-              <p className="text-xs text-timber-muted mt-0.5">Explore our complete catalog with full bedroom, bathroom, and square-footage filters.</p>
+              <p className="text-sm font-serif font-bold text-timber">Prefer single-level living without interior stairs?</p>
+              <p className="text-xs text-timber-muted mt-0.5">Explore our dedicated collection of verified single-story log home floor plans.</p>
             </div>
             <div className="flex items-center gap-4 shrink-0">
               <Link
-                to="/three-bedroom-log-homes"
+                to="/one-story-log-homes"
                 className="text-xs sm:text-sm font-semibold text-cedar hover:underline"
               >
-                View 3-Bedroom Plans &rarr;
+                One-Story Plans &rarr;
               </Link>
               <Link
                 to="/log-home-plans"

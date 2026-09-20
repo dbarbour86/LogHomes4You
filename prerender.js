@@ -23,7 +23,11 @@ const routesToPrerender = [
   '/guides/choosing-log-home-size',
   '/guides/building-a-log-home',
   '/about',
-  '/builders/kings-cabins'
+  '/builders/kings-cabins',
+  '/three-bedroom-log-homes',
+  '/two-bedroom-log-homes',
+  '/log-home-plans-with-lofts',
+  '/one-story-log-homes'
 ];
 
 async function prerender() {

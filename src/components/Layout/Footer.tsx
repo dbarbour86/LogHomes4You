@@ -65,7 +65,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/log-home-plans?hasLoft=true" className="text-timber-muted hover:text-forest transition-colors">
+                <Link to="/log-home-plans-with-lofts" className="text-timber-muted hover:text-forest transition-colors">
                   Floor Plans with Lofts
                 </Link>
               </li>

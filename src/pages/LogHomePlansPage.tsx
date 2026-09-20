@@ -123,6 +123,37 @@ export default function LogHomePlansPage() {
 
       <section className="py-12 md:py-16 bg-sand">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          {/* Curated Collections Quick Links */}
+          <div className="mb-6 flex flex-wrap items-center gap-2 sm:gap-3 text-xs">
+            <span className="font-semibold text-timber-subtle uppercase tracking-wider mr-1">
+              Browse Curated Collections:
+            </span>
+            <Link
+              to="/two-bedroom-log-homes"
+              className="bg-white border border-sand-border hover:border-forest text-timber hover:text-forest px-3.5 py-1.5 rounded-full font-medium transition-colors shadow-2xs"
+            >
+              2-Bedroom Log Homes
+            </Link>
+            <Link
+              to="/three-bedroom-log-homes"
+              className="bg-white border border-sand-border hover:border-forest text-timber hover:text-forest px-3.5 py-1.5 rounded-full font-medium transition-colors shadow-2xs"
+            >
+              3-Bedroom Log Homes
+            </Link>
+            <Link
+              to="/log-home-plans-with-lofts"
+              className="bg-white border border-sand-border hover:border-forest text-timber hover:text-forest px-3.5 py-1.5 rounded-full font-medium transition-colors shadow-2xs"
+            >
+              Log Homes With Lofts
+            </Link>
+            <Link
+              to="/one-story-log-homes"
+              className="bg-white border border-sand-border hover:border-forest text-timber hover:text-forest px-3.5 py-1.5 rounded-full font-medium transition-colors shadow-2xs"
+            >
+              One-Story Log Homes
+            </Link>
+          </div>
+
           {/* Filter Bar */}
           <div className="bg-white border border-sand-border rounded-xl p-5 sm:p-6 shadow-subtle mb-10">
             <div className="flex items-center justify-between pb-4 mb-5 border-b border-sand-border">

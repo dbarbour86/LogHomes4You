@@ -277,6 +277,28 @@ export default function HomePage() {
               <ModelDiscoveryCard key={model.id} model={model} />
             ))}
           </div>
+
+          {/* Curated Collection Quick Links */}
+          <div className="mt-12 pt-8 border-t border-sand-border flex flex-wrap items-center justify-between gap-4 text-xs sm:text-sm">
+            <span className="font-serif font-bold text-timber">Browse Floor Plans by Layout:</span>
+            <div className="flex flex-wrap items-center gap-3 sm:gap-6">
+              <Link to="/two-bedroom-log-homes" className="text-forest font-semibold hover:underline">
+                2-Bedroom Plans
+              </Link>
+              <span className="text-sand-border">•</span>
+              <Link to="/three-bedroom-log-homes" className="text-forest font-semibold hover:underline">
+                3-Bedroom Plans
+              </Link>
+              <span className="text-sand-border">•</span>
+              <Link to="/log-home-plans-with-lofts" className="text-forest font-semibold hover:underline">
+                Plans with Lofts
+              </Link>
+              <span className="text-sand-border">•</span>
+              <Link to="/one-story-log-homes" className="text-forest font-semibold hover:underline">
+                One-Story Plans
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
