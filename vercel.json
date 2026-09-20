@@ -4,54 +4,42 @@
   "redirects": [
     {
       "source": "/index.html",
-      "destination": "https://kingscabins.com/",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/home",
-      "destination": "https://kingscabins.com/",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/home/",
-      "destination": "https://kingscabins.com/",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/about-us",
-      "destination": "https://kingscabins.com/about",
+      "destination": "/about",
       "permanent": true
     },
     {
-      "source": "/matthew",
-      "destination": "https://kingscabins.com/floor-plans/the-matthew",
+      "source": "/floor-plans",
+      "destination": "/log-home-plans",
       "permanent": true
     },
     {
-      "source": "/(.*)\\.html",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.kingscabins.com"
-        }
-      ],
-      "destination": "https://kingscabins.com/$1",
+      "source": "/package",
+      "destination": "/guides/log-home-kits-explained",
       "permanent": true
     },
     {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.kingscabins.com"
-        }
-      ],
-      "destination": "https://kingscabins.com/$1",
+      "source": "/process",
+      "destination": "/guides/building-a-log-home",
       "permanent": true
     }
   ],
   "rewrites": [
     { "source": "/(wp-includes|wp-content|wp-admin|wp-json|wp-login|xmlrpc|cgi-bin)(.*)", "destination": "/api/gone" },
-    { "source": "/(.*)", "destination": "/index" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

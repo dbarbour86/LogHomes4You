@@ -1,22 +1,20 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useEffect } from "react";
+
+// LogHomes4You V1 Pages
 import HomePage from "./pages/HomePage";
+import FindYourLogHomePage from "./pages/FindYourLogHomePage";
+import LogHomePlansPage from "./pages/LogHomePlansPage";
+import SmallLogHomesHubPage from "./pages/SmallLogHomesHubPage";
+import GuidesHubPage from "./pages/GuidesHubPage";
+import GuideCostPage from "./pages/guides/GuideCostPage";
+import GuideKitsPage from "./pages/guides/GuideKitsPage";
+import GuideKitVsCustomPage from "./pages/guides/GuideKitVsCustomPage";
+import GuideSizePage from "./pages/guides/GuideSizePage";
+import GuideBuildingPage from "./pages/guides/GuideBuildingPage";
 import AboutPage from "./pages/AboutPage";
-import FloorPlansPage from "./pages/FloorPlansPage";
-import ContactPage from "./pages/ContactPage";
-import ProcessPage from "./pages/ProcessPage";
-import SuperiorPackagePage from "./pages/SuperiorPackagePage";
-import ModelDetailPage from "./pages/ModelDetailPage";
-import SmallLogHomesPage from "./pages/SmallLogHomesPage";
-import NationwideLogHomesPage from "./pages/NationwideLogHomesPage";
-import InvestorsPage from "./pages/InvestorsPage";
-import TwoBedroomLogHomesPage from "./pages/TwoBedroomLogHomesPage";
-import ThreeBedroomLogHomesPage from "./pages/ThreeBedroomLogHomesPage";
+import KingsCabinsProviderPage from "./pages/KingsCabinsProviderPage";
 import NotFoundPage from "./pages/NotFoundPage";
-import Navbar from "./components/Layout/Navbar";
-import Footer from "./components/Layout/Footer";
-import { motion } from "motion/react";
-import Button from "./components/ui/Button";
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -40,41 +38,31 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="flex flex-col min-h-screen">
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Navbar />
-              <main className="flex-grow">
-                <HomePage />
-              </main>
-              <Footer />
-              <motion.div 
-                initial={{ y: 100 }}
-                animate={{ y: 0 }}
-                className="fixed bottom-6 left-6 right-6 z-40 lg:hidden"
-              >
-                <Button variant="primary" className="w-full shadow-2xl py-5 text-sm uppercase tracking-widest font-bold">
-                  GET A FREE QUOTE
-                </Button>
-              </motion.div>
-            </>
-          } />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/floor-plans" element={<FloorPlansPage />} />
-          <Route path="/floor-plans/2-bedroom-log-homes" element={<TwoBedroomLogHomesPage />} />
-          <Route path="/floor-plans/3-bedroom-log-homes" element={<ThreeBedroomLogHomesPage />} />
-          <Route path="/floor-plans/:modelId" element={<ModelDetailPage />} />
-          <Route path="/small-log-homes" element={<SmallLogHomesPage />} />
-          <Route path="/nationwide-log-homes" element={<NationwideLogHomesPage />} />
-          <Route path="/investors" element={<InvestorsPage />} />
-          <Route path="/process" element={<ProcessPage />} />
-          <Route path="/package" element={<SuperiorPackagePage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </div>
+      <Routes>
+        {/* Core V1 Routes */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/find-a-log-home" element={<FindYourLogHomePage />} />
+        <Route path="/log-home-plans" element={<LogHomePlansPage />} />
+        <Route path="/small-log-homes" element={<SmallLogHomesHubPage />} />
+        <Route path="/guides" element={<GuidesHubPage />} />
+        <Route path="/guides/how-much-does-a-log-home-cost" element={<GuideCostPage />} />
+        <Route path="/guides/log-home-kits-explained" element={<GuideKitsPage />} />
+        <Route path="/guides/log-home-kit-vs-custom-build" element={<GuideKitVsCustomPage />} />
+        <Route path="/guides/choosing-log-home-size" element={<GuideSizePage />} />
+        <Route path="/guides/building-a-log-home" element={<GuideBuildingPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/builders/kings-cabins" element={<KingsCabinsProviderPage />} />
+
+        {/* Legacy redirects for previous King's Cabins routes if visited directly */}
+        <Route path="/floor-plans" element={<Navigate to="/log-home-plans" replace />} />
+        <Route path="/floor-plans/2-bedroom-log-homes" element={<Navigate to="/log-home-plans?bedrooms=2" replace />} />
+        <Route path="/floor-plans/3-bedroom-log-homes" element={<Navigate to="/log-home-plans?bedrooms=3" replace />} />
+        <Route path="/package" element={<Navigate to="/guides/log-home-kits-explained" replace />} />
+        <Route path="/process" element={<Navigate to="/guides/building-a-log-home" replace />} />
+
+        {/* 404 Catch-All */}
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </Router>
   );
 }
-

@@ -1,6 +1,6 @@
 {
-  "name": "Kings Cabins - Luxury Log Home Builders",
-  "description": "Premium luxury-rustic custom log home builder specializing in high-end mountain lodges and modern craftsmanship.",
+  "name": "Log Homes 4 You - Guides, Floor Plans & Planning Tools",
+  "description": "Log-home education, comparison, planning, and floor plan discovery resource.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }

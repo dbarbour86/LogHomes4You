@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# Prevent crawling of API routes just in case
+# Prevent crawling of API routes
 Disallow: /api/
 
-Sitemap: https://kingscabins.com/sitemap.xml
+Sitemap: https://www.loghomes4you.com/sitemap.xml

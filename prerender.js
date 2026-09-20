@@ -13,17 +13,17 @@ const DIST_DIR = path.resolve(__dirname, 'dist');
 
 const routesToPrerender = [
   '/',
-  '/floor-plans',
-  '/floor-plans/first-chronicles',
-  '/floor-plans/second-chronicles',
-  '/floor-plans/second-peter',
-  '/floor-plans/jude',
+  '/find-a-log-home',
+  '/log-home-plans',
   '/small-log-homes',
-  '/nationwide-log-homes',
-  '/investors',
+  '/guides',
+  '/guides/how-much-does-a-log-home-cost',
+  '/guides/log-home-kits-explained',
+  '/guides/log-home-kit-vs-custom-build',
+  '/guides/choosing-log-home-size',
+  '/guides/building-a-log-home',
   '/about',
-  '/process',
-  '/package'
+  '/builders/kings-cabins'
 ];
 
 async function prerender() {
@@ -46,13 +46,26 @@ async function prerender() {
       
       const isDev = process.env.NODE_ENV === 'development' || !process.env.VERCEL;
       
-      // We must configure sparticuz/chromium correctly for the Vercel build environment
+      let executablePath = undefined;
+      let channel = undefined;
+
+      if (!isDev) {
+        executablePath = await chromium.executablePath();
+      } else {
+        const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
+        if (fs.existsSync(edgePath)) {
+          executablePath = edgePath;
+        } else {
+          channel = 'chrome';
+        }
+      }
+
       const browser = await puppeteer.launch({
-        args: isDev ? [] : chromium.args,
+        args: isDev ? ['--no-sandbox', '--disable-setuid-sandbox'] : chromium.args,
         defaultViewport: chromium.defaultViewport,
-        executablePath: isDev ? undefined : await chromium.executablePath(),
+        executablePath,
         headless: isDev ? 'new' : chromium.headless,
-        channel: isDev ? 'chrome' : undefined // Use local chrome when running locally
+        channel
       });
       const page = await browser.newPage();
       

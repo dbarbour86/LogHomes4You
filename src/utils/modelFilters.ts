@@ -1,4 +1,6 @@
-import { HomeModel } from "../data/models";
+import { DiscoveryModel } from "../data/models";
+
+export type HomeModel = DiscoveryModel;
 
 export interface FilterCriteria {
   bedrooms?: number;
@@ -6,17 +8,19 @@ export interface FilterCriteria {
   stories?: number;
   minSqFt?: number;
   maxSqFt?: number;
+  hasLoft?: boolean;
   category?: string;
   query?: string;
 }
 
-export function filterModels(models: HomeModel[], criteria: FilterCriteria): HomeModel[] {
+export function filterModels(models: DiscoveryModel[], criteria: FilterCriteria): DiscoveryModel[] {
   return models.filter((model) => {
     if (criteria.bedrooms !== undefined && model.beds !== criteria.bedrooms) return false;
     if (criteria.bathrooms !== undefined && model.baths !== criteria.bathrooms) return false;
     if (criteria.stories !== undefined && model.stories !== criteria.stories) return false;
     if (criteria.minSqFt !== undefined && model.squareFeet < criteria.minSqFt) return false;
     if (criteria.maxSqFt !== undefined && model.squareFeet > criteria.maxSqFt) return false;
+    if (criteria.hasLoft !== undefined && model.hasLoft !== criteria.hasLoft) return false;
     if (criteria.category !== undefined && model.category !== criteria.category) return false;
     if (criteria.query && !model.name.toLowerCase().includes(criteria.query.toLowerCase())) return false;
     return true;
