@@ -39,7 +39,13 @@
     }
   ],
   "rewrites": [
-    { "source": "/(wp-includes|wp-content|wp-admin|wp-json|wp-login|xmlrpc|cgi-bin)(.*)", "destination": "/api/gone" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/(wp-includes|wp-content|wp-admin|wp-json|wp-login|xmlrpc|cgi-bin)(.*)",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
   ]
 }
